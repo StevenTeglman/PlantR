@@ -1,15 +1,16 @@
-﻿/*using System;
+﻿using PlantRService.DataAccess;
+using PlantRService.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using System.Threading.Tasks;
-using PlantRService.Model;
-using PlantRService.DataAccess;
 
-namespace PlantRService.DataAccess
+namespace PlantRService
 {
-    [ServiceContract]
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AccountRepository" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select AccountRepository.svc or AccountRepository.svc.cs at the Solution Explorer and start debugging.
     public class AccountRepository : IAccountRepository
     {
 
@@ -21,7 +22,6 @@ namespace PlantRService.DataAccess
         StubPPDB stubPPDB = new StubPPDB();
 
 
-        [OperationContract]
         public PersonalPlant AddPlant(int plantID, int accID, int daysWater, string nName)
         {
             Plant p = GetPlant(plantID);
@@ -43,13 +43,13 @@ namespace PlantRService.DataAccess
             stubPPDB.personalPlants.Add(pp); // HACK: Obviously this will be replaced with the Database connection once the time comes 
             return pp;
         }
-        [OperationContract]
+
         public void GetAllPlants()
         {
             //TODO To connect to data access layer later.
             // Plants = StubPDB.GetAllPlants();
         }
-        [OperationContract]
+
         public void GetAccountPlants(int accID)
         {
 
@@ -85,4 +85,3 @@ namespace PlantRService.DataAccess
 
     }
 }
-*/

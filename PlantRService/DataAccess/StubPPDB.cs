@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlantRService.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace PlantRService.DataAccess
 {
     class StubPPDB
     {
+        public List<PersonalPlant> personalPlants = new List<PersonalPlant>();
     }
 }

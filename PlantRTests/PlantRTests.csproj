@@ -47,13 +47,59 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\PlantRRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Connected Services\PlantRRef\AccountRepository.wsdl" />
+    <None Include="Connected Services\PlantRRef\AccountRepository.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PlantRRef\AccountRepository1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PlantRRef\AccountRepository2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.PersonalPlant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.Plant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\PlantRRef\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PlantRRef\AccountRepository.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PlantRRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PlantRRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PlantRRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

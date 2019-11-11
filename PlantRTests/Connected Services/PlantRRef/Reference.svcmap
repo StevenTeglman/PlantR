@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9ad90638-49c5-4092-863b-66102f33a224" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60563/AccountRepository.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AccountRepository.xsd" MetadataType="Schema" ID="a93690d3-4f27-4ba3-af66-8bd354487488" SourceId="1" SourceUrl="http://localhost:60563/AccountRepository.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccountRepository.wsdl" MetadataType="Wsdl" ID="5ccb5822-f0e2-4645-8ea3-a5d66442aaca" SourceId="1" SourceUrl="http://localhost:60563/AccountRepository.svc?wsdl" />
+    <MetadataFile FileName="AccountRepository.disco" MetadataType="Disco" ID="a7f0b6dd-2a8b-418a-9e3d-b5a3aaebe1c9" SourceId="1" SourceUrl="http://localhost:60563/AccountRepository.svc?disco" />
+    <MetadataFile FileName="AccountRepository1.xsd" MetadataType="Schema" ID="1983c0d3-e42f-4c65-a3a9-c1e8fa3164c9" SourceId="1" SourceUrl="http://localhost:60563/AccountRepository.svc?xsd=xsd2" />
+    <MetadataFile FileName="AccountRepository2.xsd" MetadataType="Schema" ID="aed7661d-cbc4-40f8-af6f-8d4c97a9f17a" SourceId="1" SourceUrl="http://localhost:60563/AccountRepository.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

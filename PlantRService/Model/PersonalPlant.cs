@@ -13,8 +13,6 @@ namespace PlantRService.Model
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public int PId { get; set; }
-        [DataMember]
         public DateTime LastWatered { get; set; }
         [DataMember]
         public DateTime NextWatered { get; set; }

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AccountRepository" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60563/AccountRepository.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60563/AccountRepository.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60563/AccountRepository.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PlantRService.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAccountRepository_AddPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlant" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_AddPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_GetAllPlants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlants" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_GetAllPlants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_GetAccountPlants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountPlants" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_GetAccountPlants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountPlantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_GetPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlant" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_GetPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_GetLastPP_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPP" />
+  </wsdl:message>
+  <wsdl:message name="IAccountRepository_GetLastPP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPPResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAccountRepository">
+    <wsdl:operation name="AddPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountRepository/AddPlant" message="tns:IAccountRepository_AddPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountRepository/AddPlantResponse" message="tns:IAccountRepository_AddPlant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountRepository/GetAllPlants" message="tns:IAccountRepository_GetAllPlants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountRepository/GetAllPlantsResponse" message="tns:IAccountRepository_GetAllPlants_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountPlants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountRepository/GetAccountPlants" message="tns:IAccountRepository_GetAccountPlants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountRepository/GetAccountPlantsResponse" message="tns:IAccountRepository_GetAccountPlants_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountRepository/GetPlant" message="tns:IAccountRepository_GetPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountRepository/GetPlantResponse" message="tns:IAccountRepository_GetPlant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountRepository/GetLastPP" message="tns:IAccountRepository_GetLastPP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountRepository/GetLastPPResponse" message="tns:IAccountRepository_GetLastPP_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAccountRepository" type="tns:IAccountRepository">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPlant">
+      <soap:operation soapAction="http://tempuri.org/IAccountRepository/AddPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlants">
+      <soap:operation soapAction="http://tempuri.org/IAccountRepository/GetAllPlants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountPlants">
+      <soap:operation soapAction="http://tempuri.org/IAccountRepository/GetAccountPlants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlant">
+      <soap:operation soapAction="http://tempuri.org/IAccountRepository/GetPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPP">
+      <soap:operation soapAction="http://tempuri.org/IAccountRepository/GetLastPP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountRepository">
+    <wsdl:port name="BasicHttpBinding_IAccountRepository" binding="tns:BasicHttpBinding_IAccountRepository">
+      <soap:address location="http://localhost:60563/AccountRepository.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

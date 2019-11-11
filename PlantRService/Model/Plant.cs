@@ -11,6 +11,8 @@ namespace PlantRService.Model
     public class Plant
     {
         [DataMember]
+        public int ID { get; set; }
+        [DataMember]
         public string CName { get; set; }
         [DataMember]
         public string LName { get; set; }
