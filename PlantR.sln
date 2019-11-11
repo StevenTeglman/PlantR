@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRService", "PlantRService\PlantRService.csproj", "{F349F95D-789F-4126-9F11-32487B0AB4AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRTests", "PlantRTests\PlantRTests.csproj", "{BC846527-E03C-4DFF-9EA7-19B6D0AAD17E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F349F95D-789F-4126-9F11-32487B0AB4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F349F95D-789F-4126-9F11-32487B0AB4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F349F95D-789F-4126-9F11-32487B0AB4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F349F95D-789F-4126-9F11-32487B0AB4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC846527-E03C-4DFF-9EA7-19B6D0AAD17E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC846527-E03C-4DFF-9EA7-19B6D0AAD17E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC846527-E03C-4DFF-9EA7-19B6D0AAD17E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC846527-E03C-4DFF-9EA7-19B6D0AAD17E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D83FA086-5431-4A5A-A134-D7CD60E4C6BF}
+	EndGlobalSection
+EndGlobal
