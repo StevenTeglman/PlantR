@@ -62,6 +62,30 @@
   <wsdl:message name="IService1_RemovePersonalPlant_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemovePersonalPlantResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AddAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccount" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAccount" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAccount" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAccountResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -98,6 +122,22 @@
     <wsdl:operation name="RemovePersonalPlant">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemovePersonalPlant" message="tns:IService1_RemovePersonalPlant_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemovePersonalPlantResponse" message="tns:IService1_RemovePersonalPlant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddAccount" message="tns:IService1_AddAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddAccountResponse" message="tns:IService1_AddAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindAccount" message="tns:IService1_FindAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindAccountResponse" message="tns:IService1_FindAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllAccounts" message="tns:IService1_GetAllAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllAccountsResponse" message="tns:IService1_GetAllAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemoveAccount" message="tns:IService1_RemoveAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveAccountResponse" message="tns:IService1_RemoveAccount_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -176,6 +216,42 @@
     </wsdl:operation>
     <wsdl:operation name="RemovePersonalPlant">
       <soap:operation soapAction="http://tempuri.org/IService1/RemovePersonalPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccount">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAccount">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccounts">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAccount">
+      <soap:operation soapAction="http://tempuri.org/IService1/RemoveAccount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

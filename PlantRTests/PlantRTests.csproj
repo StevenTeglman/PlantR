@@ -68,6 +68,9 @@
     <None Include="Connected Services\PlantRRef\PlantRServ.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

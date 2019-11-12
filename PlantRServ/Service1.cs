@@ -9,9 +9,11 @@ using PlantRServ.Model;
 
 namespace PlantRServ
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Service1 : IService1
     {
+
+        #region ServiceInitialization
+
         public List<Account> Accounts { get; set; }
         //TODO Connect to actual database
         static StubADB stubADB = StubADB.Instance;
@@ -35,6 +37,15 @@ namespace PlantRServ
             }
             return composite;
         }
+
+        #endregion
+
+        // ++++++++++++++++++++++++++++++   REPO CODE   ++++++++++++++++++++++++++++++
+
+        // ---------------------------   PERSONAL PLANT    ---------------------------
+
+        #region PersonalPlant
+
 
         public PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
         {
@@ -165,5 +176,97 @@ namespace PlantRServ
 
             return result;
         }
+        #endregion
+
+        // ------------------------------   ACCOUNT    -------------------------------
+
+        #region Account
+
+        /// <summary>
+        /// Creates and Adds a new account to the Database
+        /// </summary>
+        /// <param name="userName">UserName</param>
+        /// <param name="email">Email Address</param>
+        /// <param name="password">Users Password</param>
+        /// <returns></returns>
+        public Account AddAccount(string userName, string email, string password)
+        {
+            Account account = null;
+
+            account = new Account
+            {
+                UserName = userName,
+                Email = email,
+                Password = password,
+                ID = 1 // HACK: This needs to be changed so it is automatically updated by the DB
+            };
+            try
+            {
+                stubADB.accounts.Add(account);
+            }
+            catch (Exception)
+            {
+                account = null;
+                throw;
+            }
+
+            return account;
+        }
+
+        /// <summary>
+        /// Find an account based the provided Account ID
+        /// </summary>
+        /// <param name="accID">Account ID</param>
+        /// <returns>Returns either an Account if something is found,
+        ///  or null if none are found.</returns>
+        public Account FindAccount(int accID)
+        {
+            Account account = null;
+
+            foreach (Account a in stubADB.accounts)
+            {
+                if (a.ID == accID)
+                {
+                    account = a;
+                }
+            }
+            return account;
+        }
+
+        /// <summary>
+        /// Returns all the accounts in the Database
+        /// </summary>
+        /// <returns>Either all the accounts in the DB, or null if nothing found.</returns>
+        public List<Account> GetAllAccounts()
+        {
+            List<Account> accounts = new List<Account>();
+
+            accounts = stubADB.accounts;
+
+            if (accounts.Count == 0)
+            {
+                accounts = null;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Removes the account with the provided Account ID from the DataBase
+        /// </summary>
+        /// <param name="accID">Account ID</param>
+        /// <returns>Returns true if operation was successful, otherwise false</returns>
+        public bool RemoveAccount(int accID)
+        {
+            bool result = false;
+
+            Account account = FindAccount(accID);
+
+            result = stubADB.accounts.Remove(account);
+
+            return result;
+        }
+
+        #endregion
     }
 }

@@ -303,6 +303,115 @@ namespace PlantRTests.PlantRRef {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model")]
+    [System.SerializableAttribute()]
+    public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private PlantRTests.PlantRRef.PersonalPlant[] PlantListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PlantRTests.PlantRRef.PersonalPlant[] PlantList {
+            get {
+                return this.PlantListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlantListField, value) != true)) {
+                    this.PlantListField = value;
+                    this.RaisePropertyChanged("PlantList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PlantRRef.IService1")]
     public interface IService1 {
@@ -360,6 +469,30 @@ namespace PlantRTests.PlantRRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemovePersonalPlant", ReplyAction="http://tempuri.org/IService1/RemovePersonalPlantResponse")]
         System.Threading.Tasks.Task<bool> RemovePersonalPlantAsync(int ppID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
+        PlantRTests.PlantRRef.Account AddAccount(string userName, string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
+        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> AddAccountAsync(string userName, string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindAccount", ReplyAction="http://tempuri.org/IService1/FindAccountResponse")]
+        PlantRTests.PlantRRef.Account FindAccount(int accID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindAccount", ReplyAction="http://tempuri.org/IService1/FindAccountResponse")]
+        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> FindAccountAsync(int accID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
+        PlantRTests.PlantRRef.Account[] GetAllAccounts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
+        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account[]> GetAllAccountsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveAccount", ReplyAction="http://tempuri.org/IService1/RemoveAccountResponse")]
+        bool RemoveAccount(int accID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveAccount", ReplyAction="http://tempuri.org/IService1/RemoveAccountResponse")]
+        System.Threading.Tasks.Task<bool> RemoveAccountAsync(int accID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -459,6 +592,38 @@ namespace PlantRTests.PlantRRef {
         
         public System.Threading.Tasks.Task<bool> RemovePersonalPlantAsync(int ppID) {
             return base.Channel.RemovePersonalPlantAsync(ppID);
+        }
+        
+        public PlantRTests.PlantRRef.Account AddAccount(string userName, string email, string password) {
+            return base.Channel.AddAccount(userName, email, password);
+        }
+        
+        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> AddAccountAsync(string userName, string email, string password) {
+            return base.Channel.AddAccountAsync(userName, email, password);
+        }
+        
+        public PlantRTests.PlantRRef.Account FindAccount(int accID) {
+            return base.Channel.FindAccount(accID);
+        }
+        
+        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> FindAccountAsync(int accID) {
+            return base.Channel.FindAccountAsync(accID);
+        }
+        
+        public PlantRTests.PlantRRef.Account[] GetAllAccounts() {
+            return base.Channel.GetAllAccounts();
+        }
+        
+        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account[]> GetAllAccountsAsync() {
+            return base.Channel.GetAllAccountsAsync();
+        }
+        
+        public bool RemoveAccount(int accID) {
+            return base.Channel.RemoveAccount(accID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveAccountAsync(int accID) {
+            return base.Channel.RemoveAccountAsync(accID);
         }
     }
 }
