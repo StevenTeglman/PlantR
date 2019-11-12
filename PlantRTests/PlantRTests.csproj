@@ -62,21 +62,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\PlantRRef\AccountRepository.wsdl" />
-    <None Include="Connected Services\PlantRRef\AccountRepository.xsd">
+    <None Include="Connected Services\PlantRRef\PlantRServ.DataAccess.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlantRRef\AccountRepository1.xsd">
+    <None Include="Connected Services\PlantRRef\PlantRServ.Model.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlantRRef\AccountRepository2.xsd">
+    <None Include="Connected Services\PlantRRef\PlantRServ.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.AccountRepository.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.PersonalPlant.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\PlantRRef\PlantRTests.PlantRRef.Plant.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Connected Services\PlantRRef\service.wsdl" />
+    <None Include="Connected Services\PlantRRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PlantRRef\service1.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -85,9 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\PlantRRef\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PlantRRef\AccountRepository.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\PlantRRef\configuration91.svcinfo" />

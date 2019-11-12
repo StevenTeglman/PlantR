@@ -11,12 +11,14 @@ namespace PlantRTests
         public void AddPlantToAccount()
         {
             //Arrange
-            PlantRRef.IAccountRepository service = new AccountRepositoryClient();
+            PlantRRef.Service1Client service = new Service1Client();
 
             //Act
-            PersonalPlant pp = service.AddPlant(2, 777, 7, "puppy");
+            string i = service.GetData(1);
+            //PersonalPlant pp = service.AddPlant(2, 777, 7, "puppy");
             //Assert
-            Assert.AreEqual(pp, service.GetLastPP());
+            Console.WriteLine(i);
+            Assert.AreEqual(i, "You entered: 1");
         }
 
         [TestMethod]
