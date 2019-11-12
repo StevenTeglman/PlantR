@@ -62,8 +62,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\MainModel.cs" />
     <Compile Include="ViewModels\MyPlantsModel.cs" />
     <Compile Include="ViewModels\PlantCreateModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MyPlants.xaml.cs">
       <DependentUpon>MyPlants.xaml</DependentUpon>
     </Compile>

@@ -27,12 +27,17 @@ namespace PlantRWPF.Views
         public MyPlants()
         {
             InitializeComponent();
+         
+
         }
+
+
+        
 
         private void PlusBut_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new PlantCreateModel();
-            
+
         }
     }
 }

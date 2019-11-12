@@ -28,6 +28,7 @@ namespace PlantRWPF
             InitializeComponent();
             service = new Service1Client();
             service.Open();
+            
         }
 
 

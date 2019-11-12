@@ -9,15 +9,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="594" Width="1007">
 
+    <!--<Window.DataContext>
+        --><!--<viewModels:MainModel/>--><!--
+    </Window.DataContext>-->
     <Window.Resources>
         <DataTemplate x:Name="myPlantTemplate" DataType="{x:Type viewModels:MyPlantsModel}">
             <views:MyPlants DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="plantCreate" DataType="{x:Type viewModels:PlantCreateModel}">
+        <DataTemplate x:Name="plantCreateTemplate" DataType="{x:Type viewModels:PlantCreateModel}">
             <views:PlantCreate DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
-
+       
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -48,7 +51,7 @@
             </StackPanel>
         </DockPanel>
 
-        <ContentControl Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Content="{Binding}" />
+        <ContentControl x:Name="mwContentCtrl" Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Content="{Binding CurrentView}" />
 
     </Grid>
 </Window>
