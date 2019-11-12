@@ -6,7 +6,6 @@
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetData_InputMessage">
@@ -21,29 +20,35 @@
   <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAccount_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAccount" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAccount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAccountResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_AddPlant_InputMessage">
     <wsdl:part name="parameters" element="tns:AddPlant" />
   </wsdl:message>
   <wsdl:message name="IService1_AddPlant_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddPlantResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAllPlants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlants" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllPlants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAccountPlants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountPlants" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAccountPlants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountPlantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlantResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetLastPP_InputMessage">
     <wsdl:part name="parameters" element="tns:GetLastPP" />
   </wsdl:message>
   <wsdl:message name="IService1_GetLastPP_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLastPPResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAccountRepository_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAccountRepository" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAccountRepository_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAccountRepositoryResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
@@ -54,21 +59,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAccount">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAccount" message="tns:IService1_GetAccount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAccountResponse" message="tns:IService1_GetAccount_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="AddPlant">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddPlant" message="tns:IService1_AddPlant_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddPlantResponse" message="tns:IService1_AddPlant_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllPlants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllPlants" message="tns:IService1_GetAllPlants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllPlantsResponse" message="tns:IService1_GetAllPlants_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountPlants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAccountPlants" message="tns:IService1_GetAccountPlants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAccountPlantsResponse" message="tns:IService1_GetAccountPlants_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPlant" message="tns:IService1_GetPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPlantResponse" message="tns:IService1_GetPlant_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetLastPP">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLastPP" message="tns:IService1_GetLastPP_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLastPPResponse" message="tns:IService1_GetLastPP_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAccountRepository">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAccountRepository" message="tns:IService1_GetAccountRepository_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAccountRepositoryResponse" message="tns:IService1_GetAccountRepository_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -91,15 +100,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAccount">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAccount" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="AddPlant">
       <soap:operation soapAction="http://tempuri.org/IService1/AddPlant" style="document" />
       <wsdl:input>
@@ -109,8 +109,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetLastPP">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetLastPP" style="document" />
+    <wsdl:operation name="GetAllPlants">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllPlants" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -118,8 +118,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAccountRepository">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAccountRepository" style="document" />
+    <wsdl:operation name="GetAccountPlants">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAccountPlants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPP">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetLastPP" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

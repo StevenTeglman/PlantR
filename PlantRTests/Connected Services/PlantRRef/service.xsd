@@ -2,7 +2,6 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model" />
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -31,22 +30,9 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAccount">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetAccountResult" nillable="true" type="q3:Account" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="AddPlant">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="repo" nillable="true" type="q4:AccountRepository" />
         <xs:element minOccurs="0" name="plantID" type="xs:int" />
         <xs:element minOccurs="0" name="accID" type="xs:int" />
         <xs:element minOccurs="0" name="daysWater" type="xs:int" />
@@ -57,33 +43,55 @@
   <xs:element name="AddPlantResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="AddPlantResult" nillable="true" type="q5:PersonalPlant" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="AddPlantResult" nillable="true" type="q3:PersonalPlant" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPlants">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPlantsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountPlants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="accID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountPlantsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetPlantResult" nillable="true" type="q4:Plant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetLastPP">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="repo" nillable="true" type="q6:AccountRepository" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetLastPPResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetLastPPResult" nillable="true" type="q7:PersonalPlant" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountRepository">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountRepositoryResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="GetAccountRepositoryResult" nillable="true" type="q8:AccountRepository" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetLastPPResult" nillable="true" type="q5:PersonalPlant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

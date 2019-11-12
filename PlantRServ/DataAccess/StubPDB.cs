@@ -10,7 +10,18 @@ namespace PlantRServ.DataAccess
     class StubPDB
     {
         public List<Plant> plants = new List<Plant>();
-        public StubPDB()
+        private static StubPDB instance = null;
+
+        public static StubPDB Instance {
+            get {
+                if (instance == null)
+                {
+                    instance = new StubPDB();
+                }
+                return instance;
+            }
+        }
+        private StubPDB()
         {
             plants.Add(new Plant
             {

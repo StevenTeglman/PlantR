@@ -7,10 +7,22 @@ using System.Threading.Tasks;
 
 namespace PlantRServ.DataAccess
 {
-    class StubADB
+    sealed class StubADB
     {
         public List<Account> accounts = new List<Account>();
-        public StubADB()
+        private static StubADB instance = null;
+
+        public static StubADB Instance {
+            get {
+                if (instance == null)
+                {
+                    instance = new StubADB();
+                }
+                return instance;
+            }
+        }
+
+        private StubADB()
         {
             accounts.Add(new Account
             {

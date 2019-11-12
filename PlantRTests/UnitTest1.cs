@@ -5,20 +5,39 @@ using PlantRTests.PlantRRef;
 namespace PlantRTests
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest1 : BaseTests
     {
+
+        [TestMethod]
+        public void ServiceConnection()
+        {
+            //Arrange
+            Setup();
+            int i = 5;
+            Console.WriteLine("THIS IS A TEST!!!!");
+            //Act
+            string s = service.GetData(i);
+
+            //Assert
+            Assert.AreEqual($"You entered: {i}", s);
+            Cleanup();
+        }
+
         [TestMethod]
         public void AddPlantToAccount()
         {
             //Arrange
-            PlantRRef.Service1Client service = new Service1Client();
-
+            int plantID = 1;
+            int accID = 777;
+            int daysWater = 5;
+            string nName = "Planty";
             //Act
-            string i = service.GetData(1);
-            //PersonalPlant pp = service.AddPlant(2, 777, 7, "puppy");
+            service.AddPlant(plantID, accID, daysWater, nName);
+
             //Assert
-            Console.WriteLine(i);
-            Assert.AreEqual(i, "You entered: 1");
+            PersonalPlant pp = service.GetLastPP();
+            Assert.AreEqual(nName, pp.NName);
+
         }
 
         [TestMethod]
@@ -29,6 +48,29 @@ namespace PlantRTests
             //Act
 
             //Assert
+        }
+
+
+    }
+
+    [TestClass]
+    public abstract class BaseTests
+    {
+        public PlantRRef.Service1Client service = null;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            Console.WriteLine("Setup executed.");
+            service = new Service1Client();
+            service.Open();
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            Console.WriteLine("Cleanup executed.");
+            service.Close();
         }
     }
 }

@@ -18,17 +18,19 @@ namespace PlantRServ
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
+        // ++++++++++++++++++++++++++ REPO CODE ++++++++++++++++++++++++++
 
         [OperationContract]
-        Account GetAccount();
+        PersonalPlant AddPlant(int plantID, int accID, int daysWater, string nName);
         [OperationContract]
-        PersonalPlant AddPlant(AccountRepository repo, int plantID, int accID, int daysWater, string nName);
+        void GetAllPlants();
         [OperationContract]
-        PersonalPlant GetLastPP(AccountRepository repo);
+        void GetAccountPlants(int accID);
         [OperationContract]
-        AccountRepository GetAccountRepository();
+        Plant GetPlant(int ID);
+        [OperationContract]
+        PersonalPlant GetLastPP();
 
-        // TODO: Add your service operations here
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
