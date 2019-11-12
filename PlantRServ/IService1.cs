@@ -19,17 +19,21 @@ namespace PlantRServ
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
         // ++++++++++++++++++++++++++ REPO CODE ++++++++++++++++++++++++++
-
+        // 
         [OperationContract]
-        PersonalPlant AddPlant(int plantID, int accID, int daysWater, string nName);
+        PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
         [OperationContract]
-        void GetAllPlants();
+        PersonalPlant FindPersonalPlant(int ppID);
         [OperationContract]
-        void GetAccountPlants(int accID);
+        List<Plant> GetAllPlants();
+        [OperationContract]
+        List<PersonalPlant> GetAccountPlants(int accID);
         [OperationContract]
         Plant GetPlant(int ID);
         [OperationContract]
         PersonalPlant GetLastPP();
+        [OperationContract]
+        bool RemovePersonalPlant(int ppID);
 
     }
 

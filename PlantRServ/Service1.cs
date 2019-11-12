@@ -36,7 +36,7 @@ namespace PlantRServ
             return composite;
         }
 
-        public PersonalPlant AddPlant(int plantID, int accID, int daysWater, string nName)
+        public PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
         {
             Plant p = GetPlant(plantID);
             PersonalPlant pp = new PersonalPlant
@@ -57,16 +57,50 @@ namespace PlantRServ
             stubPPDB.personalPlants.Add(pp); // HACK: Obviously this will be replaced with the Database connection once the time comes 
             return pp;
         }
-        public void GetAllPlants()
+
+        /// <summary>
+        /// Get's a list of all of the Plants in the Database
+        /// </summary>
+        /// <returns>Returns all the plants in the Database, or null if,
+        ///  none are found.</returns>
+        public List<Plant> GetAllPlants()
         {
-            //TODO To connect to data access layer later.
-            // Plants = StubPDB.GetAllPlants();
+            List<Plant> plants = new List<Plant>();
+            // HACK: To connect to data access layer later.
+            plants = stubPDB.plants;
+
+            if (plants.Count == 0)
+            {
+                plants = null;
+            }
+
+            return plants;
         }
 
-        public void GetAccountPlants(int accID)
+        /// <summary>
+        /// Gets all the Personal PLants in the database, based on account ID
+        /// </summary>
+        /// <param name="accID">Account ID</param>
+        /// <returns>Returns either a list of Personal Plants based on the,
+        ///  entered ID, or else it will return null if nothing is found.</returns>
+        public List<PersonalPlant> GetAccountPlants(int accID)
         {
-
+            List<PersonalPlant> ppList = new List<PersonalPlant>();
+            // HACK: replace Stub with DB Access
+            foreach (PersonalPlant pp in stubPPDB.personalPlants)
+            {
+                if (pp.AId == accID)
+                {
+                    ppList.Add(pp);
+                }
+            }
+            if (ppList.Count == 0)
+            {
+                ppList = null;
+            }
+            return ppList;
         }
+
         /// <summary>
         /// Returns a Plant object based on the ID provided
         /// </summary>
@@ -80,10 +114,12 @@ namespace PlantRServ
                 if (plant.ID == ID)
                 {
                     result = plant;
+                    break;
                 }
             }
             return result;
         }
+
         /// <summary>
         /// Just a class for testing. Get's the last Personal Plant
         /// in the list.
@@ -94,6 +130,40 @@ namespace PlantRServ
             return stubPPDB.personalPlants.Last();
         }
 
+        /// <summary>
+        /// Find a single personal plant via PersonalPlant ID
+        /// </summary>
+        /// <param name="ppID">PersonalPlant ID</param>
+        /// <returns>Returns the personal plant with the correct PersonalPlantID,
+        ///  or it will return null if nothing is find.</returns>
+        public PersonalPlant FindPersonalPlant(int ppID)
+        {
+            // HACK: This will of course talk to the DB
+            PersonalPlant result = null;
+            foreach (PersonalPlant pp in stubPPDB.personalPlants)
+            {
+                if (pp.Id == ppID)
+                {
+                    result = pp;
+                    break;
+                }
+            }
+            return result;
+        }
 
+        /// <summary>
+        /// Removes a PersonalPlant from the PersonalPlant Database
+        /// </summary>
+        /// <param name="ppID">The Personal Plant ID of the plant needed to be</param>
+        /// <returns>Returns a boolean. True if successful, False if not.</returns>
+        public bool RemovePersonalPlant(int ppID)
+        {
+            bool result = false;
+
+            PersonalPlant pp = FindPersonalPlant(ppID);
+            result = stubPPDB.personalPlants.Remove(pp);
+
+            return result;
+        }
     }
 }

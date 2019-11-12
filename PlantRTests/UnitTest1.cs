@@ -32,7 +32,7 @@ namespace PlantRTests
             int daysWater = 5;
             string nName = "Planty";
             //Act
-            service.AddPlant(plantID, accID, daysWater, nName);
+            service.AddPersonalPlant(plantID, accID, daysWater, nName);
 
             //Assert
             PersonalPlant pp = service.GetLastPP();
@@ -41,13 +41,21 @@ namespace PlantRTests
         }
 
         [TestMethod]
-        public void RemovePlantToAccount()
+        public void RemovePlantFromAccount()
         {
             //Arrange
-
+            int ppID = 1;
+            int plantID = 1;
+            int accID = 777;
+            int daysWater = 5;
+            string nName = "Planty";
+            bool result = false;
+            service.AddPersonalPlant(plantID, accID, daysWater, nName);
             //Act
+            result = service.RemovePersonalPlant(ppID);
 
             //Assert
+            Assert.IsTrue(result);
         }
 
 

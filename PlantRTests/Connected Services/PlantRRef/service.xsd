@@ -30,7 +30,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddPlant">
+  <xs:element name="AddPersonalPlant">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="plantID" type="xs:int" />
@@ -40,10 +40,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddPlantResponse">
+  <xs:element name="AddPersonalPlantResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="AddPlantResult" nillable="true" type="q3:PersonalPlant" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="AddPersonalPlantResult" nillable="true" type="q3:PersonalPlant" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPersonalPlant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ppID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPersonalPlantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="FindPersonalPlantResult" nillable="true" type="q4:PersonalPlant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +68,9 @@
   </xs:element>
   <xs:element name="GetAllPlantsResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetAllPlantsResult" nillable="true" type="q5:ArrayOfPlant" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAccountPlants">
@@ -66,7 +82,9 @@
   </xs:element>
   <xs:element name="GetAccountPlantsResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetAccountPlantsResult" nillable="true" type="q6:ArrayOfPersonalPlant" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPlant">
@@ -79,7 +97,7 @@
   <xs:element name="GetPlantResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetPlantResult" nillable="true" type="q4:Plant" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetPlantResult" nillable="true" type="q7:Plant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,7 +109,21 @@
   <xs:element name="GetLastPPResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetLastPPResult" nillable="true" type="q5:PersonalPlant" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetLastPPResult" nillable="true" type="q8:PersonalPlant" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePersonalPlant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ppID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePersonalPlantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemovePersonalPlantResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

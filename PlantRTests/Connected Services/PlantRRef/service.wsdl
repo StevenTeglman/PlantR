@@ -20,11 +20,17 @@
   <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_AddPlant_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddPlant" />
+  <wsdl:message name="IService1_AddPersonalPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPersonalPlant" />
   </wsdl:message>
-  <wsdl:message name="IService1_AddPlant_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddPlantResponse" />
+  <wsdl:message name="IService1_AddPersonalPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPersonalPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindPersonalPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPersonalPlant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindPersonalPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPersonalPlantResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetAllPlants_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPlants" />
@@ -50,6 +56,12 @@
   <wsdl:message name="IService1_GetLastPP_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLastPPResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_RemovePersonalPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePersonalPlant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemovePersonalPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePersonalPlantResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -59,9 +71,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddPlant">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddPlant" message="tns:IService1_AddPlant_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddPlantResponse" message="tns:IService1_AddPlant_OutputMessage" />
+    <wsdl:operation name="AddPersonalPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddPersonalPlant" message="tns:IService1_AddPersonalPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddPersonalPlantResponse" message="tns:IService1_AddPersonalPlant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPersonalPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindPersonalPlant" message="tns:IService1_FindPersonalPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindPersonalPlantResponse" message="tns:IService1_FindPersonalPlant_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllPlants">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllPlants" message="tns:IService1_GetAllPlants_InputMessage" />
@@ -78,6 +94,10 @@
     <wsdl:operation name="GetLastPP">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLastPP" message="tns:IService1_GetLastPP_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLastPPResponse" message="tns:IService1_GetLastPP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePersonalPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemovePersonalPlant" message="tns:IService1_RemovePersonalPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemovePersonalPlantResponse" message="tns:IService1_RemovePersonalPlant_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -100,8 +120,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddPlant">
-      <soap:operation soapAction="http://tempuri.org/IService1/AddPlant" style="document" />
+    <wsdl:operation name="AddPersonalPlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddPersonalPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPersonalPlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindPersonalPlant" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -138,6 +167,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetLastPP">
       <soap:operation soapAction="http://tempuri.org/IService1/GetLastPP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePersonalPlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/RemovePersonalPlant" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
