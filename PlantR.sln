@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRTests", "PlantRTests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRServ", "PlantRServ\PlantRServ.csproj", "{269A5872-2A75-4E35-86D1-55DD12C75FB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRWPF", "PlantRWPF\PlantRWPF.csproj", "{A7D33E87-7BA4-486B-AF7F-CE3205C6FA24}"
+	ProjectSection(ProjectDependencies) = postProject
+		{269A5872-2A75-4E35-86D1-55DD12C75FB5} = {269A5872-2A75-4E35-86D1-55DD12C75FB5}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{269A5872-2A75-4E35-86D1-55DD12C75FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{269A5872-2A75-4E35-86D1-55DD12C75FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{269A5872-2A75-4E35-86D1-55DD12C75FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D33E87-7BA4-486B-AF7F-CE3205C6FA24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D33E87-7BA4-486B-AF7F-CE3205C6FA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D33E87-7BA4-486B-AF7F-CE3205C6FA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D33E87-7BA4-486B-AF7F-CE3205C6FA24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
