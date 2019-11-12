@@ -248,7 +248,7 @@ namespace PlantRServ
                 accounts = null;
             }
 
-            return null;
+            return accounts;
         }
 
         /// <summary>
@@ -265,6 +265,16 @@ namespace PlantRServ
             result = stubADB.accounts.Remove(account);
 
             return result;
+        }
+
+        /// <summary>
+        /// Just a class for testing. Get's the last Personal Plant
+        /// in the list.
+        /// </summary>
+        /// <returns>The last personal plant in the lsit</returns>
+        public Account GetLastAccount()
+        {
+            return stubADB.accounts.Last<Account>();
         }
 
         #endregion

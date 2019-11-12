@@ -183,4 +183,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetLastAccount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetLastAccountResult" nillable="true" type="q12:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

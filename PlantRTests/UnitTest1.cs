@@ -1,18 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PlantRTests.PlantRRef;
 
 namespace PlantRTests
 {
     [TestClass]
-    public class UnitTest1 : BaseTests
+    public class PersonalPlantTests : BaseTests
     {
 
         [TestMethod]
         public void ServiceConnection()
         {
             //Arrange
-            Setup();
             int i = 5;
             Console.WriteLine("THIS IS A TEST!!!!");
             //Act
@@ -20,7 +20,6 @@ namespace PlantRTests
 
             //Assert
             Assert.AreEqual($"You entered: {i}", s);
-            Cleanup();
         }
 
         [TestMethod]
@@ -55,9 +54,71 @@ namespace PlantRTests
             result = service.RemovePersonalPlant(ppID);
 
             //Assert
+            
             Assert.IsTrue(result);
         }
 
+
+    }
+
+    [TestClass]
+    public class AccountTests : BaseTests
+    {
+        [TestMethod]
+        public void AddAccountTest()
+        {
+            //Arrange
+            string userName = "Testy Tom";
+            string email = "TomsTesties@tomsurology.dk";
+            string password = "iLikeLegoland";
+
+            //Act
+            Account test = service.AddAccount(userName, email, password);
+
+            //Assert
+            Account expected = service.GetLastAccount();
+            Assert.AreEqual(test.UserName, expected.UserName);
+        }
+
+        [TestMethod]
+        public void FindAccountTest()
+        {
+            //Arrange
+            int id = 99;
+            Account result = null;
+
+            //Act
+            result = service.FindAccount(id);
+
+            //Assert
+            Assert.AreEqual("GiveUrBallsATug", result.Password);
+        }
+
+        [TestMethod]
+        public void GetAllAccountsTest()
+        {
+            //Arrange
+
+            //Act
+            Account[] accounts = service.GetAllAccounts();
+            //Assert
+            Assert.IsNotNull(accounts);
+        }
+
+        [TestMethod]
+        public void RemoveAccountTest()
+        {
+            //Arrange
+            int ID = 777;
+            bool result = false;
+
+            //Act
+            result = service.RemoveAccount(777);
+
+            //Assert
+            Assert.IsTrue(result);
+
+        }
 
     }
 

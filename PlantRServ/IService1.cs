@@ -44,6 +44,8 @@ namespace PlantRServ
         List<Account> GetAllAccounts();
         [OperationContract]
         bool RemoveAccount(int accID);
+        [OperationContract]
+        Account GetLastAccount();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

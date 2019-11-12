@@ -493,6 +493,12 @@ namespace PlantRTests.PlantRRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveAccount", ReplyAction="http://tempuri.org/IService1/RemoveAccountResponse")]
         System.Threading.Tasks.Task<bool> RemoveAccountAsync(int accID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastAccount", ReplyAction="http://tempuri.org/IService1/GetLastAccountResponse")]
+        PlantRTests.PlantRRef.Account GetLastAccount();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastAccount", ReplyAction="http://tempuri.org/IService1/GetLastAccountResponse")]
+        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> GetLastAccountAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -624,6 +630,14 @@ namespace PlantRTests.PlantRRef {
         
         public System.Threading.Tasks.Task<bool> RemoveAccountAsync(int accID) {
             return base.Channel.RemoveAccountAsync(accID);
+        }
+        
+        public PlantRTests.PlantRRef.Account GetLastAccount() {
+            return base.Channel.GetLastAccount();
+        }
+        
+        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> GetLastAccountAsync() {
+            return base.Channel.GetLastAccountAsync();
         }
     }
 }
