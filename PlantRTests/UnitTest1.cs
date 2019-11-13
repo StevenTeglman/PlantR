@@ -68,22 +68,22 @@ namespace PlantRTests
         public void AddAccountTest()
         {
             //Arrange
-            string userName = "username2";
-            string email = "email2";
+            string userName = "username12222";
+            string email = "email12222";
             string password = "password";
 
             //Act
             Account test = service.AddAccount(userName, email, password);
 
             //Assert
-            Assert.AreEqual(test.username, "username2");
+            Assert.AreEqual(test.username, userName);
         }
 
         [TestMethod]
         public void FindAccountTest()
         {
             //Arrange
-            int id = 4;
+            int id = 2;
             //Account result = null;
             Setup();
 

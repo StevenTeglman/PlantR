@@ -236,7 +236,16 @@ namespace PlantRServ
                      account = a;
                  }
              }*/
-            Account acc = accrepo.FindAccount(accID);
+            Account result= accrepo.FindAccount(accID);
+            Account acc = new Account
+            {
+                id = result.id,
+                username = result.username,
+                email = result.email,
+                password = result.password
+
+            };
+
             return acc;
         }
 
