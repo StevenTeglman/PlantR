@@ -113,7 +113,7 @@ namespace PlantRTests
             bool result = false;
 
             //Act
-            result = service.RemoveAccount(777);
+            result = service.RemoveAccount(ID);
 
             //Assert
             Assert.IsTrue(result);
