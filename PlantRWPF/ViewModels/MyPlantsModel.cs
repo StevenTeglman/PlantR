@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlantRWPF.ViewModels
 {
-    class MyPlantsModel : ViewModelBase
+    public class MyPlantsModel : ViewModelBase
     {
 
     }
