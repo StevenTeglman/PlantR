@@ -6,6 +6,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using PersonalPlant = PlantRServ.DataAccess.PersonalPlant;
+using Plant = PlantRServ.DataAccess.Plant;
+using Account = PlantRServ.DataAccess.Account;
 
 namespace PlantRServ
 {

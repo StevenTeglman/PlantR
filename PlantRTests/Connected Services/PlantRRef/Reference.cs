@@ -76,31 +76,39 @@ namespace PlantRTests.PlantRRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Plant", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PersonalPlant", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PlantRTests.PlantRRef.PersonalPlant))]
-    public partial class Plant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class PersonalPlant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CNameField;
+        private PlantRTests.PlantRRef.Account AccountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
+        private PlantRTests.PlantRRef.Plant PlantField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
+        private int aidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ImageURLField;
+        private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LNameField;
+        private System.DateTime lastwateredField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int SDaysField;
+        private System.DateTime nextwateredField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int pidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int wdurationField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -113,79 +121,118 @@ namespace PlantRTests.PlantRRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CName {
+        public PlantRTests.PlantRRef.Account Account {
             get {
-                return this.CNameField;
+                return this.AccountField;
             }
             set {
-                if ((object.ReferenceEquals(this.CNameField, value) != true)) {
-                    this.CNameField = value;
-                    this.RaisePropertyChanged("CName");
+                if ((object.ReferenceEquals(this.AccountField, value) != true)) {
+                    this.AccountField = value;
+                    this.RaisePropertyChanged("Account");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
+        public PlantRTests.PlantRRef.Plant Plant {
             get {
-                return this.DescriptionField;
+                return this.PlantField;
             }
             set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
+                if ((object.ReferenceEquals(this.PlantField, value) != true)) {
+                    this.PlantField = value;
+                    this.RaisePropertyChanged("Plant");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
+        public int aid {
             get {
-                return this.IDField;
+                return this.aidField;
             }
             set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
+                if ((this.aidField.Equals(value) != true)) {
+                    this.aidField = value;
+                    this.RaisePropertyChanged("aid");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ImageURL {
+        public int id {
             get {
-                return this.ImageURLField;
+                return this.idField;
             }
             set {
-                if ((object.ReferenceEquals(this.ImageURLField, value) != true)) {
-                    this.ImageURLField = value;
-                    this.RaisePropertyChanged("ImageURL");
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LName {
+        public System.DateTime lastwatered {
             get {
-                return this.LNameField;
+                return this.lastwateredField;
             }
             set {
-                if ((object.ReferenceEquals(this.LNameField, value) != true)) {
-                    this.LNameField = value;
-                    this.RaisePropertyChanged("LName");
+                if ((this.lastwateredField.Equals(value) != true)) {
+                    this.lastwateredField = value;
+                    this.RaisePropertyChanged("lastwatered");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int SDays {
+        public System.DateTime nextwatered {
             get {
-                return this.SDaysField;
+                return this.nextwateredField;
             }
             set {
-                if ((this.SDaysField.Equals(value) != true)) {
-                    this.SDaysField = value;
-                    this.RaisePropertyChanged("SDays");
+                if ((this.nextwateredField.Equals(value) != true)) {
+                    this.nextwateredField = value;
+                    this.RaisePropertyChanged("nextwatered");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nname {
+            get {
+                return this.nnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nnameField, value) != true)) {
+                    this.nnameField = value;
+                    this.RaisePropertyChanged("nname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int pid {
+            get {
+                return this.pidField;
+            }
+            set {
+                if ((this.pidField.Equals(value) != true)) {
+                    this.pidField = value;
+                    this.RaisePropertyChanged("pid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int wduration {
+            get {
+                return this.wdurationField;
+            }
+            set {
+                if ((this.wdurationField.Equals(value) != true)) {
+                    this.wdurationField = value;
+                    this.RaisePropertyChanged("wduration");
                 }
             }
         }
@@ -202,110 +249,7 @@ namespace PlantRTests.PlantRRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PersonalPlant", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model")]
-    [System.SerializableAttribute()]
-    public partial class PersonalPlant : PlantRTests.PlantRRef.Plant {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime LastWateredField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime NextWateredField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int WDurationField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AId {
-            get {
-                return this.AIdField;
-            }
-            set {
-                if ((this.AIdField.Equals(value) != true)) {
-                    this.AIdField = value;
-                    this.RaisePropertyChanged("AId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="Id")]
-        public int Id1 {
-            get {
-                return this.Id1Field;
-            }
-            set {
-                if ((this.Id1Field.Equals(value) != true)) {
-                    this.Id1Field = value;
-                    this.RaisePropertyChanged("Id1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime LastWatered {
-            get {
-                return this.LastWateredField;
-            }
-            set {
-                if ((this.LastWateredField.Equals(value) != true)) {
-                    this.LastWateredField = value;
-                    this.RaisePropertyChanged("LastWatered");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NName {
-            get {
-                return this.NNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NNameField, value) != true)) {
-                    this.NNameField = value;
-                    this.RaisePropertyChanged("NName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime NextWatered {
-            get {
-                return this.NextWateredField;
-            }
-            set {
-                if ((this.NextWateredField.Equals(value) != true)) {
-                    this.NextWateredField = value;
-                    this.RaisePropertyChanged("NextWatered");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int WDuration {
-            get {
-                return this.WDurationField;
-            }
-            set {
-                if ((this.WDurationField.Equals(value) != true)) {
-                    this.WDurationField = value;
-                    this.RaisePropertyChanged("WDuration");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess")]
     [System.SerializableAttribute()]
     public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -313,19 +257,19 @@ namespace PlantRTests.PlantRRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
+        private PlantRTests.PlantRRef.PersonalPlant[] PersonalPlantsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
+        private string emailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
+        private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PlantRTests.PlantRRef.PersonalPlant[] PlantListField;
+        private string passwordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserNameField;
+        private string usernameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -338,66 +282,207 @@ namespace PlantRTests.PlantRRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email {
+        public PlantRTests.PlantRRef.PersonalPlant[] PersonalPlants {
             get {
-                return this.EmailField;
+                return this.PersonalPlantsField;
             }
             set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
+                if ((object.ReferenceEquals(this.PersonalPlantsField, value) != true)) {
+                    this.PersonalPlantsField = value;
+                    this.RaisePropertyChanged("PersonalPlants");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
+        public string email {
             get {
-                return this.IDField;
+                return this.emailField;
             }
             set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
+                if ((object.ReferenceEquals(this.emailField, value) != true)) {
+                    this.emailField = value;
+                    this.RaisePropertyChanged("email");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
+        public int id {
             get {
-                return this.PasswordField;
+                return this.idField;
             }
             set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PlantRTests.PlantRRef.PersonalPlant[] PlantList {
+        public string password {
             get {
-                return this.PlantListField;
+                return this.passwordField;
             }
             set {
-                if ((object.ReferenceEquals(this.PlantListField, value) != true)) {
-                    this.PlantListField = value;
-                    this.RaisePropertyChanged("PlantList");
+                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
+                    this.passwordField = value;
+                    this.RaisePropertyChanged("password");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
+        public string username {
             get {
-                return this.UserNameField;
+                return this.usernameField;
             }
             set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                if ((object.ReferenceEquals(this.usernameField, value) != true)) {
+                    this.usernameField = value;
+                    this.RaisePropertyChanged("username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Plant", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess")]
+    [System.SerializableAttribute()]
+    public partial class Plant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private PlantRTests.PlantRRef.PersonalPlant[] PersonalPlantsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string imgurlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int sdaysField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PlantRTests.PlantRRef.PersonalPlant[] PersonalPlants {
+            get {
+                return this.PersonalPlantsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonalPlantsField, value) != true)) {
+                    this.PersonalPlantsField = value;
+                    this.RaisePropertyChanged("PersonalPlants");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cname {
+            get {
+                return this.cnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cnameField, value) != true)) {
+                    this.cnameField = value;
+                    this.RaisePropertyChanged("cname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string imgurl {
+            get {
+                return this.imgurlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.imgurlField, value) != true)) {
+                    this.imgurlField = value;
+                    this.RaisePropertyChanged("imgurl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lname {
+            get {
+                return this.lnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lnameField, value) != true)) {
+                    this.lnameField = value;
+                    this.RaisePropertyChanged("lname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int sdays {
+            get {
+                return this.sdaysField;
+            }
+            set {
+                if ((this.sdaysField.Equals(value) != true)) {
+                    this.sdaysField = value;
+                    this.RaisePropertyChanged("sdays");
                 }
             }
         }

@@ -35,7 +35,7 @@ namespace PlantRTests
 
             //Assert
             PersonalPlant pp = service.GetLastPP();
-            Assert.AreEqual(nName, pp.NName);
+            Assert.AreEqual(nName, pp.nname);
 
         }
 
@@ -68,30 +68,31 @@ namespace PlantRTests
         public void AddAccountTest()
         {
             //Arrange
-            string userName = "Testy Tom";
-            string email = "TomsTesties@tomsurology.dk";
-            string password = "iLikeLegoland";
+            string userName = "username2";
+            string email = "email2";
+            string password = "password";
 
             //Act
             Account test = service.AddAccount(userName, email, password);
 
             //Assert
-            Account expected = service.GetLastAccount();
-            Assert.AreEqual(test.UserName, expected.UserName);
+            Assert.AreEqual(test.username, "username2");
         }
 
         [TestMethod]
         public void FindAccountTest()
         {
             //Arrange
-            int id = 99;
-            Account result = null;
+            int id = 4;
+            //Account result = null;
+            Setup();
 
             //Act
-            result = service.FindAccount(id);
+            Account result = service.FindAccount(id);
 
             //Assert
-            Assert.AreEqual("GiveUrBallsATug", result.Password);
+            Assert.AreEqual("password", result.password);
+
         }
 
         [TestMethod]
@@ -135,11 +136,11 @@ namespace PlantRTests
             service.Open();
         }
 
-        [TestCleanup]
+        /*[TestCleanup]
         public void Cleanup()
         {
             Console.WriteLine("Cleanup executed.");
             service.Close();
-        }
+        }*/
     }
 }

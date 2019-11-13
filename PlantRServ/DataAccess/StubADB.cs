@@ -24,7 +24,7 @@ namespace PlantRServ.DataAccess
 
         private StubADB()
         {
-            accounts.Add(new Account
+            /*accounts.Add(new Account
             {
                 Email = "RustyCougarMama@gmail.com",
                 ID = 99,
@@ -49,7 +49,7 @@ namespace PlantRServ.DataAccess
                 Password = "ImABetterSamJackson",
                 UserName = "KickboxingVampire",
                 PlantList = new List<PersonalPlant>()
-            });
+            });*/
         }
     }
 }

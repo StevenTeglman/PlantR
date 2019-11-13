@@ -6,11 +6,15 @@ using System.ServiceModel;
 using System.Text;
 using PlantRServ.DataAccess;
 using PlantRServ.Model;
+using Account = PlantRServ.DataAccess.Account;
+using PersonalPlant = PlantRServ.DataAccess.PersonalPlant;
+using Plant = PlantRServ.DataAccess.Plant;
 
 namespace PlantRServ
 {
     public class Service1 : IService1
     {
+        AccountRepository accrepo = new AccountRepository();
 
         #region ServiceInitialization
 
@@ -49,7 +53,7 @@ namespace PlantRServ
 
         public PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
         {
-            Plant p = GetPlant(plantID);
+            /*Plant p = GetPlant(plantID);
             PersonalPlant pp = new PersonalPlant
             {
                 Id = 1, // HACK: Hardcoded ID, needs to be fixed once the DataBase is implemented
@@ -65,8 +69,8 @@ namespace PlantRServ
                 SDays = p.SDays,
                 WDuration = daysWater
             };
-            stubPPDB.personalPlants.Add(pp); // HACK: Obviously this will be replaced with the Database connection once the time comes 
-            return pp;
+            stubPPDB.personalPlants.Add(pp); // HACK: Obviously this will be replaced with the Database connection once the time comes */
+            return null;
         }
 
         /// <summary>
@@ -76,16 +80,16 @@ namespace PlantRServ
         ///  none are found.</returns>
         public List<Plant> GetAllPlants()
         {
-            List<Plant> plants = new List<Plant>();
+            /*List<Plant> plants = new List<Plant>();
             // HACK: To connect to data access layer later.
             plants = stubPDB.plants;
 
             if (plants.Count == 0)
             {
                 plants = null;
-            }
+            }*/
 
-            return plants;
+            return null;
         }
 
         /// <summary>
@@ -96,7 +100,7 @@ namespace PlantRServ
         ///  entered ID, or else it will return null if nothing is found.</returns>
         public List<PersonalPlant> GetAccountPlants(int accID)
         {
-            List<PersonalPlant> ppList = new List<PersonalPlant>();
+           /* List<PersonalPlant> ppList = new List<PersonalPlant>();
             // HACK: replace Stub with DB Access
             foreach (PersonalPlant pp in stubPPDB.personalPlants)
             {
@@ -108,8 +112,8 @@ namespace PlantRServ
             if (ppList.Count == 0)
             {
                 ppList = null;
-            }
-            return ppList;
+            }*/
+            return null;
         }
 
         /// <summary>
@@ -119,7 +123,7 @@ namespace PlantRServ
         /// <returns>The desired plant</returns>
         public Plant GetPlant(int ID)
         {
-            Plant result = null;
+            /*Plant result = null;
             foreach (Plant plant in stubPDB.plants)
             {
                 if (plant.ID == ID)
@@ -127,8 +131,8 @@ namespace PlantRServ
                     result = plant;
                     break;
                 }
-            }
-            return result;
+            }*/
+            return null;
         }
 
         /// <summary>
@@ -150,7 +154,7 @@ namespace PlantRServ
         public PersonalPlant FindPersonalPlant(int ppID)
         {
             // HACK: This will of course talk to the DB
-            PersonalPlant result = null;
+            /*PersonalPlant result = null;
             foreach (PersonalPlant pp in stubPPDB.personalPlants)
             {
                 if (pp.Id == ppID)
@@ -158,8 +162,8 @@ namespace PlantRServ
                     result = pp;
                     break;
                 }
-            }
-            return result;
+            }*/
+            return null;
         }
 
         /// <summary>
@@ -191,24 +195,26 @@ namespace PlantRServ
         /// <returns></returns>
         public Account AddAccount(string userName, string email, string password)
         {
-            Account account = null;
+            /* Account account = null;
 
-            account = new Account
-            {
-                UserName = userName,
-                Email = email,
-                Password = password,
-                ID = 1 // HACK: This needs to be changed so it is automatically updated by the DB
-            };
-            try
-            {
-                stubADB.accounts.Add(account);
-            }
-            catch (Exception)
-            {
-                account = null;
-                throw;
-            }
+             account = new Account
+             {
+                 UserName = userName,
+                 Email = email,
+                 Password = password,
+                 ID = 1 // HACK: This needs to be changed so it is automatically updated by the DB
+             };
+             try
+             {
+                 stubADB.accounts.Add(account);
+             }
+             catch (Exception)
+             {
+                 account = null;
+                 throw;
+             }*/
+            
+            Account account = accrepo.AddAccount(userName, email, password);
 
             return account;
         }
@@ -221,16 +227,17 @@ namespace PlantRServ
         ///  or null if none are found.</returns>
         public Account FindAccount(int accID)
         {
-            Account account = null;
+            /* Account account = null;
 
-            foreach (Account a in stubADB.accounts)
-            {
-                if (a.ID == accID)
-                {
-                    account = a;
-                }
-            }
-            return account;
+             foreach (Account a in stubADB.accounts)
+             {
+                 if (a.ID == accID)
+                 {
+                     account = a;
+                 }
+             }*/
+            Account acc = accrepo.FindAccount(accID);
+            return acc;
         }
 
         /// <summary>
