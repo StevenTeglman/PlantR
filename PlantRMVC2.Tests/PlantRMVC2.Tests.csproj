@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{265C5E76-7DE2-472B-ABA9-1B7282ED7D27}</ProjectGuid>
+    <ProjectGuid>{77FF35E5-BEB9-450C-AF21-1B1DC6DA25B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlantrMVC.Tests</RootNamespace>
-    <AssemblyName>PlantrMVC.Tests</AssemblyName>
+    <RootNamespace>PlantRMVC2.Tests</RootNamespace>
+    <AssemblyName>PlantRMVC2.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -99,9 +99,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlantrMVC\PlantrMVC.csproj">
-      <Project>{6D8F8A52-61FA-412A-9EB2-2B65BDC4DB6C}</Project>
-      <Name>PlantrMVC</Name>
+    <ProjectReference Include="..\PlantRMVC2\PlantRMVC2.csproj">
+      <Project>{DF74FE5F-A8B5-4D2D-9101-29DED96ED981}</Project>
+      <Name>PlantRMVC2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
