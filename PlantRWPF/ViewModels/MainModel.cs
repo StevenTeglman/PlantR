@@ -9,13 +9,10 @@ namespace PlantRWPF.ViewModels
 {
     public class MainModel : ViewModelBase
     {
-        public ViewModelBase CurrentView
-        {
-            get { return CurrentView; }
-            set { CurrentView = value; this.OnPropertyChanged(); }
-        }
-
+        
         public ICommand MyPlantsCommand { get; }
+
+
         public ICommand PlantCreateCommand { get; }
     }
 

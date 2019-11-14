@@ -24,11 +24,12 @@ namespace PlantRWPF.Views
     /// </summary>
     public partial class MyPlants : UserControl
     {
+
         public MyPlants()
         {
             InitializeComponent();
-         
 
+            
         }
 
 
@@ -36,8 +37,9 @@ namespace PlantRWPF.Views
 
         private void PlusBut_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new PlantCreateModel();
-
+            //((MyPlantsModel)DataContext).CurrentView = new PlantCreateModel();
+            ((MyPlantsModel)DataContext).PlantCreateSwitch();
+            
         }
     }
 }

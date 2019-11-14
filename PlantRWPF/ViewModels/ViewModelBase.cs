@@ -10,6 +10,13 @@ namespace PlantRWPF.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
+        ViewModelBase _CurrentView;
+        public ViewModelBase CurrentView
+        {
+            get { return _CurrentView; }
+            set { _CurrentView = value; this.OnPropertyChanged(); }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
