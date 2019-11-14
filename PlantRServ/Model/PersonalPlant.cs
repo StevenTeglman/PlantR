@@ -11,7 +11,7 @@ namespace PlantRServ.Model
     public class PersonalPlant : Plant
     {
         [DataMember]
-        public int Id { get; set; }
+        public int ppId { get; set; }
         [DataMember]
         public DateTime LastWatered { get; set; }
         [DataMember]

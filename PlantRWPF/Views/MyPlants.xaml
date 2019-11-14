@@ -15,7 +15,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Background="#FF5AEE53" Height="450" Width="800">
             <ScrollViewer Height="407" Margin="1">
-                <DataGrid Height="408" Width="780" Margin="0,0,0,0" />
+                <DataGrid x:Name="plantListGrid" Height="408" Width="780" Margin="0,0,0,0" />
             </ScrollViewer>
             <Button x:Name="plusBut" Content="+" Margin="760,10,10,0" Click="PlusBut_Click"/>
         </StackPanel>

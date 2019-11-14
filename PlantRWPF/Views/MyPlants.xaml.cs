@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using PlantRWPF;
+using PlantRWPF.PlantRRef;
 using PlantRWPF.ViewModels;
 
 namespace PlantRWPF.Views
@@ -24,20 +25,27 @@ namespace PlantRWPF.Views
     /// </summary>
     public partial class MyPlants : UserControl
     {
+        public PlantRRef.Service1Client service = null;
 
         public MyPlants()
         {
             InitializeComponent();
-
-            
+            ListPPlants();
         }
 
+        private void ListPPlants()
+        {
+            service = new Service1Client();
+            service.Open();
+            service.
+            //TODO return a dataset and bind it to the datagrid
+        }
 
         
 
         private void PlusBut_Click(object sender, RoutedEventArgs e)
         {
-            //((MyPlantsModel)DataContext).CurrentView = new PlantCreateModel();
+
             ((MyPlantsModel)DataContext).PlantCreateSwitch();
             
         }

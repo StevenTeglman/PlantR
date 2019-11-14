@@ -31,8 +31,6 @@ namespace PlantRWPF
             var mpm = new MyPlantsModel();
             mpm.Mm = (MainModel)DataContext;
             ((MainModel)DataContext).CurrentView = mpm;
-            
-            
 
 
         }
