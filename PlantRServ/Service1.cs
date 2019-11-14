@@ -291,17 +291,17 @@ namespace PlantRServ
 
         public Plant FindPlant(int id)
         {
-            throw new NotImplementedException();
+            return accrepo.FindPlant(id);
         }
 
-        public Plant UpdatePlant(int id)
+        public Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays)
         {
-            throw new NotImplementedException();
+            return accrepo.UpdatePlant(id, cName, lName, imageURL, description, sDays);
         }
 
         public bool DeletePlant(int id)
         {
-            throw new NotImplementedException();
+            return accrepo.DeletePlant(id);
         }
 
         #endregion

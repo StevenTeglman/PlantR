@@ -20,6 +20,9 @@ namespace PlantRServ.DataAccess
         {
         }
 
+        // ------------------------------   ACCOUNT    -------------------------------
+
+        #region Account
         public Account AddAccount(string userName, string email, string password)
         {
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
@@ -51,16 +54,16 @@ namespace PlantRServ.DataAccess
                 plantdb.LoadOptions = dlo;
                 Account result = plantdb.Accounts.First(e => e.email.Equals(email));
 
-/*                Account acc = new Account
-                {
-                    id = result.id,
-                    username = result.username,
-                    email = result.email,
-                    password = result.password,
-                    PersonalPlants = result.PersonalPlants
+                /*                Account acc = new Account
+                                {
+                                    id = result.id,
+                                    username = result.username,
+                                    email = result.email,
+                                    password = result.password,
+                                    PersonalPlants = result.PersonalPlants
 
-                };
-*/
+                                };
+                */
                 return result;
             }
         }
@@ -72,7 +75,7 @@ namespace PlantRServ.DataAccess
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
 
-                
+
                 try
                 {
                     Account result = plantdb.Accounts.First(e => e.email.Equals(email));
@@ -106,7 +109,13 @@ namespace PlantRServ.DataAccess
 
             return result;
         }
+        #endregion
 
+        // -------------------------------   Plants    --------------------------------
+
+        #region Plant
+
+        
         public bool AddPlant(string cName, string lName, string imageURL, string description, int sDays)
         {
             bool result = false;
@@ -127,16 +136,106 @@ namespace PlantRServ.DataAccess
                         description = description,
                         sdays = sDays
                     };
+                    plantdb.Plants.InsertOnSubmit(plant);
+                    plantdb.SubmitChanges();
+                    result = true;
                 }
                 catch (Exception)
                 {
 
-                    throw;
+                    result = true;
                 }
             }
 
             return result;
         }
+
+        public Plant FindPlant(int id)
+        {
+            Plant result = null;
+
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+
+                try
+                {
+                    DataLoadOptions dlo = new DataLoadOptions();
+                    dlo.LoadWith<Account>(A => A.PersonalPlants);
+                    plantdb.LoadOptions = dlo;
+                    result = plantdb.Plants.First(e => e.id.Equals(id));
+                }
+                catch (Exception)
+                {
+                    result = null;
+                }
+            }
+
+            return result;
+        }
+
+        public bool DeletePlant(int id)
+        {
+            bool result = false;
+
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+
+                try
+                {
+                    DataLoadOptions dlo = new DataLoadOptions();
+                    dlo.LoadWith<Account>(A => A.PersonalPlants);
+                    plantdb.LoadOptions = dlo;
+                    Plant p = plantdb.Plants.First(e => e.id.Equals(id));
+
+                    plantdb.Plants.DeleteOnSubmit(p);
+
+                    plantdb.SubmitChanges();
+                    result = true;
+                }
+                catch (Exception)
+                {
+                    result = false;
+                }
+            }
+
+            return result;
+        }
+
+        public Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays)
+        {
+            Plant result = null;
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+
+                try
+                {
+                    DataLoadOptions dlo = new DataLoadOptions();
+                    dlo.LoadWith<Account>(A => A.PersonalPlants);
+                    plantdb.LoadOptions = dlo;
+                    Plant p = plantdb.Plants.First(e => e.id.Equals(id));
+
+                    p.id = id;
+                    p.cname         = cName;
+                    p.lname         = lName;
+                    p.imgurl        = imageURL;
+                    p.description   = description;
+                    p.sdays         = sDays;
+
+                    plantdb.SubmitChanges();
+
+
+                    result = plantdb.Plants.First(e => e.id.Equals(id));
+                }
+                catch (Exception)
+                {
+                    result = null;
+                }
+            }
+
+            return result;
+        }
+
+        #endregion
 
 
         private static string GetConnectionString()
