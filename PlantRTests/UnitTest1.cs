@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PlantRTests.PlantRRef;
 
@@ -68,30 +69,35 @@ namespace PlantRTests
         public void AddAccountTest()
         {
             //Arrange
-            string userName = "username12222";
-            string email = "email12222";
-            string password = "password";
+            string userName = "usernameOG";
+            string email = "emailOG";
+            string password = "passwordOG";
 
             //Act
             Account test = service.AddAccount(userName, email, password);
 
             //Assert
             Assert.AreEqual(test.username, userName);
+
+            service.RemoveAccount(email);
         }
 
         [TestMethod]
         public void FindAccountTest()
         {
             //Arrange
-            int id = 2;
-            //Account result = null;
-            Setup();
+            string userName = "usernameOG";
+            string email = "emailOG";
+            string password = "passwordOG";
+            Account test = service.AddAccount(userName, email, password);
 
             //Act
-            Account result = service.FindAccount(id);
+            Account result = service.FindAccount(email);
 
             //Assert
-            Assert.AreEqual("password", result.password);
+            Assert.AreEqual(password, result.password);
+
+            service.RemoveAccount(email);
 
         }
 
@@ -99,22 +105,37 @@ namespace PlantRTests
         public void GetAllAccountsTest()
         {
             //Arrange
-
+            string userName = "usernameOG";
+            string email = "emailOG";
+            string password = "passwordOG";
+            service.AddAccount(userName, email, password);
+            string userName1 = "usernameOG1";
+            string email1 = "emailOG1";
+            string password1 = "passwordOG1";
+            service.AddAccount(userName1, email1, password1);
+            List<Account> accounts = new List<Account>();
             //Act
-            Account[] accounts = service.GetAllAccounts();
+            accounts = service.GetAllAccounts().ToList();
             //Assert
             Assert.IsNotNull(accounts);
+            Assert.AreEqual(3, accounts.Count());
+            
+            service.RemoveAccount(email);
+            service.RemoveAccount(email1);
+
         }
 
         [TestMethod]
         public void RemoveAccountTest()
         {
             //Arrange
-            int ID = 777;
-            bool result = false;
+            string userName = "usernameOG";
+            string email = "emailOG";
+            string password = "passwordOG";
+            Account test = service.AddAccount(userName, email, password);
 
             //Act
-            result = service.RemoveAccount(777);
+            bool result = service.RemoveAccount(email);
 
             //Assert
             Assert.IsTrue(result);
@@ -128,6 +149,8 @@ namespace PlantRTests
     {
         public PlantRRef.Service1Client service = null;
 
+
+
         [TestInitialize]
         public void Setup()
         {
@@ -136,11 +159,11 @@ namespace PlantRTests
             service.Open();
         }
 
-        /*[TestCleanup]
+        [TestCleanup]
         public void Cleanup()
         {
             Console.WriteLine("Cleanup executed.");
             service.Close();
-        }*/
+        }
     }
 }

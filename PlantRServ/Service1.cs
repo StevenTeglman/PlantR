@@ -225,7 +225,7 @@ namespace PlantRServ
         /// <param name="accID">Account ID</param>
         /// <returns>Returns either an Account if something is found,
         ///  or null if none are found.</returns>
-        public Account FindAccount(int accID)
+        public Account FindAccount(string email)
         {
             /* Account account = null;
 
@@ -236,7 +236,7 @@ namespace PlantRServ
                      account = a;
                  }
              }*/
-            Account acc= accrepo.FindAccount(accID);
+            Account acc= accrepo.FindAccount(email);
 
             return acc;
         }
@@ -249,7 +249,7 @@ namespace PlantRServ
         {
             List<Account> accounts = new List<Account>();
 
-            accounts = stubADB.accounts;
+            accounts = accrepo.GetAllAccounts();
 
             if (accounts.Count == 0)
             {
@@ -264,15 +264,9 @@ namespace PlantRServ
         /// </summary>
         /// <param name="accID">Account ID</param>
         /// <returns>Returns true if operation was successful, otherwise false</returns>
-        public bool RemoveAccount(int accID)
+        public bool RemoveAccount(string email)
         {
-            bool result = false;
-
-            Account account = FindAccount(accID);
-
-            result = stubADB.accounts.Remove(account);
-
-            return result;
+            return accrepo.RemoveAccount(email);
         }
 
         /// <summary>
@@ -286,5 +280,31 @@ namespace PlantRServ
         }
 
         #endregion
+
+        // -------------------------------   Plants    --------------------------------
+        #region Plant
+
+        public bool AddPlant(string cName, string lName, string imageURL, string description, int sDays)
+        {
+            return accrepo.AddPlant(cName, lName, imageURL, description, sDays);
+        }
+
+        public Plant FindPlant(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Plant UpdatePlant(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeletePlant(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
     }
 }

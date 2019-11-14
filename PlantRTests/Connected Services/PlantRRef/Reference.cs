@@ -253,7 +253,7 @@ namespace PlantRTests.PlantRRef {
     [System.SerializableAttribute()]
     public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -562,10 +562,10 @@ namespace PlantRTests.PlantRRef {
         System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> AddAccountAsync(string userName, string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindAccount", ReplyAction="http://tempuri.org/IService1/FindAccountResponse")]
-        PlantRTests.PlantRRef.Account FindAccount(int accID);
+        PlantRTests.PlantRRef.Account FindAccount(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindAccount", ReplyAction="http://tempuri.org/IService1/FindAccountResponse")]
-        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> FindAccountAsync(int accID);
+        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> FindAccountAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
         PlantRTests.PlantRRef.Account[] GetAllAccounts();
@@ -574,10 +574,10 @@ namespace PlantRTests.PlantRRef {
         System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account[]> GetAllAccountsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveAccount", ReplyAction="http://tempuri.org/IService1/RemoveAccountResponse")]
-        bool RemoveAccount(int accID);
+        bool RemoveAccount(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveAccount", ReplyAction="http://tempuri.org/IService1/RemoveAccountResponse")]
-        System.Threading.Tasks.Task<bool> RemoveAccountAsync(int accID);
+        System.Threading.Tasks.Task<bool> RemoveAccountAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastAccount", ReplyAction="http://tempuri.org/IService1/GetLastAccountResponse")]
         PlantRTests.PlantRRef.Account GetLastAccount();
@@ -693,12 +693,12 @@ namespace PlantRTests.PlantRRef {
             return base.Channel.AddAccountAsync(userName, email, password);
         }
         
-        public PlantRTests.PlantRRef.Account FindAccount(int accID) {
-            return base.Channel.FindAccount(accID);
+        public PlantRTests.PlantRRef.Account FindAccount(string email) {
+            return base.Channel.FindAccount(email);
         }
         
-        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> FindAccountAsync(int accID) {
-            return base.Channel.FindAccountAsync(accID);
+        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> FindAccountAsync(string email) {
+            return base.Channel.FindAccountAsync(email);
         }
         
         public PlantRTests.PlantRRef.Account[] GetAllAccounts() {
@@ -709,12 +709,12 @@ namespace PlantRTests.PlantRRef {
             return base.Channel.GetAllAccountsAsync();
         }
         
-        public bool RemoveAccount(int accID) {
-            return base.Channel.RemoveAccount(accID);
+        public bool RemoveAccount(string email) {
+            return base.Channel.RemoveAccount(email);
         }
         
-        public System.Threading.Tasks.Task<bool> RemoveAccountAsync(int accID) {
-            return base.Channel.RemoveAccountAsync(accID);
+        public System.Threading.Tasks.Task<bool> RemoveAccountAsync(string email) {
+            return base.Channel.RemoveAccountAsync(email);
         }
         
         public PlantRTests.PlantRRef.Account GetLastAccount() {

@@ -146,7 +146,7 @@
   <xs:element name="FindAccount">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="accID" type="xs:int" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -172,7 +172,7 @@
   <xs:element name="RemoveAccount">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="accID" type="xs:int" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

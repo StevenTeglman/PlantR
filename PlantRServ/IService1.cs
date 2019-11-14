@@ -42,13 +42,22 @@ namespace PlantRServ
         [OperationContract]
         Account AddAccount(string userName, string email, string password);
         [OperationContract]
-        Account FindAccount(int accID);
+        Account FindAccount(string email);
         [OperationContract]
         List<Account> GetAllAccounts();
         [OperationContract]
-        bool RemoveAccount(int accID);
+        bool RemoveAccount(string email);
         [OperationContract]
         Account GetLastAccount();
+        // -------------------------------   Plants    --------------------------------
+        [OperationContract]
+        bool AddPlant(string cName, string lName, string imageURL, string description, int sDays);
+        [OperationContract]
+        Plant FindPlant(int id);
+        [OperationContract]
+        Plant UpdatePlant(int id);
+        [OperationContract]
+        bool DeletePlant(int id);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

@@ -5,7 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetData_InputMessage">
