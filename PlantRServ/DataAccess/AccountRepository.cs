@@ -43,8 +43,17 @@ namespace PlantRServ.DataAccess
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
 
-                Account acc = plantdb.Accounts.First(e => e.id.Equals(accID));
-                
+                Account result = plantdb.Accounts.First(e => e.id.Equals(accID));
+
+                Account acc = new Account
+                {
+                    id = result.id,
+                    username = result.username,
+                    email = result.email,
+                    password = result.password
+
+                };
+
                 return acc;
             }
         }
