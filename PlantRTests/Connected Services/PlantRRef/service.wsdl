@@ -92,6 +92,30 @@
   <wsdl:message name="IService1_GetLastAccount_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLastAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AddPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPlant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlantResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -148,6 +172,22 @@
     <wsdl:operation name="GetLastAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLastAccount" message="tns:IService1_GetLastAccount_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLastAccountResponse" message="tns:IService1_GetLastAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddPlant" message="tns:IService1_AddPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddPlantResponse" message="tns:IService1_AddPlant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindPlant" message="tns:IService1_FindPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindPlantResponse" message="tns:IService1_FindPlant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePlant" message="tns:IService1_UpdatePlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePlantResponse" message="tns:IService1_UpdatePlant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePlant" message="tns:IService1_DeletePlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePlantResponse" message="tns:IService1_DeletePlant_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -271,6 +311,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetLastAccount">
       <soap:operation soapAction="http://tempuri.org/IService1/GetLastAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdatePlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeletePlant" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

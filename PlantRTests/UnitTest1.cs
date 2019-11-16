@@ -145,6 +145,97 @@ namespace PlantRTests
     }
 
     [TestClass]
+    public class PlantTest : BaseTests
+    {
+        [TestMethod]
+        public void AddPlant()
+        {
+            //Arrange
+
+            string cName = "commonName";
+            string lName = "latinName";
+            string imeURL = "www.URL.com";
+            string description = "description";
+            int sDays = 5;
+            int result;
+            //Act
+            result = service.AddPlant(cName, lName, imeURL, description, sDays);
+            //Assert
+            Assert.IsTrue(result != 0);
+
+            service.DeletePlant(result);
+
+        }
+
+        [TestMethod]
+        public void DeletePlant()
+        {
+            //Arrange
+
+            string cName = "commonName";
+            string lName = "latinName";
+            string imeURL = "www.URL.com";
+            string description = "description";
+            int sDays = 5;
+            int id = service.AddPlant(cName, lName, imeURL, description, sDays);
+            bool result;
+
+            //Act
+
+            result = service.DeletePlant(id);
+
+            //Assert
+
+            Assert.IsTrue(result);
+
+        }
+
+        [TestMethod]
+        public void FindPlant()
+        {
+            //Arrange
+
+            string cName = "commonName";
+            string lName = "latinName";
+            string imeURL = "www.URL.com";
+            string description = "description";
+            int sDays = 5;
+            int id = service.AddPlant(cName, lName, imeURL, description, sDays);
+
+            //Act
+
+            Plant p = service.FindPlant(id);
+
+            //Assert
+
+            Assert.AreEqual(p.cname, cName);
+
+            service.DeletePlant(id);
+        }
+
+        [TestMethod]
+        public void UpdatePlant()
+        {
+            //Assert
+            string cName = "commonName";
+            string lName = "latinName";
+            string imeURL = "www.URL.com";
+            string description = "description";
+            int sDays = 5;
+            int id = service.AddPlant(cName, lName, imeURL, description, sDays);
+
+            //Act
+            Plant p = service.UpdatePlant(id, "New name", lName, imeURL, description, sDays);
+
+
+            //Assert
+            Assert.AreEqual("New name", p.cname);
+
+            service.DeletePlant(id);
+        }
+    }
+
+    [TestClass]
     public abstract class BaseTests
     {
         public PlantRRef.Service1Client service = null;

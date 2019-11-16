@@ -51,11 +51,11 @@ namespace PlantRServ
         Account GetLastAccount();
         // -------------------------------   Plants    --------------------------------
         [OperationContract]
-        bool AddPlant(string cName, string lName, string imageURL, string description, int sDays);
+        int AddPlant(string cName, string lName, string imageURL, string description, int sDays);
         [OperationContract]
         Plant FindPlant(int id);
         [OperationContract]
-        Plant UpdatePlant(int id);
+        Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
         [OperationContract]
         bool DeletePlant(int id);
     }

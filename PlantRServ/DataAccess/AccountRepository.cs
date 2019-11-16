@@ -116,9 +116,9 @@ namespace PlantRServ.DataAccess
         #region Plant
 
         
-        public bool AddPlant(string cName, string lName, string imageURL, string description, int sDays)
+        public int AddPlant(string cName, string lName, string imageURL, string description, int sDays)
         {
-            bool result = false;
+            int result = 0;
 
             using(plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
@@ -126,7 +126,7 @@ namespace PlantRServ.DataAccess
                 try
                 {
                 DataLoadOptions dlo = new DataLoadOptions();
-                dlo.LoadWith<Account>(A => A.PersonalPlants);
+                dlo.LoadWith<Plant>(A => A.PersonalPlants);
                 plantdb.LoadOptions = dlo;
                     Plant plant = new Plant
                     {
@@ -138,12 +138,13 @@ namespace PlantRServ.DataAccess
                     };
                     plantdb.Plants.InsertOnSubmit(plant);
                     plantdb.SubmitChanges();
-                    result = true;
+                    
+                    result = plant.id;
                 }
                 catch (Exception)
                 {
 
-                    result = true;
+                    result = 0;
                 }
             }
 
@@ -160,7 +161,7 @@ namespace PlantRServ.DataAccess
                 try
                 {
                     DataLoadOptions dlo = new DataLoadOptions();
-                    dlo.LoadWith<Account>(A => A.PersonalPlants);
+                    dlo.LoadWith<Plant>(A => A.PersonalPlants);
                     plantdb.LoadOptions = dlo;
                     result = plantdb.Plants.First(e => e.id.Equals(id));
                 }
@@ -183,7 +184,7 @@ namespace PlantRServ.DataAccess
                 try
                 {
                     DataLoadOptions dlo = new DataLoadOptions();
-                    dlo.LoadWith<Account>(A => A.PersonalPlants);
+                    dlo.LoadWith<Plant>(A => A.PersonalPlants);
                     plantdb.LoadOptions = dlo;
                     Plant p = plantdb.Plants.First(e => e.id.Equals(id));
 
@@ -210,7 +211,7 @@ namespace PlantRServ.DataAccess
                 try
                 {
                     DataLoadOptions dlo = new DataLoadOptions();
-                    dlo.LoadWith<Account>(A => A.PersonalPlants);
+                    dlo.LoadWith<Plant>(A => A.PersonalPlants);
                     plantdb.LoadOptions = dlo;
                     Plant p = plantdb.Plants.First(e => e.id.Equals(id));
 

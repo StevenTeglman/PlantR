@@ -284,21 +284,51 @@ namespace PlantRServ
         // -------------------------------   Plants    --------------------------------
         #region Plant
 
-        public bool AddPlant(string cName, string lName, string imageURL, string description, int sDays)
+        /// <summary>
+        /// Adds a plant to the database, that can then be used by users to add personal
+        /// plants. Returns the plant ID of the plant that was added.
+        /// </summary>
+        /// <param name="cName">Common Name</param>
+        /// <param name="lName">Latin Name</param>
+        /// <param name="imageURL">Image URL</param>
+        /// <param name="description">Description</param>
+        /// <param name="sDays">Suggested Watering Days</param>
+        /// <returns>The Plant ID. Returns 0 if not successful</returns>
+        public int AddPlant(string cName, string lName, string imageURL, string description, int sDays)
         {
             return accrepo.AddPlant(cName, lName, imageURL, description, sDays);
         }
 
+        /// <summary>
+        /// Finds the plant by ID
+        /// </summary>
+        /// <param name="id">Plant ID</param>
+        /// <returns>Returns the requested plant</returns>
         public Plant FindPlant(int id)
         {
             return accrepo.FindPlant(id);
         }
 
+        /// <summary>
+        /// Updates the plant based on ID
+        /// </summary>
+        /// <param name="id">Plant ID</param>
+        /// <param name="cName">Desired new name</param>
+        /// <param name="lName">Desired new Latin Name</param>
+        /// <param name="imageURL">Desired new Image URL</param>
+        /// <param name="description">Desired new Description</param>
+        /// <param name="sDays">Desiured new Watering days</param>
+        /// <returns>Returns the updated plant</returns>
         public Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays)
         {
             return accrepo.UpdatePlant(id, cName, lName, imageURL, description, sDays);
         }
 
+        /// <summary>
+        /// Deletes the plant with the corresponding ID
+        /// </summary>
+        /// <param name="id">The plant ID</param>
+        /// <returns>Returns true if successful, or false if not.</returns>
         public bool DeletePlant(int id)
         {
             return accrepo.DeletePlant(id);

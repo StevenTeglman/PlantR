@@ -584,6 +584,30 @@ namespace PlantRTests.PlantRRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastAccount", ReplyAction="http://tempuri.org/IService1/GetLastAccountResponse")]
         System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> GetLastAccountAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPlant", ReplyAction="http://tempuri.org/IService1/AddPlantResponse")]
+        int AddPlant(string cName, string lName, string imageURL, string description, int sDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPlant", ReplyAction="http://tempuri.org/IService1/AddPlantResponse")]
+        System.Threading.Tasks.Task<int> AddPlantAsync(string cName, string lName, string imageURL, string description, int sDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPlant", ReplyAction="http://tempuri.org/IService1/FindPlantResponse")]
+        PlantRTests.PlantRRef.Plant FindPlant(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPlant", ReplyAction="http://tempuri.org/IService1/FindPlantResponse")]
+        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Plant> FindPlantAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePlant", ReplyAction="http://tempuri.org/IService1/UpdatePlantResponse")]
+        PlantRTests.PlantRRef.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePlant", ReplyAction="http://tempuri.org/IService1/UpdatePlantResponse")]
+        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Plant> UpdatePlantAsync(int id, string cName, string lName, string imageURL, string description, int sDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePlant", ReplyAction="http://tempuri.org/IService1/DeletePlantResponse")]
+        bool DeletePlant(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePlant", ReplyAction="http://tempuri.org/IService1/DeletePlantResponse")]
+        System.Threading.Tasks.Task<bool> DeletePlantAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -723,6 +747,38 @@ namespace PlantRTests.PlantRRef {
         
         public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> GetLastAccountAsync() {
             return base.Channel.GetLastAccountAsync();
+        }
+        
+        public int AddPlant(string cName, string lName, string imageURL, string description, int sDays) {
+            return base.Channel.AddPlant(cName, lName, imageURL, description, sDays);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddPlantAsync(string cName, string lName, string imageURL, string description, int sDays) {
+            return base.Channel.AddPlantAsync(cName, lName, imageURL, description, sDays);
+        }
+        
+        public PlantRTests.PlantRRef.Plant FindPlant(int id) {
+            return base.Channel.FindPlant(id);
+        }
+        
+        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Plant> FindPlantAsync(int id) {
+            return base.Channel.FindPlantAsync(id);
+        }
+        
+        public PlantRTests.PlantRRef.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays) {
+            return base.Channel.UpdatePlant(id, cName, lName, imageURL, description, sDays);
+        }
+        
+        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Plant> UpdatePlantAsync(int id, string cName, string lName, string imageURL, string description, int sDays) {
+            return base.Channel.UpdatePlantAsync(id, cName, lName, imageURL, description, sDays);
+        }
+        
+        public bool DeletePlant(int id) {
+            return base.Channel.DeletePlant(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeletePlantAsync(int id) {
+            return base.Channel.DeletePlantAsync(id);
         }
     }
 }
