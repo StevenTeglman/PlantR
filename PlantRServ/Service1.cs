@@ -78,7 +78,7 @@ namespace PlantRServ
         /// </summary>
         /// <returns>Returns all the plants in the Database, or null if,
         ///  none are found.</returns>
-        public List<Plant> GetAllPlants()
+        public List<Plant> GetAllPersonalPlants()
         {
             /*List<Plant> plants = new List<Plant>();
             // HACK: To connect to data access layer later.
@@ -334,6 +334,15 @@ namespace PlantRServ
             return accrepo.DeletePlant(id);
         }
 
+        /// <summary>
+        /// Returns all the plants in the Database 
+        /// </summary>
+        /// <returns>Either all the plants in the DB, or null if nothing found.</returns>
+        public List<Plant> GetAllPlants()
+        {
+            return accrepo.GetAllPlants();
+        }
+        
         #endregion
 
     }

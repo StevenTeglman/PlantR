@@ -117,8 +117,7 @@ namespace PlantRTests
             //Act
             accounts = service.GetAllAccounts().ToList();
             //Assert
-            Assert.IsNotNull(accounts);
-            Assert.AreEqual(3, accounts.Count());
+            Assert.AreNotEqual(0, accounts.Count());
             
             service.RemoveAccount(email);
             service.RemoveAccount(email1);
@@ -232,6 +231,34 @@ namespace PlantRTests
             Assert.AreEqual("New name", p.cname);
 
             service.DeletePlant(id);
+        }
+
+        [TestMethod]
+        public void GetAllPlantsTest()
+        {
+            //Assert
+            string cName = "commonName";
+            string lName = "latinName";
+            string imeURL = "www.URL.com";
+            string description = "description";
+            int sDays = 5;
+            int id = service.AddPlant(cName, lName, imeURL, description, sDays);
+            string cName1 = "commonName1";
+            string lName1 = "latinName1";
+            string imeURL1 = "www.URL.com1";
+            string description1 = "description1";
+            int sDays1 = 5;
+            int id1 = service.AddPlant(cName1, lName1, imeURL1, description1, sDays1);
+            List<Plant> plants = new List<Plant>();
+
+            //Act
+            plants = service.GetAllPlants().ToList();
+
+            //Assert
+            Assert.AreNotEqual(0, plants.Count());
+
+            service.DeletePlant(id);
+            service.DeletePlant(id1);
         }
     }
 
