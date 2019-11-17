@@ -263,6 +263,67 @@ namespace PlantRTests
     }
 
     [TestClass]
+    public class PersonalPlantTest : BaseTests
+    {
+        [TestMethod]
+        public void AddPersonalPlantTest()
+        {
+            //Arrange
+            int plantID = 1002;
+            int accID = 2002;
+            int daysWater = 5;
+            string nName = "TEST2";
+            int result = 0;
+            //Act
+            result = service.AddPersonalPlant(plantID, accID, daysWater, nName);
+            //Assert
+
+            Assert.AreNotEqual(result, 0);
+        }
+
+        [TestMethod]
+        public void GetAccountPersonalPlantsTest()
+        {
+            //TODO : Test this after Mate fixes his helper classes.
+            //Arrange
+            int accID = 2002;
+            int result = 0;
+
+            //Act
+            List<PersonalPlant> ppList = new List<PersonalPlant>();
+            ppList = service.GetAccountPersonalPlants(accID).ToList();
+            
+            result = ppList.Count();
+            //Assert
+            Assert.AreNotEqual(result, 0);
+        }
+
+        [TestMethod]
+        public void FindPersonalPlantTest()
+        {
+            //TODO
+            //Arrange
+
+            //Act
+
+            //Assert
+
+        }
+
+        [TestMethod]
+        public void RemovePersonalPlantTest()
+        {
+            //TODO
+            //Arrange
+
+            //Act
+
+            //Assert
+
+        }
+    }
+
+    [TestClass]
     public abstract class BaseTests
     {
         public PlantRRef.Service1Client service = null;

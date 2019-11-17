@@ -42,16 +42,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Plant" nillable="true" type="tns:Plant" />
-  <xs:complexType name="ArrayOfPlant">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Plant" nillable="true" type="tns:Plant" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPlant" nillable="true" type="tns:ArrayOfPlant" />
   <xs:complexType name="ArrayOfAccount">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="tns:Account" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAccount" nillable="true" type="tns:ArrayOfAccount" />
+  <xs:complexType name="ArrayOfPlant">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Plant" nillable="true" type="tns:Plant" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlant" nillable="true" type="tns:ArrayOfPlant" />
 </xs:schema>

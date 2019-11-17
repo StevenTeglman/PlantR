@@ -124,27 +124,11 @@ namespace PlantRServ
             {
                 ppList = null;
             }*/
-            return null;
+
+
+            return accrepo.GetAllAccountPersonalPlants(accID);
         }
 
-        /// <summary>
-        /// Returns a Plant object based on the ID provided
-        /// </summary>
-        /// <param name="ID">The specific Plant ID</param>
-        /// <returns>The desired plant</returns>
-        public Plant GetPlant(int ID)
-        {
-            /*Plant result = null;
-            foreach (Plant plant in stubPDB.plants)
-            {
-                if (plant.ID == ID)
-                {
-                    result = plant;
-                    break;
-                }
-            }*/
-            return null;
-        }
 
         /// <summary>
         /// Just a class for testing. Get's the last Personal Plant

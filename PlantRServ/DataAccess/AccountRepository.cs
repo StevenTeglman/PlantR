@@ -248,24 +248,27 @@ namespace PlantRServ.DataAccess
         public int AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
         {
             int result = 0;
+            //Plant p = FindPlant(plantID);
+            //Account acc = FindAccount(accID);
+
 
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
                 try
                 {
-                    Plant p = FindPlant(plantID);
+                    
 
                     plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
                     PersonalPlant pplant = new PersonalPlant
                     {
-                        pid = p.id,
+                        pid = plantID,
                         aid = accID,
                         nname = nName,
                         wduration = daysWater,
                         lastwatered = DateTime.Today,
                         nextwatered = DateTime.Today.AddDays(daysWater),
-                        Plant = p,
-                        Account = FindAccount(accID)
+                        //Plant = p,
+                        //Account = acc
                         
                     };
                     plantdb.PersonalPlants.InsertOnSubmit(pplant);
@@ -273,9 +276,11 @@ namespace PlantRServ.DataAccess
 
                     result = pplant.id;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     result = 0;
+                    throw e;
+                    
                 }
             }
 
@@ -312,7 +317,7 @@ namespace PlantRServ.DataAccess
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
                 plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
-                result = plantdb.PersonalPlants.Where(e => e.aid.Equals(accID)).ToList();
+                result = plantdb.PersonalPlants.Where(e => e.aid == accID).ToList();
             }
 
             return result;
