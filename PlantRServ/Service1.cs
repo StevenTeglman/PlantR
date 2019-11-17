@@ -50,8 +50,15 @@ namespace PlantRServ
 
         #region PersonalPlant
 
-
-        public PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
+        /// <summary>
+        /// Adds a personal Plant to an account
+        /// </summary>
+        /// <param name="plantID">Plant ID</param>
+        /// <param name="accID">Account ID</param>
+        /// <param name="daysWater">Assigned days between waterings</param>
+        /// <param name="nName">NickName</param>
+        /// <returns>Returns the ID of the new Personal PLant</returns>
+        public int AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
         {
             /*Plant p = GetPlant(plantID);
             PersonalPlant pp = new PersonalPlant
@@ -70,15 +77,19 @@ namespace PlantRServ
                 WDuration = daysWater
             };
             stubPPDB.personalPlants.Add(pp); // HACK: Obviously this will be replaced with the Database connection once the time comes */
-            return null;
+
+            int result = accrepo.AddPersonalPlant(plantID, accID, daysWater, nName);
+            
+            return result;
         }
 
         /// <summary>
-        /// Get's a list of all of the Plants in the Database
+        /// Gets a list of all of the personal plants in the DB.
+        /// Why do we want this? Not sure. When do we want it?
+        /// NOW!
         /// </summary>
-        /// <returns>Returns all the plants in the Database, or null if,
-        ///  none are found.</returns>
-        public List<Plant> GetAllPersonalPlants()
+        /// <returns>Complete list of all the personal plants in DB</returns>
+        public List<PersonalPlant> GetAllPersonalPlants()
         {
             /*List<Plant> plants = new List<Plant>();
             // HACK: To connect to data access layer later.
@@ -89,7 +100,7 @@ namespace PlantRServ
                 plants = null;
             }*/
 
-            return null;
+            return accrepo.GetAllPersonalPlants();
         }
 
         /// <summary>
@@ -98,7 +109,7 @@ namespace PlantRServ
         /// <param name="accID">Account ID</param>
         /// <returns>Returns either a list of Personal Plants based on the,
         ///  entered ID, or else it will return null if nothing is found.</returns>
-        public List<PersonalPlant> GetAccountPlants(int accID)
+        public List<PersonalPlant> GetAccountPersonalPlants(int accID)
         {
            /* List<PersonalPlant> ppList = new List<PersonalPlant>();
             // HACK: replace Stub with DB Access
@@ -163,7 +174,9 @@ namespace PlantRServ
                     break;
                 }
             }*/
-            return null;
+
+
+            return accrepo.FindPersonalPlant(ppID);
         }
 
         /// <summary>
@@ -173,12 +186,7 @@ namespace PlantRServ
         /// <returns>Returns a boolean. True if successful, False if not.</returns>
         public bool RemovePersonalPlant(int ppID)
         {
-            bool result = false;
-
-            PersonalPlant pp = FindPersonalPlant(ppID);
-            result = stubPPDB.personalPlants.Remove(pp);
-
-            return result;
+            return accrepo.RemovePersonalPlant(ppID);
         }
         #endregion
 

@@ -25,7 +25,7 @@ namespace PlantRServ.DataAccess
         {
         }
 
-        // ------------------------------   ACCOUNT    -------------------------------
+        // ------------------------------   Account    --------------------------------
 
         #region Account
         //Basic CRUD for Accounts - Add, Find, Remove Update - plus a method to return a List of all Accounts in DB
@@ -55,6 +55,17 @@ namespace PlantRServ.DataAccess
             {
                 plantdb.LoadOptions = SetDataLoadOptions(TableInUse.Account);
                 Account result = plantdb.Accounts.First(e => e.email.Equals(email));
+
+                return result;
+            }
+        }
+
+        public Account FindAccount(int accID)
+        {
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+                plantdb.LoadOptions = SetDataLoadOptions(TableInUse.Account);
+                Account result = plantdb.Accounts.First(e => e.id.Equals(accID));
 
                 return result;
             }
@@ -221,6 +232,151 @@ namespace PlantRServ.DataAccess
         }
 
         #endregion
+
+        // ---------------------------   Personal Plant    ----------------------------
+
+        #region Personal Plant
+
+        /// <summary>
+        /// Adds a personal Plant to an account
+        /// </summary>
+        /// <param name="plantID">Plant ID</param>
+        /// <param name="accID">Account ID</param>
+        /// <param name="daysWater">Assigned days between waterings</param>
+        /// <param name="nName">NickName</param>
+        /// <returns>Returns the ID of the new Personal PLant</returns>
+        public int AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
+        {
+            int result = 0;
+
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+                try
+                {
+                    Plant p = FindPlant(plantID);
+
+                    plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
+                    PersonalPlant pplant = new PersonalPlant
+                    {
+                        pid = p.id,
+                        aid = accID,
+                        nname = nName,
+                        wduration = daysWater,
+                        lastwatered = DateTime.Today,
+                        nextwatered = DateTime.Today.AddDays(daysWater),
+                        Plant = p,
+                        Account = FindAccount(accID)
+                        
+                    };
+                    plantdb.PersonalPlants.InsertOnSubmit(pplant);
+                    plantdb.SubmitChanges();
+
+                    result = pplant.id;
+                }
+                catch (Exception)
+                {
+                    result = 0;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Gets a list of all of the personal plants in the DB.
+        /// Why do we want this? Not sure. When do we want it?
+        /// NOW!
+        /// </summary>
+        /// <returns>Complete list of all the personal plants in DB</returns>
+        public List<PersonalPlant> GetAllPersonalPlants()
+        {
+            List<PersonalPlant> result = new List<PersonalPlant>();
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+                plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
+                result = plantdb.PersonalPlants.ToList();
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Gets a list of all of the personal plants for one account, based on the
+        /// entered account ID.
+        /// </summary>
+        /// <param name="accID">Account ID</param>
+        /// <returns>List of Personal Plants for that account</returns>
+        public List<PersonalPlant> GetAllAccountPersonalPlants(int accID)
+        {
+            List<PersonalPlant> result = new List<PersonalPlant>();
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+                plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
+                result = plantdb.PersonalPlants.Where(e => e.aid.Equals(accID)).ToList();
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Find a single personal plant via PersonalPlant ID
+        /// </summary>
+        /// <param name="ppID">PersonalPlant ID</param>
+        /// <returns>Returns the personal plant with the correct PersonalPlantID,
+        ///  or it will return null if nothing is find.</returns>
+        public PersonalPlant FindPersonalPlant(int ppID)
+        {
+            PersonalPlant result = null;
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+
+                try
+                {
+                    plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
+                    result = plantdb.PersonalPlants.First(e => e.id.Equals(ppID));
+                }
+                catch (Exception)
+                {
+                    result = null;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Removes a PersonalPlant from the PersonalPlant Database
+        /// </summary>
+        /// <param name="ppID">The Personal Plant ID of the plant needed to be</param>
+        /// <returns>Returns a boolean. True if successful, False if not.</returns>
+        public bool RemovePersonalPlant(int ppID)
+        {
+            bool result = false;
+
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+
+                try
+                {
+                    plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
+                    PersonalPlant pp = plantdb.PersonalPlants.First(e => e.id.Equals(ppID));
+
+                    plantdb.PersonalPlants.DeleteOnSubmit(pp);
+                    plantdb.SubmitChanges();
+                    result = true;
+                }
+                catch (Exception)
+                {
+                    result = false;
+                }
+            }
+
+            return result;
+        }
+
+
+        #endregion
+
 
         #region Private Helper Methods
         //Create and return connection string to DB - using the SQLConnectionStringBuilder object
