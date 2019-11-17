@@ -20,7 +20,7 @@ namespace PlantRServ.DataAccess
         {
         }
 
-        // ------------------------------   ACCOUNT    -------------------------------
+        // ------------------------------   Accounts    -------------------------------
 
         #region Account
         public Account AddAccount(string userName, string email, string password)
@@ -238,7 +238,12 @@ namespace PlantRServ.DataAccess
 
         #endregion
 
+        // ---------------------------   Personal Plant    ---------------------------
 
+        #region Personal Plant
+
+
+        #endregion
         private static string GetConnectionString()
         {
             SqlConnectionStringBuilder conStr = new SqlConnectionStringBuilder
