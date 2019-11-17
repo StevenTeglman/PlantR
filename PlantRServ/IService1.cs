@@ -29,7 +29,7 @@ namespace PlantRServ
         [OperationContract]
         PersonalPlant FindPersonalPlant(int ppID);
         [OperationContract]
-        List<Plant> GetAllPlants();
+        List<Plant> GetAllPersonalPlants();
         [OperationContract]
         List<PersonalPlant> GetAccountPlants(int accID);
         [OperationContract]
@@ -58,6 +58,8 @@ namespace PlantRServ
         Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
         [OperationContract]
         bool DeletePlant(int id);
+        [OperationContract]
+        List<Plant> GetAllPlants();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
