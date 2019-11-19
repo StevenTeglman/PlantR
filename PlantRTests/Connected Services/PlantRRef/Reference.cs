@@ -544,10 +544,10 @@ namespace PlantRTests.PlantRRef {
         System.Threading.Tasks.Task<bool> RemovePersonalPlantAsync(int ppID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePersonalPlant", ReplyAction="http://tempuri.org/IService1/UpdatePersonalPlantResponse")]
-        bool UpdatePersonalPlant(int ppID, int daysWater, string nName);
+        bool UpdatePersonalPlant(int ppID, int wDuration, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePersonalPlant", ReplyAction="http://tempuri.org/IService1/UpdatePersonalPlantResponse")]
-        System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int daysWater, string nName);
+        System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int wDuration, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
         PlantRTests.PlantRRef.Account AddAccount(string userName, string email, string password);
@@ -693,12 +693,12 @@ namespace PlantRTests.PlantRRef {
             return base.Channel.RemovePersonalPlantAsync(ppID);
         }
         
-        public bool UpdatePersonalPlant(int ppID, int daysWater, string nName) {
-            return base.Channel.UpdatePersonalPlant(ppID, daysWater, nName);
+        public bool UpdatePersonalPlant(int ppID, int wDuration, string nName) {
+            return base.Channel.UpdatePersonalPlant(ppID, wDuration, nName);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int daysWater, string nName) {
-            return base.Channel.UpdatePersonalPlantAsync(ppID, daysWater, nName);
+        public System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int wDuration, string nName) {
+            return base.Channel.UpdatePersonalPlantAsync(ppID, wDuration, nName);
         }
         
         public PlantRTests.PlantRRef.Account AddAccount(string userName, string email, string password) {

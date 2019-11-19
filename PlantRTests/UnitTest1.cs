@@ -95,14 +95,16 @@ namespace PlantRTests
             int daysWater = 5;
             string nName = "Planty";
             string newName = "poopy";
-            PersonalPlant pp = null;
+            
             int ppID = service.AddPersonalPlant(plantID, accID, daysWater, nName);
-            //Act
-            //pp = service.UpdatePersonalPlant
 
+            //Act
+            bool result = service.UpdatePersonalPlant(ppID, daysWater, newName);
+            PersonalPlant updatedPP = service.FindPersonalPlant(ppID); 
             //Assert
 
-            Assert.AreEqual(pp.nname, nName);
+            Assert.IsTrue(result);
+            Assert.AreEqual(updatedPP.nname, newName);
 
             service.RemovePersonalPlant(ppID);
 

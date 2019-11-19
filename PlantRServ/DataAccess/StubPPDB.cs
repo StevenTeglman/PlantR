@@ -24,7 +24,7 @@ namespace PlantRServ.DataAccess
 
         private StubPPDB()
         {
-            personalPlants.Add(new PersonalPlant
+           /* personalPlants.Add(new PersonalPlant
             {
                 ID=1,
                 AId=99,
@@ -70,7 +70,7 @@ namespace PlantRServ.DataAccess
                 WDuration = 3,
                 Id = 3
 
-            }); ;
+            }); ;*/
 
         }
 

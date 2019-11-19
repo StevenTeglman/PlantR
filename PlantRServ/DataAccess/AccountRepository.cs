@@ -385,9 +385,9 @@ namespace PlantRServ.DataAccess
             return result;
         }
 
-        public PersonalPlant UpdatePersonalPlant(int ppID, int daysWater, string nName)
+        public bool UpdatePersonalPlant(int ppID, int daysWater, string nName)
         {
-            PersonalPlant result = null;
+            bool result = false;
 
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
@@ -401,11 +401,12 @@ namespace PlantRServ.DataAccess
                     
                     plantdb.SubmitChanges();
 
-                    result = plantdb.PersonalPlants.First(e => e.id.Equals(ppID));
+                    result = true;
+
                 }
                 catch (Exception)
                 {
-                    result = null;
+                    result = false;
                 }
             }
 

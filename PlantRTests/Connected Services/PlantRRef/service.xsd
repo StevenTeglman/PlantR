@@ -105,7 +105,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ppID" type="xs:int" />
-        <xs:element minOccurs="0" name="daysWater" type="xs:int" />
+        <xs:element minOccurs="0" name="wDuration" type="xs:int" />
         <xs:element minOccurs="0" name="nName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

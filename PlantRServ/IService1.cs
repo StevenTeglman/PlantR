@@ -35,7 +35,7 @@ namespace PlantRServ
         [OperationContract]
         bool RemovePersonalPlant(int ppID);
         [OperationContract]
-        PersonalPlant UpdatePersonalPlant(PersonalPlant pp);
+        bool UpdatePersonalPlant(int ppID, int wDuration, string nName);
         // ------------------------------   Accounts    -------------------------------
         [OperationContract]
         Account AddAccount(string userName, string email, string password);
