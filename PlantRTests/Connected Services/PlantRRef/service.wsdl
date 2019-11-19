@@ -44,17 +44,17 @@
   <wsdl:message name="IService1_GetAccountPersonalPlants_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAccountPersonalPlantsResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetPlant_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlant" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetPlant_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlantResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_RemovePersonalPlant_InputMessage">
     <wsdl:part name="parameters" element="tns:RemovePersonalPlant" />
   </wsdl:message>
   <wsdl:message name="IService1_RemovePersonalPlant_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemovePersonalPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePersonalPlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePersonalPlant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePersonalPlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePersonalPlantResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_AddAccount_InputMessage">
     <wsdl:part name="parameters" element="tns:AddAccount" />
@@ -141,13 +141,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAccountPersonalPlants" message="tns:IService1_GetAccountPersonalPlants_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAccountPersonalPlantsResponse" message="tns:IService1_GetAccountPersonalPlants_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetPlant">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPlant" message="tns:IService1_GetPlant_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPlantResponse" message="tns:IService1_GetPlant_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="RemovePersonalPlant">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemovePersonalPlant" message="tns:IService1_RemovePersonalPlant_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemovePersonalPlantResponse" message="tns:IService1_RemovePersonalPlant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePersonalPlant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePersonalPlant" message="tns:IService1_UpdatePersonalPlant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePersonalPlantResponse" message="tns:IService1_UpdatePersonalPlant_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddAccount" message="tns:IService1_AddAccount_InputMessage" />
@@ -246,8 +246,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetPlant">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetPlant" style="document" />
+    <wsdl:operation name="RemovePersonalPlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/RemovePersonalPlant" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -255,8 +255,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RemovePersonalPlant">
-      <soap:operation soapAction="http://tempuri.org/IService1/RemovePersonalPlant" style="document" />
+    <wsdl:operation name="UpdatePersonalPlant">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdatePersonalPlant" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

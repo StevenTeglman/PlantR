@@ -537,17 +537,17 @@ namespace PlantRTests.PlantRRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAccountPersonalPlantsResponse")]
         System.Threading.Tasks.Task<PlantRTests.PlantRRef.PersonalPlant[]> GetAccountPersonalPlantsAsync(int accID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPlant", ReplyAction="http://tempuri.org/IService1/GetPlantResponse")]
-        PlantRTests.PlantRRef.Plant GetPlant(int ID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPlant", ReplyAction="http://tempuri.org/IService1/GetPlantResponse")]
-        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Plant> GetPlantAsync(int ID);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemovePersonalPlant", ReplyAction="http://tempuri.org/IService1/RemovePersonalPlantResponse")]
         bool RemovePersonalPlant(int ppID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemovePersonalPlant", ReplyAction="http://tempuri.org/IService1/RemovePersonalPlantResponse")]
         System.Threading.Tasks.Task<bool> RemovePersonalPlantAsync(int ppID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePersonalPlant", ReplyAction="http://tempuri.org/IService1/UpdatePersonalPlantResponse")]
+        bool UpdatePersonalPlant(int ppID, int daysWater, string nName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePersonalPlant", ReplyAction="http://tempuri.org/IService1/UpdatePersonalPlantResponse")]
+        System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int daysWater, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
         PlantRTests.PlantRRef.Account AddAccount(string userName, string email, string password);
@@ -685,20 +685,20 @@ namespace PlantRTests.PlantRRef {
             return base.Channel.GetAccountPersonalPlantsAsync(accID);
         }
         
-        public PlantRTests.PlantRRef.Plant GetPlant(int ID) {
-            return base.Channel.GetPlant(ID);
-        }
-        
-        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Plant> GetPlantAsync(int ID) {
-            return base.Channel.GetPlantAsync(ID);
-        }
-        
         public bool RemovePersonalPlant(int ppID) {
             return base.Channel.RemovePersonalPlant(ppID);
         }
         
         public System.Threading.Tasks.Task<bool> RemovePersonalPlantAsync(int ppID) {
             return base.Channel.RemovePersonalPlantAsync(ppID);
+        }
+        
+        public bool UpdatePersonalPlant(int ppID, int daysWater, string nName) {
+            return base.Channel.UpdatePersonalPlant(ppID, daysWater, nName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int daysWater, string nName) {
+            return base.Channel.UpdatePersonalPlantAsync(ppID, daysWater, nName);
         }
         
         public PlantRTests.PlantRRef.Account AddAccount(string userName, string email, string password) {

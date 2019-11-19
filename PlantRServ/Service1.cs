@@ -160,9 +160,9 @@ namespace PlantRServ
             return accrepo.RemovePersonalPlant(ppID);
         }
 
-        public bool UpdatePersonalPlant(int ppID, int daysWater, string nName)
+        public PersonalPlant UpdatePersonalPlant(PersonalPlant pp)
         {
-            return accrepo.UpdatePersonalPlant(ppID, daysWater, nName);
+            return accrepo.UpdatePersonalPlant(pp.id, pp.wduration, pp.nname);
         }
 
         public bool UpdatePersonalPlant(PersonalPlant pp)

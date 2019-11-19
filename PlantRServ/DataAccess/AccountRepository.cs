@@ -248,15 +248,12 @@ namespace PlantRServ.DataAccess
         public int AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
         {
             int result = 0;
-/*            Plant p = FindPlant(plantID);
-            Account a = FindAccount(accID);*/
 
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
                 try
                 {
                     
-
                     plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
                     PersonalPlant pplant = new PersonalPlant
                     {
@@ -266,8 +263,6 @@ namespace PlantRServ.DataAccess
                         wduration = daysWater,
                         lastwatered = DateTime.Today,
                         nextwatered = DateTime.Today.AddDays(daysWater)
-/*                        Plant = p,
-                        Account = a*/
                         
                     };
                     plantdb.PersonalPlants.InsertOnSubmit(pplant);
@@ -390,12 +385,32 @@ namespace PlantRServ.DataAccess
             return result;
         }
 
-        public bool UpdatePersonalPlant(int ppID, int daysWater, string nName)
+        public PersonalPlant UpdatePersonalPlant(int ppID, int daysWater, string nName)
         {
-            bool result = false;
+            PersonalPlant result = null;
 
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+                try
+                {
+                    plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
+                    PersonalPlant pp = plantdb.PersonalPlants.First(e => e.id.Equals(ppID));
+
+                    pp.wduration = daysWater;
+                    pp.nname = nName;
+                    
+                    plantdb.SubmitChanges();
+
+                    result = plantdb.PersonalPlants.First(e => e.id.Equals(ppID));
+                }
+                catch (Exception)
+                {
+                    result = null;
+                }
+            }
 
             return result;
+
         }
 
 
