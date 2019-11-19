@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="39e6af46-bf14-4cdd-ab5a-3a9f28336f2d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/PlantRServ/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="cee0817c-f5c3-4dde-a260-b85c97793ac2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PlantRServ/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="0f9cf079-ade6-48d8-903e-6b815d38e204" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PlantRServ/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="c00dfdba-d918-445c-8839-3466544ff9dd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PlantRServ/Service1/mex" />
+    <MetadataFile FileName="PlantRServ.xsd" MetadataType="Schema" ID="db6c9948-f207-419e-a559-05293b52428f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PlantRServ/Service1/mex" />
+    <MetadataFile FileName="PlantRServ.Model.xsd" MetadataType="Schema" ID="86f3775e-76b4-4d6c-9b49-26bc89c513ed" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PlantRServ/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -28,13 +28,23 @@ namespace PlantRWPF
             InitializeComponent();
             service = new Service1Client();
             service.Open();
-            DataContext = new MyPlantsModel();
+            var mpm = new MyPlantsModel();
+            mpm.Mm = (MainModel)DataContext;
+            ((MainModel)DataContext).CurrentView = mpm;
+
+
         }
 
 
         private void MyPlantBut_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new MyPlantsModel();
+            //DataContext = new MyPlantsModel();
+           
+        }
+
+        public void PlantCreateSwitch()
+        {
+            DataContext = new PlantCreateModel();
         }
 
 

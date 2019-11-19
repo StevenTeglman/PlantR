@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:PlantRWPF.Views"
         xmlns:viewModels="clr-namespace:PlantRWPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="594" Width="1007">
+        Title="MainWindow" Height="594" Width="1010">
 
   
     <Window.Resources>
@@ -17,14 +17,12 @@
         <DataTemplate x:Name="plantCreateTemplate" DataType="{x:Type viewModels:PlantCreateModel}">
             <views:PlantCreate DataContext="{Binding}"/>
         </DataTemplate>
-        <!--<DataTemplate DataType="{x:Type viewModels:MainModel}">
-            <views:MainView DataContext="{Binding}"/>
-        </DataTemplate>-->
+        
     </Window.Resources>
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <viewModels:MainModel/>
-    </Window.DataContext>-->
-       
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -55,7 +53,7 @@
             </StackPanel>
         </DockPanel>
 
-        <ContentControl x:Name="mwContentCtrl" Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Content="{Binding}" />
+        <ContentControl x:Name="mwContentCtrl" Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Content="{Binding CurrentView}" />
 
     </Grid>
 </Window>
