@@ -248,24 +248,26 @@ namespace PlantRServ.DataAccess
         public int AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
         {
             int result = 0;
+/*            Plant p = FindPlant(plantID);
+            Account a = FindAccount(accID);*/
 
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
                 try
                 {
-                    Plant p = FindPlant(plantID);
+                    
 
                     plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
                     PersonalPlant pplant = new PersonalPlant
                     {
-                        pid = p.id,
+                        pid = plantID,
                         aid = accID,
                         nname = nName,
                         wduration = daysWater,
                         lastwatered = DateTime.Today,
-                        nextwatered = DateTime.Today.AddDays(daysWater),
-                        Plant = p,
-                        Account = FindAccount(accID)
+                        nextwatered = DateTime.Today.AddDays(daysWater)
+/*                        Plant = p,
+                        Account = a*/
                         
                     };
                     plantdb.PersonalPlants.InsertOnSubmit(pplant);
@@ -273,8 +275,10 @@ namespace PlantRServ.DataAccess
 
                     result = pplant.id;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine(e.StackTrace);
                     result = 0;
                 }
             }
@@ -333,10 +337,22 @@ namespace PlantRServ.DataAccess
                 try
                 {
                     plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
-                    result = plantdb.PersonalPlants.First(e => e.id.Equals(ppID));
+                    PersonalPlant pp = plantdb.PersonalPlants.First(e => e.id.Equals(ppID));
+                    result = new PersonalPlant
+                    {
+                        id = pp.id,
+                        aid = pp.aid,
+                        pid = pp.pid,
+                        nname = pp.nname,
+                        wduration = pp.wduration,
+                        lastwatered = pp.lastwatered,
+                        nextwatered = pp.nextwatered
+                    };
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine(e.StackTrace);
                     result = null;
                 }
             }
@@ -370,6 +386,14 @@ namespace PlantRServ.DataAccess
                     result = false;
                 }
             }
+
+            return result;
+        }
+
+        public bool UpdatePersonalPlant(int ppID, int daysWater, string nName)
+        {
+            bool result = false;
+
 
             return result;
         }

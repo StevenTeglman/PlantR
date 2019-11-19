@@ -6,12 +6,12 @@ using PlantRTests.PlantRRef;
 
 namespace PlantRTests
 {
-    [TestClass]
-    public class PersonalPlantTests : BaseTests
-    {
 
+    [TestClass]
+    public class ServiceConnectionTest : BaseTests
+    {
         [TestMethod]
-        public void ServiceConnection()
+        public void ServiceConnectionTestMethod()
         {
             //Arrange
             int i = 5;
@@ -23,40 +23,73 @@ namespace PlantRTests
             Assert.AreEqual($"You entered: {i}", s);
         }
 
+    }
+
+    [TestClass]
+    public class PersonalPlantTests : BaseTests
+    {
+
         [TestMethod]
-        public void AddPlantToAccount()
+        public void AddPlantToAccountTest()
         {
             //Arrange
-            int plantID = 1;
-            int accID = 777;
+            int plantID = 1002;
+            int accID = 2002;
             int daysWater = 5;
             string nName = "Planty";
+            int result = 0;
+            int ppID = 0;
             //Act
-            service.AddPersonalPlant(plantID, accID, daysWater, nName);
+            ppID = service.AddPersonalPlant(plantID, accID, daysWater, nName);
 
             //Assert
-            PersonalPlant pp = service.GetLastPP();
-            Assert.AreEqual(nName, pp.nname);
+            
+            Assert.AreNotEqual(result, ppID);
+
+            service.RemovePersonalPlant(ppID);
 
         }
 
         [TestMethod]
-        public void RemovePlantFromAccount()
+        public void RemovePlantFromAccountTest()
         {
             //Arrange
-            int ppID = 1;
-            int plantID = 1;
-            int accID = 777;
+            int plantID = 1002;
+            int accID = 2002;
             int daysWater = 5;
             string nName = "Planty";
             bool result = false;
-            service.AddPersonalPlant(plantID, accID, daysWater, nName);
+            int ppID = service.AddPersonalPlant(plantID, accID, daysWater, nName);
             //Act
             result = service.RemovePersonalPlant(ppID);
 
             //Assert
             
             Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void FindPlantFromAccountTest()
+        {
+            //Arrange
+            int plantID = 1002;
+            int accID = 2002;
+            int daysWater = 5;
+            string nName = "Planty";
+            PersonalPlant pp = null;
+            int ppID = service.AddPersonalPlant(plantID, accID, daysWater, nName);
+            //Act
+            pp = service.FindPersonalPlant(ppID);
+
+            //Assert
+
+            Assert.AreEqual(pp.nname, nName);
+
+            service.RemovePersonalPlant(ppID);
+        }
+        [TestMethod]
+        public void UpdatePersonalPlantTest()
+        {
+
         }
 
 
@@ -266,8 +299,6 @@ namespace PlantRTests
     public abstract class BaseTests
     {
         public PlantRRef.Service1Client service = null;
-
-
 
         [TestInitialize]
         public void Setup()

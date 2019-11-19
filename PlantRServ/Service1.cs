@@ -128,35 +128,6 @@ namespace PlantRServ
         }
 
         /// <summary>
-        /// Returns a Plant object based on the ID provided
-        /// </summary>
-        /// <param name="ID">The specific Plant ID</param>
-        /// <returns>The desired plant</returns>
-        public Plant GetPlant(int ID)
-        {
-            /*Plant result = null;
-            foreach (Plant plant in stubPDB.plants)
-            {
-                if (plant.ID == ID)
-                {
-                    result = plant;
-                    break;
-                }
-            }*/
-            return null;
-        }
-
-        /// <summary>
-        /// Just a class for testing. Get's the last Personal Plant
-        /// in the list.
-        /// </summary>
-        /// <returns>The last personal plant in the lsit</returns>
-        public PersonalPlant GetLastPP()
-        {
-            return stubPPDB.personalPlants.Last();
-        }
-
-        /// <summary>
         /// Find a single personal plant via PersonalPlant ID
         /// </summary>
         /// <param name="ppID">PersonalPlant ID</param>
@@ -187,6 +158,11 @@ namespace PlantRServ
         public bool RemovePersonalPlant(int ppID)
         {
             return accrepo.RemovePersonalPlant(ppID);
+        }
+
+        public bool UpdatePersonalPlant(int ppID, int daysWater, string nName)
+        {
+            return accrepo.UpdatePersonalPlant(ppID, daysWater, nName);
         }
         #endregion
 

@@ -32,29 +32,23 @@
   <wsdl:message name="IService1_FindPersonalPlant_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindPersonalPlantResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAllPlants_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllPlants" />
+  <wsdl:message name="IService1_GetAllPersonalPlants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPersonalPlants" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAllPlants_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllPlantsResponse" />
+  <wsdl:message name="IService1_GetAllPersonalPlants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPersonalPlantsResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAccountPlants_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAccountPlants" />
+  <wsdl:message name="IService1_GetAccountPersonalPlants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountPersonalPlants" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAccountPlants_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAccountPlantsResponse" />
+  <wsdl:message name="IService1_GetAccountPersonalPlants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountPersonalPlantsResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetPlant_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPlant" />
   </wsdl:message>
   <wsdl:message name="IService1_GetPlant_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPlantResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetLastPP_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetLastPP" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetLastPP_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetLastPPResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_RemovePersonalPlant_InputMessage">
     <wsdl:part name="parameters" element="tns:RemovePersonalPlant" />
@@ -116,6 +110,12 @@
   <wsdl:message name="IService1_DeletePlant_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletePlantResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAllPlants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlants" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllPlants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlantsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -133,21 +133,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindPersonalPlant" message="tns:IService1_FindPersonalPlant_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindPersonalPlantResponse" message="tns:IService1_FindPersonalPlant_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllPlants">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllPlants" message="tns:IService1_GetAllPlants_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllPlantsResponse" message="tns:IService1_GetAllPlants_OutputMessage" />
+    <wsdl:operation name="GetAllPersonalPlants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllPersonalPlants" message="tns:IService1_GetAllPersonalPlants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllPersonalPlantsResponse" message="tns:IService1_GetAllPersonalPlants_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAccountPlants">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAccountPlants" message="tns:IService1_GetAccountPlants_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAccountPlantsResponse" message="tns:IService1_GetAccountPlants_OutputMessage" />
+    <wsdl:operation name="GetAccountPersonalPlants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAccountPersonalPlants" message="tns:IService1_GetAccountPersonalPlants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAccountPersonalPlantsResponse" message="tns:IService1_GetAccountPersonalPlants_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPlant">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPlant" message="tns:IService1_GetPlant_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPlantResponse" message="tns:IService1_GetPlant_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetLastPP">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLastPP" message="tns:IService1_GetLastPP_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLastPPResponse" message="tns:IService1_GetLastPP_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemovePersonalPlant">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemovePersonalPlant" message="tns:IService1_RemovePersonalPlant_InputMessage" />
@@ -189,6 +185,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePlant" message="tns:IService1_DeletePlant_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePlantResponse" message="tns:IService1_DeletePlant_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllPlants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllPlants" message="tns:IService1_GetAllPlants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllPlantsResponse" message="tns:IService1_GetAllPlants_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -228,8 +228,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllPlants">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAllPlants" style="document" />
+    <wsdl:operation name="GetAllPersonalPlants">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllPersonalPlants" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -237,8 +237,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAccountPlants">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAccountPlants" style="document" />
+    <wsdl:operation name="GetAccountPersonalPlants">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAccountPersonalPlants" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -248,15 +248,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetPlant">
       <soap:operation soapAction="http://tempuri.org/IService1/GetPlant" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetLastPP">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetLastPP" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -347,6 +338,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeletePlant">
       <soap:operation soapAction="http://tempuri.org/IService1/DeletePlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlants">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllPlants" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

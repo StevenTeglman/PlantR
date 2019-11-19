@@ -514,10 +514,10 @@ namespace PlantRWPF.PlantRRef {
         System.Threading.Tasks.Task<PlantRWPF.PlantRRef.CompositeType> GetDataUsingDataContractAsync(PlantRWPF.PlantRRef.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPersonalPlant", ReplyAction="http://tempuri.org/IService1/AddPersonalPlantResponse")]
-        PlantRWPF.PlantRRef.PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
+        int AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPersonalPlant", ReplyAction="http://tempuri.org/IService1/AddPersonalPlantResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant> AddPersonalPlantAsync(int plantID, int accID, int daysWater, string nName);
+        System.Threading.Tasks.Task<int> AddPersonalPlantAsync(int plantID, int accID, int daysWater, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPersonalPlant", ReplyAction="http://tempuri.org/IService1/FindPersonalPlantResponse")]
         PlantRWPF.PlantRRef.PersonalPlant FindPersonalPlant(int ppID);
@@ -525,23 +525,17 @@ namespace PlantRWPF.PlantRRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPersonalPlant", ReplyAction="http://tempuri.org/IService1/FindPersonalPlantResponse")]
         System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant> FindPersonalPlantAsync(int ppID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPlants", ReplyAction="http://tempuri.org/IService1/GetAllPlantsResponse")]
-        PlantRWPF.PlantRRef.Plant[] GetAllPlants();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAllPersonalPlantsResponse")]
+        PlantRWPF.PlantRRef.PersonalPlant[] GetAllPersonalPlants();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPlants", ReplyAction="http://tempuri.org/IService1/GetAllPlantsResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant[]> GetAllPlantsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAllPersonalPlantsResponse")]
+        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAllPersonalPlantsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountPlants", ReplyAction="http://tempuri.org/IService1/GetAccountPlantsResponse")]
-        PlantRWPF.PlantRRef.PersonalPlant[] GetAccountPlants(int accID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAccountPersonalPlantsResponse")]
+        PlantRWPF.PlantRRef.PersonalPlant[] GetAccountPersonalPlants(int accID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountPlants", ReplyAction="http://tempuri.org/IService1/GetAccountPlantsResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAccountPlantsAsync(int accID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPlant", ReplyAction="http://tempuri.org/IService1/GetPlantResponse")]
-        PlantRWPF.PlantRRef.Plant GetPlant(int ID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPlant", ReplyAction="http://tempuri.org/IService1/GetPlantResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> GetPlantAsync(int ID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAccountPersonalPlantsResponse")]
+        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAccountPersonalPlantsAsync(int accID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastPP", ReplyAction="http://tempuri.org/IService1/GetLastPPResponse")]
         PlantRWPF.PlantRRef.PersonalPlant GetLastPP();
@@ -584,6 +578,36 @@ namespace PlantRWPF.PlantRRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastAccount", ReplyAction="http://tempuri.org/IService1/GetLastAccountResponse")]
         System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account> GetLastAccountAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPlant", ReplyAction="http://tempuri.org/IService1/AddPlantResponse")]
+        int AddPlant(string cName, string lName, string imageURL, string description, int sDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPlant", ReplyAction="http://tempuri.org/IService1/AddPlantResponse")]
+        System.Threading.Tasks.Task<int> AddPlantAsync(string cName, string lName, string imageURL, string description, int sDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPlant", ReplyAction="http://tempuri.org/IService1/FindPlantResponse")]
+        PlantRWPF.PlantRRef.Plant FindPlant(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPlant", ReplyAction="http://tempuri.org/IService1/FindPlantResponse")]
+        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> FindPlantAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePlant", ReplyAction="http://tempuri.org/IService1/UpdatePlantResponse")]
+        PlantRWPF.PlantRRef.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePlant", ReplyAction="http://tempuri.org/IService1/UpdatePlantResponse")]
+        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> UpdatePlantAsync(int id, string cName, string lName, string imageURL, string description, int sDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePlant", ReplyAction="http://tempuri.org/IService1/DeletePlantResponse")]
+        bool DeletePlant(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePlant", ReplyAction="http://tempuri.org/IService1/DeletePlantResponse")]
+        System.Threading.Tasks.Task<bool> DeletePlantAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPlants", ReplyAction="http://tempuri.org/IService1/GetAllPlantsResponse")]
+        PlantRWPF.PlantRRef.Plant[] GetAllPlants();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPlants", ReplyAction="http://tempuri.org/IService1/GetAllPlantsResponse")]
+        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant[]> GetAllPlantsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -629,11 +653,11 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public PlantRWPF.PlantRRef.PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName) {
+        public int AddPersonalPlant(int plantID, int accID, int daysWater, string nName) {
             return base.Channel.AddPersonalPlant(plantID, accID, daysWater, nName);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant> AddPersonalPlantAsync(int plantID, int accID, int daysWater, string nName) {
+        public System.Threading.Tasks.Task<int> AddPersonalPlantAsync(int plantID, int accID, int daysWater, string nName) {
             return base.Channel.AddPersonalPlantAsync(plantID, accID, daysWater, nName);
         }
         
@@ -645,28 +669,20 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.FindPersonalPlantAsync(ppID);
         }
         
-        public PlantRWPF.PlantRRef.Plant[] GetAllPlants() {
-            return base.Channel.GetAllPlants();
+        public PlantRWPF.PlantRRef.PersonalPlant[] GetAllPersonalPlants() {
+            return base.Channel.GetAllPersonalPlants();
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant[]> GetAllPlantsAsync() {
-            return base.Channel.GetAllPlantsAsync();
+        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAllPersonalPlantsAsync() {
+            return base.Channel.GetAllPersonalPlantsAsync();
         }
         
-        public PlantRWPF.PlantRRef.PersonalPlant[] GetAccountPlants(int accID) {
-            return base.Channel.GetAccountPlants(accID);
+        public PlantRWPF.PlantRRef.PersonalPlant[] GetAccountPersonalPlants(int accID) {
+            return base.Channel.GetAccountPersonalPlants(accID);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAccountPlantsAsync(int accID) {
-            return base.Channel.GetAccountPlantsAsync(accID);
-        }
-        
-        public PlantRWPF.PlantRRef.Plant GetPlant(int ID) {
-            return base.Channel.GetPlant(ID);
-        }
-        
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> GetPlantAsync(int ID) {
-            return base.Channel.GetPlantAsync(ID);
+        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAccountPersonalPlantsAsync(int accID) {
+            return base.Channel.GetAccountPersonalPlantsAsync(accID);
         }
         
         public PlantRWPF.PlantRRef.PersonalPlant GetLastPP() {
@@ -723,6 +739,46 @@ namespace PlantRWPF.PlantRRef {
         
         public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account> GetLastAccountAsync() {
             return base.Channel.GetLastAccountAsync();
+        }
+        
+        public int AddPlant(string cName, string lName, string imageURL, string description, int sDays) {
+            return base.Channel.AddPlant(cName, lName, imageURL, description, sDays);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddPlantAsync(string cName, string lName, string imageURL, string description, int sDays) {
+            return base.Channel.AddPlantAsync(cName, lName, imageURL, description, sDays);
+        }
+        
+        public PlantRWPF.PlantRRef.Plant FindPlant(int id) {
+            return base.Channel.FindPlant(id);
+        }
+        
+        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> FindPlantAsync(int id) {
+            return base.Channel.FindPlantAsync(id);
+        }
+        
+        public PlantRWPF.PlantRRef.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays) {
+            return base.Channel.UpdatePlant(id, cName, lName, imageURL, description, sDays);
+        }
+        
+        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> UpdatePlantAsync(int id, string cName, string lName, string imageURL, string description, int sDays) {
+            return base.Channel.UpdatePlantAsync(id, cName, lName, imageURL, description, sDays);
+        }
+        
+        public bool DeletePlant(int id) {
+            return base.Channel.DeletePlant(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeletePlantAsync(int id) {
+            return base.Channel.DeletePlantAsync(id);
+        }
+        
+        public PlantRWPF.PlantRRef.Plant[] GetAllPlants() {
+            return base.Channel.GetAllPlants();
+        }
+        
+        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant[]> GetAllPlantsAsync() {
+            return base.Channel.GetAllPlantsAsync();
         }
     }
 }

@@ -25,19 +25,17 @@ namespace PlantRServ
         // ---------------------------   Personal Plants    ---------------------------
 
         [OperationContract]
-        PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
+        int AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
         [OperationContract]
         PersonalPlant FindPersonalPlant(int ppID);
         [OperationContract]
-        List<Plant> GetAllPersonalPlants();
+        List<PersonalPlant> GetAllPersonalPlants();
         [OperationContract]
-        List<PersonalPlant> GetAccountPlants(int accID);
-        [OperationContract]
-        Plant GetPlant(int ID);
-        [OperationContract]
-        PersonalPlant GetLastPP();
+        List<PersonalPlant> GetAccountPersonalPlants(int accID);
         [OperationContract]
         bool RemovePersonalPlant(int ppID);
+        [OperationContract]
+        bool UpdatePersonalPlant(int ppID, int daysWater, string nName);
         // ------------------------------   Accounts    -------------------------------
         [OperationContract]
         Account AddAccount(string userName, string email, string password);
