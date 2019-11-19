@@ -222,11 +222,26 @@ namespace PlantRServ.DataAccess
         public List<Plant> GetAllPlants()
         {
             List<Plant> result = new List<Plant>();
+            List<Plant> pList = new List<Plant>();
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
                 plantdb.LoadOptions = SetDataLoadOptions(TableInUse.Plant);
-                result = plantdb.Plants.ToList();
+                pList = plantdb.Plants.ToList();
             }
+            foreach (Plant p in pList)
+            {
+                Plant newP = new Plant
+                {
+                    id = p.id,
+                    cname = p.cname,
+                    lname = p.lname,
+                    description = p.description,
+                    imgurl = p.imgurl,
+                    sdays = p.sdays
+                };
+                result.Add(newP);
+            }
+
 
             return result;
         }
@@ -308,10 +323,25 @@ namespace PlantRServ.DataAccess
         public List<PersonalPlant> GetAllAccountPersonalPlants(int accID)
         {
             List<PersonalPlant> result = new List<PersonalPlant>();
+            List<PersonalPlant> ppList = new List<PersonalPlant>();
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
                 plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
-                result = plantdb.PersonalPlants.Where(e => e.aid.Equals(accID)).ToList();
+                ppList = plantdb.PersonalPlants.Where(e => e.aid.Equals(accID)).ToList();
+            }
+            foreach (PersonalPlant pp in ppList)
+            {
+                PersonalPlant newPP = new PersonalPlant
+                {
+                    id = pp.id,
+                    aid = pp.aid,
+                    pid = pp.pid,
+                    nname = pp.nname,
+                    lastwatered = pp.lastwatered,
+                    nextwatered = pp.nextwatered,
+                    wduration = pp.wduration
+                };
+                result.Add(newPP);
             }
 
             return result;

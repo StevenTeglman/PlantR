@@ -110,6 +110,40 @@ namespace PlantRTests
 
         }
 
+        [TestMethod]
+        public void GetAllAccountPersonalPlantsTest()
+        {
+            //Arrange
+            int plantID = 1002;
+            int accID = 2002;
+            int daysWater = 5;
+            string nName = "Planty";
+
+            int plantID2 = 1002;
+            int accID2 = 2002;
+            int daysWater2 = 5;
+            string nName2 = "Planty2";
+
+            List<PersonalPlant> ppList = new List<PersonalPlant>();
+            int expectedResult = 2;
+
+            int ppid1 = service.AddPersonalPlant(plantID, accID, daysWater, nName);
+            int ppid2 = service.AddPersonalPlant(plantID2, accID2, daysWater2, nName2);
+
+            //Act
+
+            ppList = service.GetAccountPersonalPlants(accID).ToList();
+
+            int result = ppList.Count();
+
+            //Assert
+
+            Assert.AreEqual(result, expectedResult);
+
+            service.RemovePersonalPlant(ppid1);
+            service.RemovePersonalPlant(ppid2);
+        }
+
 
     }
 
@@ -191,6 +225,8 @@ namespace PlantRTests
             Assert.IsTrue(result);
 
         }
+
+
 
     }
 

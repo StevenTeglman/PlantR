@@ -124,7 +124,7 @@ namespace PlantRServ
              {
                  ppList = null;
              }*/
-            return null;
+            return accrepo.GetAllAccountPersonalPlants(accID);
         }
 
         /// <summary>
