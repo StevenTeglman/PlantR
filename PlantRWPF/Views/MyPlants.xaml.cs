@@ -55,19 +55,23 @@ namespace PlantRWPF.Views
         private void UpdatePPlantBut_Click(object sender, RoutedEventArgs e)
         {
             PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
-            //TODO insert pp into service UpdatePersonalPlant(pp.id, pp.WDuration, pp.NName);
-            //Refresh Item Source.
+            service.UpdatePersonalPlant(pp.id, pp.wduration, pp.nname);
+            //refresh
+            plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);
         }
 
         private void DeletePPlantBut_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure?", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
 
                 PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
-                //TODO deletemethod(pp) to service.
-                //Console.WriteLine("DELETED a thing");
+                bool check = service.RemovePersonalPlant(pp.id);
+                if (check)
+                {
+                    MessageBox.Show("Plant Removed", "Delete Confirmed", MessageBoxButton.OK);
+                }
             }
         }
     }

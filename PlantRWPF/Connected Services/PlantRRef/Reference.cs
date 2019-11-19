@@ -544,10 +544,10 @@ namespace PlantRWPF.PlantRRef {
         System.Threading.Tasks.Task<bool> RemovePersonalPlantAsync(int ppID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePersonalPlant", ReplyAction="http://tempuri.org/IService1/UpdatePersonalPlantResponse")]
-        PlantRWPF.PlantRRef.PersonalPlant UpdatePersonalPlant(PlantRWPF.PlantRRef.PersonalPlant pp);
+        bool UpdatePersonalPlant(int ppID, int wDuration, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePersonalPlant", ReplyAction="http://tempuri.org/IService1/UpdatePersonalPlantResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant> UpdatePersonalPlantAsync(PlantRWPF.PlantRRef.PersonalPlant pp);
+        System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int wDuration, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
         PlantRWPF.PlantRRef.Account AddAccount(string userName, string email, string password);
@@ -693,12 +693,12 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.RemovePersonalPlantAsync(ppID);
         }
         
-        public PlantRWPF.PlantRRef.PersonalPlant UpdatePersonalPlant(PlantRWPF.PlantRRef.PersonalPlant pp) {
-            return base.Channel.UpdatePersonalPlant(pp);
+        public bool UpdatePersonalPlant(int ppID, int wDuration, string nName) {
+            return base.Channel.UpdatePersonalPlant(ppID, wDuration, nName);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant> UpdatePersonalPlantAsync(PlantRWPF.PlantRRef.PersonalPlant pp) {
-            return base.Channel.UpdatePersonalPlantAsync(pp);
+        public System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int wDuration, string nName) {
+            return base.Channel.UpdatePersonalPlantAsync(ppID, wDuration, nName);
         }
         
         public PlantRWPF.PlantRRef.Account AddAccount(string userName, string email, string password) {
