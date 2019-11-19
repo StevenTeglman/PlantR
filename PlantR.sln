@@ -16,6 +16,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRWPF", "PlantRWPF\Plan
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRMVC2", "PlantRMVC2\PlantRMVC2.csproj", "{DF74FE5F-A8B5-4D2D-9101-29DED96ED981}"
+	ProjectSection(ProjectDependencies) = postProject
+		{269A5872-2A75-4E35-86D1-55DD12C75FB5} = {269A5872-2A75-4E35-86D1-55DD12C75FB5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRMVC2.Tests", "PlantRMVC2.Tests\PlantRMVC2.Tests.csproj", "{77FF35E5-BEB9-450C-AF21-1B1DC6DA25B5}"
 EndProject
