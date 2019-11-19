@@ -52,13 +52,14 @@
                                     <Image Margin="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right"
                                            Source="https://images.homedepot-static.com/productImages/612ae505-9daf-45c3-ac16-67f97dcb251d/svn/globalrose-flower-bouquets-prime-100-red-roses-64_1000.jpg"/>
                                     <Button x:Name="UpdatePPlantBut" Content="Update" Margin="3" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Click="UpdatePPlantBut_Click"/>
+                                    <Button x:Name="DeletePPlantBut" Content="Remove" Margin="3" Grid.Column="5" Grid.Row="2" Click="DeletePPlantBut_Click"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </DataGrid.RowDetailsTemplate>
                 </DataGrid>
             </ScrollViewer>
-            <Button x:Name="plusBut" Content="+" Margin="760,10,10,0" Click="PlusBut_Click"/>
+            <Button x:Name="plusBut" Content="+" Margin="760,10,10,0" Click="DeletePPlantBut_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

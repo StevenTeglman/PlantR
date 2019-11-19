@@ -79,7 +79,7 @@ namespace PlantRServ
             stubPPDB.personalPlants.Add(pp); // HACK: Obviously this will be replaced with the Database connection once the time comes */
 
             int result = accrepo.AddPersonalPlant(plantID, accID, daysWater, nName);
-            
+
             return result;
         }
 
@@ -111,19 +111,19 @@ namespace PlantRServ
         ///  entered ID, or else it will return null if nothing is found.</returns>
         public List<PersonalPlant> GetAccountPersonalPlants(int accID)
         {
-           /* List<PersonalPlant> ppList = new List<PersonalPlant>();
-            // HACK: replace Stub with DB Access
-            foreach (PersonalPlant pp in stubPPDB.personalPlants)
-            {
-                if (pp.AId == accID)
-                {
-                    ppList.Add(pp);
-                }
-            }
-            if (ppList.Count == 0)
-            {
-                ppList = null;
-            }*/
+            /* List<PersonalPlant> ppList = new List<PersonalPlant>();
+             // HACK: replace Stub with DB Access
+             foreach (PersonalPlant pp in stubPPDB.personalPlants)
+             {
+                 if (pp.AId == accID)
+                 {
+                     ppList.Add(pp);
+                 }
+             }
+             if (ppList.Count == 0)
+             {
+                 ppList = null;
+             }*/
             return null;
         }
 
@@ -165,14 +165,7 @@ namespace PlantRServ
             return accrepo.UpdatePersonalPlant(pp.id, pp.wduration, pp.nname);
         }
 
-        public bool UpdatePersonalPlant(PersonalPlant pp)
-        {
-            bool result = false;
 
-            
-
-            return result;
-        }
         #endregion
 
         // ------------------------------   Account    -------------------------------
@@ -206,7 +199,7 @@ namespace PlantRServ
                  account = null;
                  throw;
              }*/
-            
+
             Account account = accrepo.AddAccount(userName, email, password);
 
             return account;
@@ -229,7 +222,7 @@ namespace PlantRServ
                      account = a;
                  }
              }*/
-            Account acc= accrepo.FindAccount(email);
+            Account acc = accrepo.FindAccount(email);
 
             return acc;
         }
@@ -338,5 +331,5 @@ namespace PlantRServ
 
         #endregion
 
-       
+    }
 }
