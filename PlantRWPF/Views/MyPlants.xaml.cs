@@ -31,12 +31,14 @@ namespace PlantRWPF.Views
         {
             InitializeComponent();
             ListPPlants();
+
         }
 
         private void ListPPlants()
         {
             service = new Service1Client();
             service.Open();
+            plantListGrid.ItemsSource = service.GetAccountPlants(99);
             //TODO return a dataset and bind it to the datagrid
         }
 
@@ -48,5 +50,13 @@ namespace PlantRWPF.Views
             ((MyPlantsModel)DataContext).PlantCreateSwitch();
             
         }
+
+        private void UpdatePPlantBut_Click(object sender, RoutedEventArgs e)
+        {
+            PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
+            
+        }
+
+       
     }
 }

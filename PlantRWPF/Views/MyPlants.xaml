@@ -15,7 +15,48 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Background="#FF5AEE53" Height="450" Width="800">
             <ScrollViewer Height="407" Margin="1">
-                <DataGrid x:Name="plantListGrid" Height="408" Width="780" Margin="0,0,0,0" />
+                <DataGrid x:Name="plantListGrid" Height="408" Width="780" Background="Transparent" RowBackground="LightGreen" 
+                          AlternatingRowBackground="LightCyan" Margin="0,0,0,0" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="NickName" Width="150" Binding="{Binding NName}"/>
+                        <DataGridTextColumn Header="CommonName" Width="150" Binding="{Binding CName}"/>
+                        <DataGridTextColumn Header="Watering Cycle(Days)" Width="125" Binding="{Binding WDuration}"/>
+                        <DataGridTextColumn Header="NextWatering" Width="150" Binding="{Binding NextWatered}"/>
+                        <DataGridTextColumn Header="LastWatering" Width="150" Binding="{Binding LastWatered}"/>
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="0" Background="Beige" Padding="10">
+                                <Grid x:Name="ViewGrid" Margin="5,0,0,0" MinWidth="650" HorizontalAlignment="Left">
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition Width="125"></ColumnDefinition>
+                                        <ColumnDefinition Width="125"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="125"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="125"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Text="NickName" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBox  x:Name="NewNNameBox" Margin="3" Grid.Row="0" Grid.Column="2" Text="{Binding Path=NName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35" />
+                                    <TextBlock Text="Watering Cycle(Days)" Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                                    <TextBox  x:Name="NewWDurationBox" Margin="3" Grid.Row="1" Grid.Column="2" Text="{Binding Path = WDuration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35"/>
+                                    <Image Margin="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                           Source="https://images.homedepot-static.com/productImages/612ae505-9daf-45c3-ac16-67f97dcb251d/svn/globalrose-flower-bouquets-prime-100-red-roses-64_1000.jpg"/>
+                                    <Button x:Name="UpdatePPlantBut" Content="Update" Margin="3" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Click="UpdatePPlantBut_Click"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
             </ScrollViewer>
             <Button x:Name="plusBut" Content="+" Margin="760,10,10,0" Click="PlusBut_Click"/>
         </StackPanel>
