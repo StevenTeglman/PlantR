@@ -6,11 +6,15 @@ using System.ServiceModel;
 using System.Text;
 using PlantRServ.DataAccess;
 using PlantRServ.Model;
+using Account = PlantRServ.DataAccess.Account;
+using PersonalPlant = PlantRServ.DataAccess.PersonalPlant;
+using Plant = PlantRServ.DataAccess.Plant;
 
 namespace PlantRServ
 {
     public class Service1 : IService1
     {
+        AccountRepository accrepo = new AccountRepository();
 
         #region ServiceInitialization
 
@@ -42,14 +46,21 @@ namespace PlantRServ
 
         // ++++++++++++++++++++++++++++++   REPO CODE   ++++++++++++++++++++++++++++++
 
-        // ---------------------------   PERSONAL PLANT    ---------------------------
+        // ---------------------------   Personal Plant    ---------------------------
 
         #region PersonalPlant
 
-
-        public PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
+        /// <summary>
+        /// Adds a personal Plant to an account
+        /// </summary>
+        /// <param name="plantID">Plant ID</param>
+        /// <param name="accID">Account ID</param>
+        /// <param name="daysWater">Assigned days between waterings</param>
+        /// <param name="nName">NickName</param>
+        /// <returns>Returns the ID of the new Personal PLant</returns>
+        public int AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
         {
-            Plant p = GetPlant(plantID);
+            /*Plant p = GetPlant(plantID);
             PersonalPlant pp = new PersonalPlant
             {
                 Id = 1, // HACK: Hardcoded ID, needs to be fixed once the DataBase is implemented
@@ -65,27 +76,31 @@ namespace PlantRServ
                 SDays = p.SDays,
                 WDuration = daysWater
             };
-            stubPPDB.personalPlants.Add(pp); // HACK: Obviously this will be replaced with the Database connection once the time comes 
-            return pp;
+            stubPPDB.personalPlants.Add(pp); // HACK: Obviously this will be replaced with the Database connection once the time comes */
+
+            int result = accrepo.AddPersonalPlant(plantID, accID, daysWater, nName);
+            
+            return result;
         }
 
         /// <summary>
-        /// Get's a list of all of the Plants in the Database
+        /// Gets a list of all of the personal plants in the DB.
+        /// Why do we want this? Not sure. When do we want it?
+        /// NOW!
         /// </summary>
-        /// <returns>Returns all the plants in the Database, or null if,
-        ///  none are found.</returns>
-        public List<Plant> GetAllPlants()
+        /// <returns>Complete list of all the personal plants in DB</returns>
+        public List<PersonalPlant> GetAllPersonalPlants()
         {
-            List<Plant> plants = new List<Plant>();
+            /*List<Plant> plants = new List<Plant>();
             // HACK: To connect to data access layer later.
             plants = stubPDB.plants;
 
             if (plants.Count == 0)
             {
                 plants = null;
-            }
+            }*/
 
-            return plants;
+            return accrepo.GetAllPersonalPlants();
         }
 
         /// <summary>
@@ -94,9 +109,9 @@ namespace PlantRServ
         /// <param name="accID">Account ID</param>
         /// <returns>Returns either a list of Personal Plants based on the,
         ///  entered ID, or else it will return null if nothing is found.</returns>
-        public List<PersonalPlant> GetAccountPlants(int accID)
+        public List<PersonalPlant> GetAccountPersonalPlants(int accID)
         {
-            List<PersonalPlant> ppList = new List<PersonalPlant>();
+           /* List<PersonalPlant> ppList = new List<PersonalPlant>();
             // HACK: replace Stub with DB Access
             foreach (PersonalPlant pp in stubPPDB.personalPlants)
             {
@@ -108,37 +123,8 @@ namespace PlantRServ
             if (ppList.Count == 0)
             {
                 ppList = null;
-            }
-            return ppList;
-        }
-
-        /// <summary>
-        /// Returns a Plant object based on the ID provided
-        /// </summary>
-        /// <param name="ID">The specific Plant ID</param>
-        /// <returns>The desired plant</returns>
-        public Plant GetPlant(int ID)
-        {
-            Plant result = null;
-            foreach (Plant plant in stubPDB.plants)
-            {
-                if (plant.ID == ID)
-                {
-                    result = plant;
-                    break;
-                }
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// Just a class for testing. Get's the last Personal Plant
-        /// in the list.
-        /// </summary>
-        /// <returns>The last personal plant in the lsit</returns>
-        public PersonalPlant GetLastPP()
-        {
-            return stubPPDB.personalPlants.Last();
+            }*/
+            return null;
         }
 
         /// <summary>
@@ -150,7 +136,7 @@ namespace PlantRServ
         public PersonalPlant FindPersonalPlant(int ppID)
         {
             // HACK: This will of course talk to the DB
-            PersonalPlant result = null;
+            /*PersonalPlant result = null;
             foreach (PersonalPlant pp in stubPPDB.personalPlants)
             {
                 if (pp.Id == ppID)
@@ -158,8 +144,10 @@ namespace PlantRServ
                     result = pp;
                     break;
                 }
-            }
-            return result;
+            }*/
+
+
+            return accrepo.FindPersonalPlant(ppID);
         }
 
         /// <summary>
@@ -169,16 +157,16 @@ namespace PlantRServ
         /// <returns>Returns a boolean. True if successful, False if not.</returns>
         public bool RemovePersonalPlant(int ppID)
         {
-            bool result = false;
+            return accrepo.RemovePersonalPlant(ppID);
+        }
 
-            PersonalPlant pp = FindPersonalPlant(ppID);
-            result = stubPPDB.personalPlants.Remove(pp);
-
-            return result;
+        public bool UpdatePersonalPlant(int ppID, int daysWater, string nName)
+        {
+            return accrepo.UpdatePersonalPlant(ppID, daysWater, nName);
         }
         #endregion
 
-        // ------------------------------   ACCOUNT    -------------------------------
+        // ------------------------------   Account    -------------------------------
 
         #region Account
 
@@ -191,24 +179,26 @@ namespace PlantRServ
         /// <returns></returns>
         public Account AddAccount(string userName, string email, string password)
         {
-            Account account = null;
+            /* Account account = null;
 
-            account = new Account
-            {
-                UserName = userName,
-                Email = email,
-                Password = password,
-                ID = 1 // HACK: This needs to be changed so it is automatically updated by the DB
-            };
-            try
-            {
-                stubADB.accounts.Add(account);
-            }
-            catch (Exception)
-            {
-                account = null;
-                throw;
-            }
+             account = new Account
+             {
+                 UserName = userName,
+                 Email = email,
+                 Password = password,
+                 ID = 1 // HACK: This needs to be changed so it is automatically updated by the DB
+             };
+             try
+             {
+                 stubADB.accounts.Add(account);
+             }
+             catch (Exception)
+             {
+                 account = null;
+                 throw;
+             }*/
+            
+            Account account = accrepo.AddAccount(userName, email, password);
 
             return account;
         }
@@ -219,18 +209,20 @@ namespace PlantRServ
         /// <param name="accID">Account ID</param>
         /// <returns>Returns either an Account if something is found,
         ///  or null if none are found.</returns>
-        public Account FindAccount(int accID)
+        public Account FindAccount(string email)
         {
-            Account account = null;
+            /* Account account = null;
 
-            foreach (Account a in stubADB.accounts)
-            {
-                if (a.ID == accID)
-                {
-                    account = a;
-                }
-            }
-            return account;
+             foreach (Account a in stubADB.accounts)
+             {
+                 if (a.ID == accID)
+                 {
+                     account = a;
+                 }
+             }*/
+            Account acc= accrepo.FindAccount(email);
+
+            return acc;
         }
 
         /// <summary>
@@ -241,7 +233,7 @@ namespace PlantRServ
         {
             List<Account> accounts = new List<Account>();
 
-            accounts = stubADB.accounts;
+            accounts = accrepo.GetAllAccounts();
 
             if (accounts.Count == 0)
             {
@@ -256,15 +248,9 @@ namespace PlantRServ
         /// </summary>
         /// <param name="accID">Account ID</param>
         /// <returns>Returns true if operation was successful, otherwise false</returns>
-        public bool RemoveAccount(int accID)
+        public bool RemoveAccount(string email)
         {
-            bool result = false;
-
-            Account account = FindAccount(accID);
-
-            result = stubADB.accounts.Remove(account);
-
-            return result;
+            return accrepo.RemoveAccount(email);
         }
 
         /// <summary>
@@ -278,5 +264,70 @@ namespace PlantRServ
         }
 
         #endregion
+
+        // -------------------------------   Plants    --------------------------------
+        #region Plant
+
+        /// <summary>
+        /// Adds a plant to the database, that can then be used by users to add personal
+        /// plants. Returns the plant ID of the plant that was added.
+        /// </summary>
+        /// <param name="cName">Common Name</param>
+        /// <param name="lName">Latin Name</param>
+        /// <param name="imageURL">Image URL</param>
+        /// <param name="description">Description</param>
+        /// <param name="sDays">Suggested Watering Days</param>
+        /// <returns>The Plant ID. Returns 0 if not successful</returns>
+        public int AddPlant(string cName, string lName, string imageURL, string description, int sDays)
+        {
+            return accrepo.AddPlant(cName, lName, imageURL, description, sDays);
+        }
+
+        /// <summary>
+        /// Finds the plant by ID
+        /// </summary>
+        /// <param name="id">Plant ID</param>
+        /// <returns>Returns the requested plant</returns>
+        public Plant FindPlant(int id)
+        {
+            return accrepo.FindPlant(id);
+        }
+
+        /// <summary>
+        /// Updates the plant based on ID
+        /// </summary>
+        /// <param name="id">Plant ID</param>
+        /// <param name="cName">Desired new name</param>
+        /// <param name="lName">Desired new Latin Name</param>
+        /// <param name="imageURL">Desired new Image URL</param>
+        /// <param name="description">Desired new Description</param>
+        /// <param name="sDays">Desiured new Watering days</param>
+        /// <returns>Returns the updated plant</returns>
+        public Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays)
+        {
+            return accrepo.UpdatePlant(id, cName, lName, imageURL, description, sDays);
+        }
+
+        /// <summary>
+        /// Deletes the plant with the corresponding ID
+        /// </summary>
+        /// <param name="id">The plant ID</param>
+        /// <returns>Returns true if successful, or false if not.</returns>
+        public bool DeletePlant(int id)
+        {
+            return accrepo.DeletePlant(id);
+        }
+
+        /// <summary>
+        /// Returns all the plants in the Database 
+        /// </summary>
+        /// <returns>Either all the plants in the DB, or null if nothing found.</returns>
+        public List<Plant> GetAllPlants()
+        {
+            return accrepo.GetAllPlants();
+        }
+        
+        #endregion
+
     }
 }

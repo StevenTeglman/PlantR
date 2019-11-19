@@ -6,6 +6,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using PersonalPlant = PlantRServ.DataAccess.PersonalPlant;
+using Plant = PlantRServ.DataAccess.Plant;
+using Account = PlantRServ.DataAccess.Account;
 
 namespace PlantRServ
 {
@@ -22,30 +25,39 @@ namespace PlantRServ
         // ---------------------------   Personal Plants    ---------------------------
 
         [OperationContract]
-        PersonalPlant AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
+        int AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
         [OperationContract]
         PersonalPlant FindPersonalPlant(int ppID);
         [OperationContract]
-        List<Plant> GetAllPlants();
+        List<PersonalPlant> GetAllPersonalPlants();
         [OperationContract]
-        List<PersonalPlant> GetAccountPlants(int accID);
-        [OperationContract]
-        Plant GetPlant(int ID);
-        [OperationContract]
-        PersonalPlant GetLastPP();
+        List<PersonalPlant> GetAccountPersonalPlants(int accID);
         [OperationContract]
         bool RemovePersonalPlant(int ppID);
+        [OperationContract]
+        bool UpdatePersonalPlant(int ppID, int daysWater, string nName);
         // ------------------------------   Accounts    -------------------------------
         [OperationContract]
         Account AddAccount(string userName, string email, string password);
         [OperationContract]
-        Account FindAccount(int accID);
+        Account FindAccount(string email);
         [OperationContract]
         List<Account> GetAllAccounts();
         [OperationContract]
-        bool RemoveAccount(int accID);
+        bool RemoveAccount(string email);
         [OperationContract]
         Account GetLastAccount();
+        // -------------------------------   Plants    --------------------------------
+        [OperationContract]
+        int AddPlant(string cName, string lName, string imageURL, string description, int sDays);
+        [OperationContract]
+        Plant FindPlant(int id);
+        [OperationContract]
+        Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
+        [OperationContract]
+        bool DeletePlant(int id);
+        [OperationContract]
+        List<Plant> GetAllPlants();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

@@ -23,7 +23,7 @@ namespace PlantRServ.DataAccess
         }
         private StubPDB()
         {
-            plants.Add(new Plant
+            /*plants.Add(new Plant
             {
                 CName = "Rose",
                 Description = "Apparently everyone has its thorn, or something",
@@ -51,7 +51,7 @@ namespace PlantRServ.DataAccess
                 LName = "Magnolia",
                 SDays = 7,
                 ID = 3
-            });
+            });*/
         }
     }
 }
