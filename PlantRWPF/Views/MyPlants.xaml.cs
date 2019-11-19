@@ -38,7 +38,7 @@ namespace PlantRWPF.Views
         {
             service = new Service1Client();
             service.Open();
-            plantListGrid.ItemsSource = service.GetAccountPlants(99);
+           //TODO plantListGrid.ItemsSource = service;
             //TODO return a dataset and bind it to the datagrid
         }
 
@@ -54,7 +54,8 @@ namespace PlantRWPF.Views
         private void UpdatePPlantBut_Click(object sender, RoutedEventArgs e)
         {
             PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
-            
+            //TODO insert pp into service UpdatePersonalPlant(pp);
+            //Refresh Item Source.
         }
 
        
