@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PlantR" Class="LinQtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PlantR;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="PlantRServ.Properties.Settings" SettingsPropertyName="PlantRConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Account_PersonalPlant" Member="PersonalPlants" ThisKey="id" OtherKey="aid" Type="PersonalPlant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PersonalPlant" Member="PersonalPlants">
+    <Type Name="PersonalPlant">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="aid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="lastwatered" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="nextwatered" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="wduration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Account_PersonalPlant" Member="Account" ThisKey="aid" OtherKey="id" Type="Account" IsForeignKey="true" />
+      <Association Name="Plant_PersonalPlant" Member="Plant" ThisKey="pid" OtherKey="id" Type="Plant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Plant" Member="Plants">
+    <Type Name="Plant">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="lname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="sdays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Plant_PersonalPlant" Member="PersonalPlants" ThisKey="id" OtherKey="pid" Type="PersonalPlant" />
+    </Type>
+  </Table>
+</Database>
