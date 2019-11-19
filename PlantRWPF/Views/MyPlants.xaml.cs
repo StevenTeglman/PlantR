@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -38,7 +39,7 @@ namespace PlantRWPF.Views
         {
             service = new Service1Client();
             service.Open();
-           //TODO plantListGrid.ItemsSource = service;
+            plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1); //HACK: change account id
             //TODO return a dataset and bind it to the datagrid
         }
 
@@ -54,10 +55,20 @@ namespace PlantRWPF.Views
         private void UpdatePPlantBut_Click(object sender, RoutedEventArgs e)
         {
             PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
-            //TODO insert pp into service UpdatePersonalPlant(pp);
+            //TODO insert pp into service UpdatePersonalPlant(pp.id, pp.WDuration, pp.NName);
             //Refresh Item Source.
         }
 
-       
+        private void DeletePPlantBut_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+
+                PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
+                //TODO deletemethod(pp) to service.
+                //Console.WriteLine("DELETED a thing");
+            }
+        }
     }
 }
