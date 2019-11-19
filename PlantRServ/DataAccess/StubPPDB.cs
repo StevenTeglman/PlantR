@@ -26,7 +26,7 @@ namespace PlantRServ.DataAccess
         {
             personalPlants.Add(new PersonalPlant
             {
-                ID=1,
+                /*ID=1,
                 AId=99,
                 CName = "Rose",
                 Description = "Apparently everyone has its thorn, or something",
@@ -37,7 +37,7 @@ namespace PlantRServ.DataAccess
                 NextWatered= DateTime.Now.AddDays(3),
                 NName="Roseyrose",
                 WDuration=3,
-                ppId=1
+                ppId=1*/
                 
             });;
 

@@ -37,7 +37,6 @@ namespace PlantRWPF.Views
         {
             service = new Service1Client();
             service.Open();
-            service.
             //TODO return a dataset and bind it to the datagrid
         }
 
