@@ -44,16 +44,16 @@
                 <Button x:Name="myPlantBut" Content="MyPlants" Margin="3" Click="MyPlantBut_Click" />
                 <Button x:Name="searchBut" Content="Search" Margin="3"/>
                 <Button x:Name="accBut" Content="Account" Margin="3"/>
-                <Button x:Name="aboutBut" Content="About" Margin="3,237,3,0" />
+                <Button x:Name="aboutBut" Content="About" Margin="3,345,3,0" />
             </StackPanel>
         </DockPanel>
-        <DockPanel Background="DarkOliveGreen" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
+        <DockPanel Background="SeaGreen" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
             <StackPanel>
                 <Label Content="PlantR" FontSize="36" Foreground="White"/>
             </StackPanel>
         </DockPanel>
 
-        <ContentControl x:Name="mwContentCtrl" Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Content="{Binding CurrentView}" />
+        <ContentControl  Background="MediumPurple" x:Name="mwContentCtrl" Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Content="{Binding CurrentView}" />
 
     </Grid>
 </Window>

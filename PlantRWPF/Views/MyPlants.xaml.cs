@@ -39,7 +39,7 @@ namespace PlantRWPF.Views
         {
             service = new Service1Client();
             service.Open();
-            plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1); //HACK: change account id
+            plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);//HACK: change account id
             //TODO return a dataset and bind it to the datagrid
         }
 
@@ -74,5 +74,8 @@ namespace PlantRWPF.Views
                 }
             }
         }
+
+        
+
     }
 }
