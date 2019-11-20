@@ -27,37 +27,37 @@ namespace PlantRServ
         [OperationContract]
         int AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
         [OperationContract]
-        PersonalPlant FindPersonalPlant(int ppID);
+        Model.PersonalPlant FindPersonalPlant(int ppID);
         [OperationContract]
-        List<PersonalPlant> GetAllPersonalPlants();
+        List<Model.PersonalPlant> GetAllPersonalPlants();
         [OperationContract]
-        List<PersonalPlant> GetAccountPersonalPlants(int accID);
+        List<Model.PersonalPlant> GetAccountPersonalPlants(int accID);
         [OperationContract]
         bool RemovePersonalPlant(int ppID);
         [OperationContract]
         bool UpdatePersonalPlant(int ppID, int wDuration, string nName);
         // ------------------------------   Accounts    -------------------------------
         [OperationContract]
-        Account AddAccount(string userName, string email, string password);
+        Model.Account AddAccount(string userName, string email, string password);
         [OperationContract]
-        Account FindAccount(string email);
+        Model.Account FindAccount(string email);
         [OperationContract]
-        List<Account> GetAllAccounts();
+        List<Model.Account> GetAllAccounts();
         [OperationContract]
         bool RemoveAccount(string email);
         [OperationContract]
-        Account GetLastAccount();
+        Model.Account GetLastAccount();
         // -------------------------------   Plants    --------------------------------
         [OperationContract]
         int AddPlant(string cName, string lName, string imageURL, string description, int sDays);
         [OperationContract]
-        Plant FindPlant(int id);
+        Model.Plant FindPlant(int id);
         [OperationContract]
-        Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
+        Model.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
         [OperationContract]
         bool DeletePlant(int id);
         [OperationContract]
-        List<Plant> GetAllPlants();
+        List<Model.Plant> GetAllPlants();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

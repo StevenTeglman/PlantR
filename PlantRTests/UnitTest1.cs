@@ -13,6 +13,7 @@ namespace PlantRTests
         [TestMethod]
         public void ServiceConnectionTestMethod()
         {
+            
             //Arrange
             int i = 5;
             Console.WriteLine("THIS IS A TEST!!!!");
@@ -82,7 +83,7 @@ namespace PlantRTests
 
             //Assert
 
-            Assert.AreEqual(pp.nname, nName);
+            Assert.AreEqual(pp.NName, nName);
 
             service.RemovePersonalPlant(ppID);
         }
@@ -104,7 +105,7 @@ namespace PlantRTests
             //Assert
 
             Assert.IsTrue(result);
-            Assert.AreEqual(updatedPP.nname, newName);
+            Assert.AreEqual(updatedPP.NName, newName);
 
             service.RemovePersonalPlant(ppID);
 
@@ -162,7 +163,7 @@ namespace PlantRTests
             Account test = service.AddAccount(userName, email, password);
 
             //Assert
-            Assert.AreEqual(test.username, userName);
+            Assert.AreEqual(test.UserName, userName);
 
             service.RemoveAccount(email);
         }
@@ -180,7 +181,7 @@ namespace PlantRTests
             Account result = service.FindAccount(email);
 
             //Assert
-            Assert.AreEqual(password, result.password);
+            Assert.AreEqual(password, result.Password);
 
             service.RemoveAccount(email);
 
@@ -294,7 +295,7 @@ namespace PlantRTests
 
             //Assert
 
-            Assert.AreEqual(p.cname, cName);
+            Assert.AreEqual(p.CName, cName);
 
             service.DeletePlant(id);
         }
@@ -315,7 +316,7 @@ namespace PlantRTests
 
 
             //Assert
-            Assert.AreEqual("New name", p.cname);
+            Assert.AreEqual("New name", p.CName);
 
             service.DeletePlant(id);
         }

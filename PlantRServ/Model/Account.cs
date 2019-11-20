@@ -21,6 +21,5 @@ namespace PlantRServ.Model
         [DataMember]
         public List<PersonalPlant> PlantList { get; set; }
 
-
     }
 }

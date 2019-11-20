@@ -23,6 +23,7 @@ namespace PlantRServ.DataAccess
         public LinQtoSQLDataContext plantdb;
         public AccountRepository()
         {
+
         }
 
         // ------------------------------   Account    --------------------------------
@@ -371,7 +372,8 @@ namespace PlantRServ.DataAccess
                         nname = pp.nname,
                         wduration = pp.wduration,
                         lastwatered = pp.lastwatered,
-                        nextwatered = pp.nextwatered
+                        nextwatered = pp.nextwatered,
+                        Plant = pp.Plant
                     };
                 }
                 catch (Exception e)

@@ -13,15 +13,24 @@ namespace PlantRServ.Model
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public DateTime LastWatered { get; set; }
+        public int PId { get; set; }
         [DataMember]
-        public DateTime NextWatered { get; set; }
+        public int AId { get; set; }
         [DataMember]
         public string NName { get; set; }
         [DataMember]
+        public DateTime LastWatered { get; set; }
+        [DataMember]
+        public DateTime NextWatered { get; set; }
+
+        [DataMember]
         public int WDuration { get; set; }
         [DataMember]
-        public int AId { get; set; }
+        public Account account { get; set; }
+        [DataMember]
+        public Plant plant { get; set; }
+
+
 
 
     }

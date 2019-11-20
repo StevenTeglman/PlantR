@@ -89,7 +89,7 @@ namespace PlantRServ
         /// NOW!
         /// </summary>
         /// <returns>Complete list of all the personal plants in DB</returns>
-        public List<PersonalPlant> GetAllPersonalPlants()
+        public List<Model.PersonalPlant> GetAllPersonalPlants()
         {
             /*List<Plant> plants = new List<Plant>();
             // HACK: To connect to data access layer later.
@@ -99,8 +99,14 @@ namespace PlantRServ
             {
                 plants = null;
             }*/
+            List<Model.PersonalPlant> result = new List<Model.PersonalPlant>();
 
-            return accrepo.GetAllPersonalPlants();
+            foreach (PersonalPlant pp in accrepo.GetAllPersonalPlants())
+            {
+                result.Add(ConvertPersonalPlant(pp));
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -109,7 +115,7 @@ namespace PlantRServ
         /// <param name="accID">Account ID</param>
         /// <returns>Returns either a list of Personal Plants based on the,
         ///  entered ID, or else it will return null if nothing is found.</returns>
-        public List<PersonalPlant> GetAccountPersonalPlants(int accID)
+        public List<Model.PersonalPlant> GetAccountPersonalPlants(int accID)
         {
             /* List<PersonalPlant> ppList = new List<PersonalPlant>();
              // HACK: replace Stub with DB Access
@@ -124,7 +130,14 @@ namespace PlantRServ
              {
                  ppList = null;
              }*/
-            return accrepo.GetAllAccountPersonalPlants(accID);
+            List<Model.PersonalPlant> result = new List<Model.PersonalPlant>();
+
+            foreach (PersonalPlant pp in accrepo.GetAllPersonalPlants())
+            {
+                result.Add(ConvertPersonalPlant(pp));
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -133,7 +146,7 @@ namespace PlantRServ
         /// <param name="ppID">PersonalPlant ID</param>
         /// <returns>Returns the personal plant with the correct PersonalPlantID,
         ///  or it will return null if nothing is find.</returns>
-        public PersonalPlant FindPersonalPlant(int ppID)
+        public Model.PersonalPlant FindPersonalPlant(int ppID)
         {
             // HACK: This will of course talk to the DB
             /*PersonalPlant result = null;
@@ -146,8 +159,11 @@ namespace PlantRServ
                 }
             }*/
 
+            var pp = accrepo.FindPersonalPlant(ppID);
 
-            return accrepo.FindPersonalPlant(ppID);
+            Model.PersonalPlant result = ConvertPersonalPlant(pp);
+
+            return result;
         }
 
         /// <summary>
@@ -177,7 +193,7 @@ namespace PlantRServ
         /// <param name="email">Email Address</param>
         /// <param name="password">Users Password</param>
         /// <returns></returns>
-        public Account AddAccount(string userName, string email, string password)
+        public Model.Account AddAccount(string userName, string email, string password)
         {
             /* Account account = null;
 
@@ -198,7 +214,7 @@ namespace PlantRServ
                  throw;
              }*/
 
-            Account account = accrepo.AddAccount(userName, email, password);
+            Model.Account account = ConvertAccount(accrepo.AddAccount(userName, email, password));
 
             return account;
         }
@@ -209,7 +225,7 @@ namespace PlantRServ
         /// <param name="accID">Account ID</param>
         /// <returns>Returns either an Account if something is found,
         ///  or null if none are found.</returns>
-        public Account FindAccount(string email)
+        public Model.Account FindAccount(string email)
         {
             /* Account account = null;
 
@@ -220,7 +236,7 @@ namespace PlantRServ
                      account = a;
                  }
              }*/
-            Account acc = accrepo.FindAccount(email);
+            Model.Account acc = ConvertAccount(accrepo.FindAccount(email));
 
             return acc;
         }
@@ -229,15 +245,13 @@ namespace PlantRServ
         /// Returns all the accounts in the Database
         /// </summary>
         /// <returns>Either all the accounts in the DB, or null if nothing found.</returns>
-        public List<Account> GetAllAccounts()
+        public List<Model.Account> GetAllAccounts()
         {
-            List<Account> accounts = new List<Account>();
+            List<Model.Account> accounts = new List<Model.Account>();
 
-            accounts = accrepo.GetAllAccounts();
-
-            if (accounts.Count == 0)
+            foreach (Account a in accrepo.GetAllAccounts())
             {
-                accounts = null;
+                accounts.Add(ConvertAccount(a));
             }
 
             return accounts;
@@ -258,9 +272,9 @@ namespace PlantRServ
         /// in the list.
         /// </summary>
         /// <returns>The last personal plant in the lsit</returns>
-        public Account GetLastAccount()
+        public Model.Account GetLastAccount()
         {
-            return stubADB.accounts.Last<Account>();
+            return ConvertAccount(stubADB.accounts.Last<Account>());
         }
 
         #endregion
@@ -288,9 +302,9 @@ namespace PlantRServ
         /// </summary>
         /// <param name="id">Plant ID</param>
         /// <returns>Returns the requested plant</returns>
-        public Plant FindPlant(int id)
+        public Model.Plant FindPlant(int id)
         {
-            return accrepo.FindPlant(id);
+            return ConvertPlant(accrepo.FindPlant(id));
         }
 
         /// <summary>
@@ -303,9 +317,9 @@ namespace PlantRServ
         /// <param name="description">Desired new Description</param>
         /// <param name="sDays">Desiured new Watering days</param>
         /// <returns>Returns the updated plant</returns>
-        public Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays)
+        public Model.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays)
         {
-            return accrepo.UpdatePlant(id, cName, lName, imageURL, description, sDays);
+            return ConvertPlant(accrepo.UpdatePlant(id, cName, lName, imageURL, description, sDays));
         }
 
         /// <summary>
@@ -322,10 +336,90 @@ namespace PlantRServ
         /// Returns all the plants in the Database 
         /// </summary>
         /// <returns>Either all the plants in the DB, or null if nothing found.</returns>
-        public List<Plant> GetAllPlants()
+        public List<Model.Plant> GetAllPlants()
         {
-            return accrepo.GetAllPlants();
+            List<Model.Plant> allPlants = new List<Model.Plant>();
+
+            foreach (Plant p in accrepo.GetAllPlants())
+            {
+                allPlants.Add(ConvertPlant(p));
+            }
+
+            return allPlants;
         }
+
+        #endregion
+
+        #region HelperMethods
+
+        private Model.PersonalPlant ConvertPersonalPlant(PersonalPlant plant)
+        {
+            if (plant != null)
+            {
+                Model.PersonalPlant mPP = new Model.PersonalPlant
+                {
+                    Id = plant.id,
+                    PId = plant.pid,
+                    AId = plant.aid,
+                    NName = plant.nname,
+                    LastWatered = plant.lastwatered,
+                    NextWatered = plant.nextwatered,
+                    WDuration = plant.wduration,
+
+                    account = ConvertAccount(plant.Account),
+                    plant = ConvertPlant(plant.Plant)
+                };
+
+                return mPP;
+            }
+            else return null;
+
+
+        }
+
+        private Model.Plant ConvertPlant(Plant plant)
+        {
+            if (plant != null)
+            {
+                Model.Plant mPlant = new Model.Plant
+                {
+                    ID = plant.id,
+                    LName = plant.lname,
+                    CName = plant.cname,
+                    ImageURL = plant.imgurl,
+                    Description = plant.description,
+                    SDays = plant.sdays
+                };
+                return mPlant;
+            }
+            else return null;
+
+        }
+
+        private Model.Account ConvertAccount(Account account)
+        {
+            if (account != null)
+            {
+                List<Model.PersonalPlant> mPlantList = new List<Model.PersonalPlant>();
+                foreach (PersonalPlant pp in account.PersonalPlants)
+                {
+                    mPlantList.Add(ConvertPersonalPlant(pp));
+                }
+                Model.Account mAccount = new Model.Account
+                {
+                    ID = account.id,
+                    UserName = account.username,
+                    Email = account.email,
+                    Password = account.password,
+                    PlantList = mPlantList
+                };
+
+                return mAccount;
+            }
+            else return null;
+
+        }
+
 
         #endregion
     }
