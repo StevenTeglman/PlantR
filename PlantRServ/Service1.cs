@@ -130,14 +130,9 @@ namespace PlantRServ
              {
                  ppList = null;
              }*/
-            List<Model.PersonalPlant> result = new List<Model.PersonalPlant>();
 
-            foreach (PersonalPlant pp in accrepo.GetAllPersonalPlants())
-            {
-                result.Add(ConvertPersonalPlant(pp));
-            }
 
-            return result;
+            return accrepo.GetAllAccountPersonalPlants(accID);
         }
 
         /// <summary>
@@ -400,18 +395,12 @@ namespace PlantRServ
         {
             if (account != null)
             {
-                List<Model.PersonalPlant> mPlantList = new List<Model.PersonalPlant>();
-                foreach (PersonalPlant pp in account.PersonalPlants)
-                {
-                    mPlantList.Add(ConvertPersonalPlant(pp));
-                }
                 Model.Account mAccount = new Model.Account
                 {
                     ID = account.id,
                     UserName = account.username,
                     Email = account.email,
-                    Password = account.password,
-                    PlantList = mPlantList
+                    Password = account.password
                 };
 
                 return mAccount;

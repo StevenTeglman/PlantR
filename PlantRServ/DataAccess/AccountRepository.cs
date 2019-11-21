@@ -321,30 +321,22 @@ namespace PlantRServ.DataAccess
         /// </summary>
         /// <param name="accID">Account ID</param>
         /// <returns>List of Personal Plants for that account</returns>
-        public List<PersonalPlant> GetAllAccountPersonalPlants(int accID)
+        public List<Model.PersonalPlant> GetAllAccountPersonalPlants(int accID)
         {
-            List<PersonalPlant> result = new List<PersonalPlant>();
+            List<Model.PersonalPlant> result = new List<Model.PersonalPlant>();
             List<PersonalPlant> ppList = new List<PersonalPlant>();
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
                 plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
+                plantdb.DeferredLoadingEnabled = true;
                 ppList = plantdb.PersonalPlants.Where(e => e.aid.Equals(accID)).ToList();
-            }
-            foreach (PersonalPlant pp in ppList)
-            {
-                PersonalPlant newPP = new PersonalPlant
-                {
-                    id = pp.id,
-                    aid = pp.aid,
-                    pid = pp.pid,
-                    nname = pp.nname,
-                    lastwatered = pp.lastwatered,
-                    nextwatered = pp.nextwatered,
-                    wduration = pp.wduration
-                };
-                result.Add(newPP);
-            }
 
+                foreach (PersonalPlant pp in ppList)
+                {
+                    Model.PersonalPlant newPP = ConvertPersonalPlant(pp);
+                    result.Add(newPP);
+                }
+            }
             return result;
         }
 
@@ -486,6 +478,68 @@ namespace PlantRServ.DataAccess
             }
 
             return dlo;
+        }
+
+        private Model.PersonalPlant ConvertPersonalPlant(PersonalPlant plant)
+        {
+            if (plant != null)
+            {
+                Model.PersonalPlant mPP = new Model.PersonalPlant
+                {
+                    Id = plant.id,
+                    PId = plant.pid,
+                    AId = plant.aid,
+                    NName = plant.nname,
+                    LastWatered = plant.lastwatered,
+                    NextWatered = plant.nextwatered,
+                    WDuration = plant.wduration,
+
+                    account = ConvertAccount(plant.Account),
+                    plant = ConvertPlant(plant.Plant)
+                };
+
+                return mPP;
+            }
+            else return null;
+
+
+        }
+
+        private Model.Plant ConvertPlant(Plant plant)
+        {
+            if (plant != null)
+            {
+                Model.Plant mPlant = new Model.Plant
+                {
+                    ID = plant.id,
+                    LName = plant.lname,
+                    CName = plant.cname,
+                    ImageURL = plant.imgurl,
+                    Description = plant.description,
+                    SDays = plant.sdays
+                };
+                return mPlant;
+            }
+            else return null;
+
+        }
+
+        private Model.Account ConvertAccount(Account account)
+        {
+            if (account != null)
+            {
+                Model.Account mAccount = new Model.Account
+                {
+                    ID = account.id,
+                    UserName = account.username,
+                    Email = account.email,
+                    Password = account.password
+                };
+
+                return mAccount;
+            }
+            else return null;
+
         }
         #endregion
     }
