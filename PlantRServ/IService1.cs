@@ -38,7 +38,7 @@ namespace PlantRServ
         bool UpdatePersonalPlant(int ppID, int wDuration, string nName);
         // ------------------------------   Accounts    -------------------------------
         [OperationContract]
-        Model.Account AddAccount(string userName, string email, string password);
+        Model.Account AddAccount(string email);
         [OperationContract]
         Model.Account FindAccount(string email);
         [OperationContract]

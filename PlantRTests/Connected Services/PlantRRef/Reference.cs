@@ -367,13 +367,7 @@ namespace PlantRTests.PlantRRef {
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private PlantRTests.PlantRRef.PersonalPlant[] PlantListField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -412,19 +406,6 @@ namespace PlantRTests.PlantRRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public PlantRTests.PlantRRef.PersonalPlant[] PlantList {
             get {
                 return this.PlantListField;
@@ -433,19 +414,6 @@ namespace PlantRTests.PlantRRef {
                 if ((object.ReferenceEquals(this.PlantListField, value) != true)) {
                     this.PlantListField = value;
                     this.RaisePropertyChanged("PlantList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
                 }
             }
         }
@@ -513,10 +481,10 @@ namespace PlantRTests.PlantRRef {
         System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int wDuration, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
-        PlantRTests.PlantRRef.Account AddAccount(string userName, string email, string password);
+        PlantRTests.PlantRRef.Account AddAccount(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
-        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> AddAccountAsync(string userName, string email, string password);
+        System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> AddAccountAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindAccount", ReplyAction="http://tempuri.org/IService1/FindAccountResponse")]
         PlantRTests.PlantRRef.Account FindAccount(string email);
@@ -664,12 +632,12 @@ namespace PlantRTests.PlantRRef {
             return base.Channel.UpdatePersonalPlantAsync(ppID, wDuration, nName);
         }
         
-        public PlantRTests.PlantRRef.Account AddAccount(string userName, string email, string password) {
-            return base.Channel.AddAccount(userName, email, password);
+        public PlantRTests.PlantRRef.Account AddAccount(string email) {
+            return base.Channel.AddAccount(email);
         }
         
-        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> AddAccountAsync(string userName, string email, string password) {
-            return base.Channel.AddAccountAsync(userName, email, password);
+        public System.Threading.Tasks.Task<PlantRTests.PlantRRef.Account> AddAccountAsync(string email) {
+            return base.Channel.AddAccountAsync(email);
         }
         
         public PlantRTests.PlantRRef.Account FindAccount(string email) {

@@ -30,15 +30,15 @@ namespace PlantRServ.DataAccess
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertPlant(Plant instance);
+    partial void UpdatePlant(Plant instance);
+    partial void DeletePlant(Plant instance);
     partial void InsertAccount(Account instance);
     partial void UpdateAccount(Account instance);
     partial void DeleteAccount(Account instance);
     partial void InsertPersonalPlant(PersonalPlant instance);
     partial void UpdatePersonalPlant(PersonalPlant instance);
     partial void DeletePersonalPlant(PersonalPlant instance);
-    partial void InsertPlant(Plant instance);
-    partial void UpdatePlant(Plant instance);
-    partial void DeletePlant(Plant instance);
     #endregion
 		
 		public LinQtoSQLDataContext() : 
@@ -71,6 +71,14 @@ namespace PlantRServ.DataAccess
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<Plant> Plants
+		{
+			get
+			{
+				return this.GetTable<Plant>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Account> Accounts
 		{
 			get
@@ -86,13 +94,215 @@ namespace PlantRServ.DataAccess
 				return this.GetTable<PersonalPlant>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Plant")]
+	public partial class Plant : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<Plant> Plants
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _cname;
+		
+		private string _lname;
+		
+		private string _imgurl;
+		
+		private string _description;
+		
+		private int _sdays;
+		
+		private EntitySet<PersonalPlant> _PersonalPlants;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OncnameChanging(string value);
+    partial void OncnameChanged();
+    partial void OnlnameChanging(string value);
+    partial void OnlnameChanged();
+    partial void OnimgurlChanging(string value);
+    partial void OnimgurlChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OnsdaysChanging(int value);
+    partial void OnsdaysChanged();
+    #endregion
+		
+		public Plant()
+		{
+			this._PersonalPlants = new EntitySet<PersonalPlant>(new Action<PersonalPlant>(this.attach_PersonalPlants), new Action<PersonalPlant>(this.detach_PersonalPlants));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
 		{
 			get
 			{
-				return this.GetTable<Plant>();
+				return this._id;
 			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string cname
+		{
+			get
+			{
+				return this._cname;
+			}
+			set
+			{
+				if ((this._cname != value))
+				{
+					this.OncnameChanging(value);
+					this.SendPropertyChanging();
+					this._cname = value;
+					this.SendPropertyChanged("cname");
+					this.OncnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string lname
+		{
+			get
+			{
+				return this._lname;
+			}
+			set
+			{
+				if ((this._lname != value))
+				{
+					this.OnlnameChanging(value);
+					this.SendPropertyChanging();
+					this._lname = value;
+					this.SendPropertyChanged("lname");
+					this.OnlnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imgurl", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string imgurl
+		{
+			get
+			{
+				return this._imgurl;
+			}
+			set
+			{
+				if ((this._imgurl != value))
+				{
+					this.OnimgurlChanging(value);
+					this.SendPropertyChanging();
+					this._imgurl = value;
+					this.SendPropertyChanged("imgurl");
+					this.OnimgurlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sdays", DbType="Int NOT NULL")]
+		public int sdays
+		{
+			get
+			{
+				return this._sdays;
+			}
+			set
+			{
+				if ((this._sdays != value))
+				{
+					this.OnsdaysChanging(value);
+					this.SendPropertyChanging();
+					this._sdays = value;
+					this.SendPropertyChanged("sdays");
+					this.OnsdaysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Plant_PersonalPlant", Storage="_PersonalPlants", ThisKey="id", OtherKey="pid")]
+		public EntitySet<PersonalPlant> PersonalPlants
+		{
+			get
+			{
+				return this._PersonalPlants;
+			}
+			set
+			{
+				this._PersonalPlants.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PersonalPlants(PersonalPlant entity)
+		{
+			this.SendPropertyChanging();
+			entity.Plant = this;
+		}
+		
+		private void detach_PersonalPlants(PersonalPlant entity)
+		{
+			this.SendPropertyChanging();
+			entity.Plant = null;
 		}
 	}
 	
@@ -104,11 +314,7 @@ namespace PlantRServ.DataAccess
 		
 		private int _id;
 		
-		private string _username;
-		
 		private string _email;
-		
-		private string _password;
 		
 		private EntitySet<PersonalPlant> _PersonalPlants;
 		
@@ -118,12 +324,8 @@ namespace PlantRServ.DataAccess
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
     partial void OnemailChanging(string value);
     partial void OnemailChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
     #endregion
 		
 		public Account()
@@ -152,26 +354,6 @@ namespace PlantRServ.DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
 		public string email
 		{
@@ -188,26 +370,6 @@ namespace PlantRServ.DataAccess
 					this._email = value;
 					this.SendPropertyChanged("email");
 					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
 				}
 			}
 		}
@@ -543,216 +705,6 @@ namespace PlantRServ.DataAccess
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Plant")]
-	public partial class Plant : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _cname;
-		
-		private string _lname;
-		
-		private string _imgurl;
-		
-		private string _description;
-		
-		private int _sdays;
-		
-		private EntitySet<PersonalPlant> _PersonalPlants;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OncnameChanging(string value);
-    partial void OncnameChanged();
-    partial void OnlnameChanging(string value);
-    partial void OnlnameChanged();
-    partial void OnimgurlChanging(string value);
-    partial void OnimgurlChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OnsdaysChanging(int value);
-    partial void OnsdaysChanged();
-    #endregion
-		
-		public Plant()
-		{
-			this._PersonalPlants = new EntitySet<PersonalPlant>(new Action<PersonalPlant>(this.attach_PersonalPlants), new Action<PersonalPlant>(this.detach_PersonalPlants));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string cname
-		{
-			get
-			{
-				return this._cname;
-			}
-			set
-			{
-				if ((this._cname != value))
-				{
-					this.OncnameChanging(value);
-					this.SendPropertyChanging();
-					this._cname = value;
-					this.SendPropertyChanged("cname");
-					this.OncnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string lname
-		{
-			get
-			{
-				return this._lname;
-			}
-			set
-			{
-				if ((this._lname != value))
-				{
-					this.OnlnameChanging(value);
-					this.SendPropertyChanging();
-					this._lname = value;
-					this.SendPropertyChanged("lname");
-					this.OnlnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imgurl", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string imgurl
-		{
-			get
-			{
-				return this._imgurl;
-			}
-			set
-			{
-				if ((this._imgurl != value))
-				{
-					this.OnimgurlChanging(value);
-					this.SendPropertyChanging();
-					this._imgurl = value;
-					this.SendPropertyChanged("imgurl");
-					this.OnimgurlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sdays", DbType="Int NOT NULL")]
-		public int sdays
-		{
-			get
-			{
-				return this._sdays;
-			}
-			set
-			{
-				if ((this._sdays != value))
-				{
-					this.OnsdaysChanging(value);
-					this.SendPropertyChanging();
-					this._sdays = value;
-					this.SendPropertyChanged("sdays");
-					this.OnsdaysChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Plant_PersonalPlant", Storage="_PersonalPlants", ThisKey="id", OtherKey="pid")]
-		public EntitySet<PersonalPlant> PersonalPlants
-		{
-			get
-			{
-				return this._PersonalPlants;
-			}
-			set
-			{
-				this._PersonalPlants.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_PersonalPlants(PersonalPlant entity)
-		{
-			this.SendPropertyChanging();
-			entity.Plant = this;
-		}
-		
-		private void detach_PersonalPlants(PersonalPlant entity)
-		{
-			this.SendPropertyChanging();
-			entity.Plant = null;
 		}
 	}
 }
