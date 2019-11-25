@@ -34,8 +34,8 @@ namespace PlantRTests
         public void AddPlantToAccountTest()
         {
             //Arrange
-            int plantID = 2002;
-            int accID = 1013;
+            int plantID = 1002;
+            int accID = 11;
             int daysWater = 5;
             string nName = "Planty";
             int result = 0;
@@ -55,8 +55,8 @@ namespace PlantRTests
         public void RemovePlantFromAccountTest()
         {
             //Arrange
-            int plantID = 2002;
-            int accID = 1013;
+            int plantID = 1002;
+            int accID = 11;
             int daysWater = 5;
             string nName = "Planty";
             bool result = false;
@@ -72,8 +72,8 @@ namespace PlantRTests
         public void FindPlantFromAccountTest()
         {
             //Arrange
-            int plantID = 2002;
-            int accID = 1013;
+            int plantID = 1002;
+            int accID = 11;
             int daysWater = 5;
             string nName = "Planty";
             PersonalPlant pp = null;
@@ -91,8 +91,8 @@ namespace PlantRTests
         public void UpdatePersonalPlantTest()
         {
             //Arrange
-            int plantID = 2002;
-            int accID = 1013;
+            int plantID = 1002;
+            int accID = 11;
             int daysWater = 5;
             string nName = "Planty";
             string newName = "poopy";
@@ -115,18 +115,18 @@ namespace PlantRTests
         public void GetAllAccountPersonalPlantsTest()
         {
             //Arrange
-            int plantID = 2002;
-            int accID = 1013;
+            int plantID = 1002;
+            int accID = 11;
             int daysWater = 5;
             string nName = "Planty";
 
-            int plantID2 = 2002;
-            int accID2 = 1013;
+            int plantID2 = 1002;
+            int accID2 = 2002;
             int daysWater2 = 5;
             string nName2 = "Planty2";
 
             List<PersonalPlant> ppList = new List<PersonalPlant>();
-            int expectedResult = 2;
+            int expectedResult = 3;
 
             int ppid1 = service.AddPersonalPlant(plantID, accID, daysWater, nName);
             int ppid2 = service.AddPersonalPlant(plantID2, accID2, daysWater2, nName2);
@@ -155,15 +155,13 @@ namespace PlantRTests
         public void AddAccountTest()
         {
             //Arrange
-            string userName = "usernameOG";
             string email = "emailOG";
-            string password = "passwordOG";
 
             //Act
-            Account test = service.AddAccount(userName, email, password);
+            Account test = service.AddAccount(email);
 
             //Assert
-            Assert.AreEqual(test.UserName, userName);
+            Assert.AreEqual(test.Email, email);
 
             service.RemoveAccount(email);
         }
@@ -172,16 +170,14 @@ namespace PlantRTests
         public void FindAccountTest()
         {
             //Arrange
-            string userName = "usernameOG";
             string email = "emailOG";
-            string password = "passwordOG";
-            Account test = service.AddAccount(userName, email, password);
+            Account test = service.AddAccount(email);
 
             //Act
             Account result = service.FindAccount(email);
 
             //Assert
-            Assert.AreEqual(password, result.Password);
+            Assert.AreEqual(email, result.Email);
 
             service.RemoveAccount(email);
 
@@ -191,14 +187,10 @@ namespace PlantRTests
         public void GetAllAccountsTest()
         {
             //Arrange
-            string userName = "usernameOG";
             string email = "emailOG";
-            string password = "passwordOG";
-            service.AddAccount(userName, email, password);
-            string userName1 = "usernameOG1";
+            service.AddAccount(email);
             string email1 = "emailOG1";
-            string password1 = "passwordOG1";
-            service.AddAccount(userName1, email1, password1);
+            service.AddAccount(email1);
             List<Account> accounts = new List<Account>();
             //Act
             accounts = service.GetAllAccounts().ToList();
@@ -214,10 +206,8 @@ namespace PlantRTests
         public void RemoveAccountTest()
         {
             //Arrange
-            string userName = "usernameOG";
             string email = "emailOG";
-            string password = "passwordOG";
-            Account test = service.AddAccount(userName, email, password);
+            service.AddAccount(email);
 
             //Act
             bool result = service.RemoveAccount(email);

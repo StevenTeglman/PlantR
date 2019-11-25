@@ -9,7 +9,10 @@
           <xs:element minOccurs="0" name="LastWatered" type="xs:dateTime" />
           <xs:element minOccurs="0" name="NName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="NextWatered" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PId" type="xs:int" />
           <xs:element minOccurs="0" name="WDuration" type="xs:int" />
+          <xs:element minOccurs="0" name="account" nillable="true" type="tns:Account" />
+          <xs:element minOccurs="0" name="plant" nillable="true" type="tns:Plant" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -26,32 +29,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Plant" nillable="true" type="tns:Plant" />
-  <xs:complexType name="ArrayOfPlant">
+  <xs:complexType name="Account">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Plant" nillable="true" type="tns:Plant" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="PlantList" nillable="true" type="tns:ArrayOfPersonalPlant" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfPlant" nillable="true" type="tns:ArrayOfPlant" />
+  <xs:element name="Account" nillable="true" type="tns:Account" />
   <xs:complexType name="ArrayOfPersonalPlant">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonalPlant" nillable="true" type="tns:PersonalPlant" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfPersonalPlant" nillable="true" type="tns:ArrayOfPersonalPlant" />
-  <xs:complexType name="Account">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PlantList" nillable="true" type="tns:ArrayOfPersonalPlant" />
-      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Account" nillable="true" type="tns:Account" />
   <xs:complexType name="ArrayOfAccount">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="tns:Account" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAccount" nillable="true" type="tns:ArrayOfAccount" />
+  <xs:complexType name="ArrayOfPlant">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Plant" nillable="true" type="tns:Plant" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlant" nillable="true" type="tns:ArrayOfPlant" />
 </xs:schema>

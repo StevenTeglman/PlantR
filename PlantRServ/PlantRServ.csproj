@@ -59,9 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\AccountRepository.cs" />
-    <Compile Include="DataAccess\LinQtoSQL.cs">
-      <DependentUpon>LinQtoSQL.dbml</DependentUpon>
-    </Compile>
     <Compile Include="DataAccess\LinQtoSQL.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
