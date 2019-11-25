@@ -9,14 +9,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PlantRMVC2.Models;
-using PlantRMVC2.PlantRRef;
+using PlantRProxy;
 
 namespace PlantRMVC2.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        public PlantRRef.Service1Client service = new Service1Client();
+        public PlantRProxy.PlantRClient service = new PlantRClient();
         
 
         private ApplicationSignInManager _signInManager;

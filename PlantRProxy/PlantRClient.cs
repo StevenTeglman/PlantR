@@ -11,9 +11,10 @@ namespace PlantRProxy
 {
     public class PlantRClient : ClientBase<PlantRServ.IService1>, PlantRServ.IService1
     {
-        public Account AddAccount(string userName, string email, string password)
+        static void Main(string[] args) { }
+        public Account AddAccount(string email)
         {
-            return Channel.AddAccount(userName, email, password);
+            return Channel.AddAccount(email);
         }
 
         public int AddPersonalPlant(int plantID, int accID, int daysWater, string nName)
