@@ -34,8 +34,8 @@ namespace PlantRTests
         public void AddPlantToAccountTest()
         {
             //Arrange
-            int plantID = 1002;
-            int accID = 2002;
+            int plantID = 2002;
+            int accID = 1013;
             int daysWater = 5;
             string nName = "Planty";
             int result = 0;
@@ -55,8 +55,8 @@ namespace PlantRTests
         public void RemovePlantFromAccountTest()
         {
             //Arrange
-            int plantID = 1002;
-            int accID = 2002;
+            int plantID = 2002;
+            int accID = 1013;
             int daysWater = 5;
             string nName = "Planty";
             bool result = false;
@@ -72,8 +72,8 @@ namespace PlantRTests
         public void FindPlantFromAccountTest()
         {
             //Arrange
-            int plantID = 1002;
-            int accID = 2002;
+            int plantID = 2002;
+            int accID = 1013;
             int daysWater = 5;
             string nName = "Planty";
             PersonalPlant pp = null;
@@ -91,8 +91,8 @@ namespace PlantRTests
         public void UpdatePersonalPlantTest()
         {
             //Arrange
-            int plantID = 1002;
-            int accID = 2002;
+            int plantID = 2002;
+            int accID = 1013;
             int daysWater = 5;
             string nName = "Planty";
             string newName = "poopy";
@@ -115,13 +115,13 @@ namespace PlantRTests
         public void GetAllAccountPersonalPlantsTest()
         {
             //Arrange
-            int plantID = 1002;
-            int accID = 2002;
+            int plantID = 2002;
+            int accID = 1013;
             int daysWater = 5;
             string nName = "Planty";
 
-            int plantID2 = 1002;
-            int accID2 = 2002;
+            int plantID2 = 2002;
+            int accID2 = 1013;
             int daysWater2 = 5;
             string nName2 = "Planty2";
 

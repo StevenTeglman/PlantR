@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRMVC2", "PlantRMVC2\Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRMVC2.Tests", "PlantRMVC2.Tests\PlantRMVC2.Tests.csproj", "{77FF35E5-BEB9-450C-AF21-1B1DC6DA25B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantHostConsole", "PlantHostConsole\PlantHostConsole.csproj", "{EE7C7175-7025-4E20-A768-3B65B69B3CC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRProxy", "PlantRProxy\PlantRProxy.csproj", "{7440074F-AA63-49D6-AF3A-85CD6E84CAF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,14 @@ Global
 		{77FF35E5-BEB9-450C-AF21-1B1DC6DA25B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77FF35E5-BEB9-450C-AF21-1B1DC6DA25B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77FF35E5-BEB9-450C-AF21-1B1DC6DA25B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE7C7175-7025-4E20-A768-3B65B69B3CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7C7175-7025-4E20-A768-3B65B69B3CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7C7175-7025-4E20-A768-3B65B69B3CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7C7175-7025-4E20-A768-3B65B69B3CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7440074F-AA63-49D6-AF3A-85CD6E84CAF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7440074F-AA63-49D6-AF3A-85CD6E84CAF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7440074F-AA63-49D6-AF3A-85CD6E84CAF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7440074F-AA63-49D6-AF3A-85CD6E84CAF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
