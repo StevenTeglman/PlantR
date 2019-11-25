@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using PlantRMVC2.PlantRRef;
 namespace PlantRMVC2.Models
 {
     public class ExternalLoginConfirmationViewModel
