@@ -425,10 +425,12 @@ namespace PlantRMVC2.Controllers
                     $"DELETE FROM AspNetUsers WHERE Id = '{id}'";
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
                 {
+                    service.RemoveAccount(User.Identity.GetUserName());
                     SqlCommand command = new SqlCommand(
                         queryString, con);
                     con.Open();
                     command.ExecuteNonQuery();
+                    
                 }
 
                 return LogOff();
