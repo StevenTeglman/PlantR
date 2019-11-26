@@ -22,11 +22,13 @@ namespace PlantRMVC2
                 };
 
                 // We don't want quotes around object names
+                jsonWriter.DateFormatString = "dd/MM/yyyy";
                 jsonWriter.QuoteName = false;
                 serializer.Serialize(jsonWriter, value);
 
                 return new HtmlString(stringWriter.ToString());
             }
         }
+
     }
 }

@@ -16,6 +16,7 @@ namespace PlantRMVC2.Controllers
 
         public ActionResult Index()
         {
+            
             Console.WriteLine();
             return View();
         }
@@ -38,7 +39,6 @@ namespace PlantRMVC2.Controllers
         {
             ViewBag.Message = "Your User Home page.";
             ViewData["Plants"] = service.GetAccountPersonalPlants(1);
-
             return View();
         }
 
