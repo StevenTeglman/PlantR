@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -10,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PlantRMVC2.Models;
 using PlantRProxy;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace PlantRMVC2.Controllers
 {
@@ -409,6 +412,39 @@ namespace PlantRMVC2.Controllers
             return View();
         }
 
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed()
+        {
+
+            if (ModelState.IsValid)
+            {
+                var id = User.Identity.GetUserId();
+
+                string queryString =
+                    $"DELETE FROM AspNetUsers WHERE Id = '{id}'";
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+                {
+                    service.RemoveAccount(User.Identity.GetUserName());
+                    SqlCommand command = new SqlCommand(
+                        queryString, con);
+                    con.Open();
+                    command.ExecuteNonQuery();
+                    
+                }
+
+                return LogOff();
+
+            }  
+            else
+            {
+                return View();
+            }
+            
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -458,6 +494,17 @@ namespace PlantRMVC2.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        private string GetConnectionString()
+        {
+            SqlConnectionStringBuilder conStr = new SqlConnectionStringBuilder
+            {
+                DataSource = @"(localdb)\MSSQLLocalDB",
+                InitialCatalog = "aspnet-PlantRMVC2-20191114102332",
+                IntegratedSecurity = true,
+            };
+            return conStr.ConnectionString;
+        }
+
         internal class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri)
@@ -485,7 +532,10 @@ namespace PlantRMVC2.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+
+            
         }
         #endregion
     }
+
 }
