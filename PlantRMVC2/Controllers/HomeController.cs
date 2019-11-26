@@ -35,12 +35,7 @@ namespace PlantRMVC2.Controllers
             return View();
         }
 
-        public ActionResult UserHome()
-        {
-            ViewBag.Message = "Your User Home page.";
-            ViewData["Plants"] = service.GetAccountPersonalPlants(1);
-            return View();
-        }
+        
 
     }
 }

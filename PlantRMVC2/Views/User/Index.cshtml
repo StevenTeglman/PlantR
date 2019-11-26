@@ -1,0 +1,125 @@
+﻿
+@{
+
+    ViewBag.Title = "User Home";
+    var plants = ViewData["Plants"] as List<PlantRServ.Model.PersonalPlant>;
+
+
+}
+
+@*reorganise scripts and pretty up the thing*@
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/tables.css" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/tables.js"></script>
+
+    <script class="init" type="text/javascript">
+        $(function () {
+
+            var planties = @JavaScriptConvert.SerializeObject(plants);
+
+            $('#table_id').DataTable({
+                data: planties,
+                columns: [
+                    {
+                         className:'details-control',
+                         orderable:false,
+                         data: null,
+                         defaultContent: '',
+                         width: "5%"
+
+                    },
+                    { data: "nName" },
+                    {
+                        data: "plant.cName",
+                        width: "20%"
+                    },
+                    { data: "wDuration" },
+                    { data: "nextWatered" },
+                    { data: "lastWatered" },
+                    {
+                        className: 'water-control',
+                        orderable: false,
+                        data: null,
+                        defaultContent: '<button id="wateredButton">Watered</button>',
+                        width: "5%"
+                    }
+                ],
+                order: [[1, 'asc']]
+            });
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#table_id').DataTable();
+            //Responsible for creating the child rows when clicking the row
+            $('#table_id tbody').on('click', 'td.details-control', function () {
+                var tr = $(this).closest('tr');
+                var row = table.row(tr);
+                var tabChild;
+
+                if (row.child.isShown()) {
+                    row.child.hide();
+                    tr.removeClass('shown');
+                }
+                else {
+                    tabChild = format(row.data())
+                    row.child(tabChild).show();
+                    tr.addClass('shown');
+                }
+                //Responsible for reading the input on updating
+                $('#table_child tbody').on('click', 'button', function () {
+                    var tbody = $(this).closest('tbody')
+                    var data = $(tbody, 'input').serialize();
+                    console.log(tbody);
+                });
+
+                //throw in delete button methods here
+
+            });
+
+                       
+        });
+    </script>
+
+    <script>
+            
+    </script>
+
+
+</head>
+
+<div>
+    <h2>My Plants</h2>
+
+    <table id="table_id" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" role="grid"
+           aria-describedby="example_info">
+        <thead>
+            <tr role="row">
+                <th></th>
+                <th class="sorting_asc" tabindex="0" aria-controls="example"
+                    rowspan="1" colspan="1" style="width: 118px;"
+                    aria-label="NickName: activate to sort column descending" aria-sort="ascending">Nickname</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 192px;"
+                    aria-label="CommonName: activate to sort column ascending">Common Name</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 88px;"
+                    aria-label="WateringCycle: activate to sort column ascending">Watering Cycle</th>
+                <th class="dt-body-right sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                    style="width: 35px;" aria-label="NextWatering: activate to sort column ascending">Next Watering</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 80px;"
+                    aria-label="Last Watering: activate to sort column ascending">Last Watering</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+
+    <div>
+
+    </div>
+
+</div>

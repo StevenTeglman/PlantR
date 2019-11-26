@@ -1,20 +1,18 @@
-﻿var gridData = {
-    Head: [["Header 1", "Header 2", "Header 3"]],
-    Body: [["Row 1, Cell 1", "Row 1, Cell 2", "Row 1, Cell 3"],
-        ["Row 2, Cell 1", "Row 2, Cell 2", "Row 2, Cell 3"],
-    ["Row 3, Cell 1", "Row 3, Cell 2", "Row 3, Cell <em>3</em>"]]
-};
+﻿
+function format(d) {
+    return '<table id="table_child" cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+        '<tr>' +
+        '<td>Nickname:</td>' +
+        '<td><input type="text" id="row-nickname" name="row-nickname" value='+d.nName +'></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Watering Cycle:</td>' +
+        '<td><input type="text" id="row-wDuration" name="row-wDuration" value=' + d.wDuration + '></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td><button id=updateButton>Update</button></td>' +
+        '<td><button id=deleteButton>Delete</button></td>' +
 
-
-
-new Grid("myGrid", {
-    srcType: "json",
-    srcData: gridData,
-    allowGridResize: true,
-    allowColumnResize: true,
-    allowClientSideSorting: true,
-    allowSelections: true,
-    allowMultipleSelections: true,
-    showSelectionColumn: true,
-    fixedCols: 1
-});
+        '</tr>' +
+        '</table>';
+}
