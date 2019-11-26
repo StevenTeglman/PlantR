@@ -1,0 +1,67 @@
+﻿
+@{
+
+    ViewBag.Title = "User Home";
+
+}
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="~/Scripts/tables.js"></script>
+
+
+        <script class="init" type="text/javascript">
+        $(function () {
+        var planties = @Html.Raw(Json.Encode(ViewData["Plants"]));
+            $('#table_id').DataTable({
+                    data: planties,
+                columns: [
+                    { data: "NName" },
+                    { data: "CName" },
+                    { data: "WDuration" },
+                    { data: "NextWatered" },
+                    { data: "LastWatered" },
+                ]
+                });
+            })
+        </script>
+
+
+    </head>
+
+<div>
+    <h2>My Plants</h2>
+    
+    <table id="table_id" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" role="grid"
+               aria-describedby="example_info">
+            <thead>
+                <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="example"
+                        rowspan="1" colspan="1" style="width: 118px;"
+                        aria-label="NickName: activate to sort column descending" aria-sort="ascending">Nickname</th>
+                    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 192px;"
+                        aria-label="CommonName: activate to sort column ascending">Common Name</th>
+                    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 88px;"
+                        aria-label="WateringCycle: activate to sort column ascending">Watering Cycle</th>
+                    <th class="dt-body-right sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                        style="width: 35px;" aria-label="NextWatering: activate to sort column ascending">Next Watering</th>
+                    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 80px;"
+                        aria-label="Last Watering: activate to sort column ascending">Last Watering</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th rowspan="1" colspan="1">Nickname</th>
+                    <th rowspan="1" colspan="1">Common Name</th>
+                    <th class="dt-body-right" rowspan="1" colspan="1">Watering Cycle</th>
+                    <th rowspan="1" colspan="1">Next Watering</th>
+                    <th rowspan="1" colspan="1">Last Watering</th>
+                </tr>
+            </tfoot>
+        </table>
+
+</div>
