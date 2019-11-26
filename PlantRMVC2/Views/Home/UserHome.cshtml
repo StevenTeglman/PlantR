@@ -18,13 +18,13 @@
         var planties = @Html.Raw(Json.Encode(ViewData["Plants"]));
             $('#table_id').DataTable({
                     data: planties,
-                    columns: [
-                        { title: "Nickname" },
-                        { title: "Common Name" },
-                        { title: "Watering Cycle" },
-                        { title: "Next Watering" },
-                        { title: "Last Watering" }
-                    ]
+                columns: [
+                    { data: "NName" },
+                    { data: "CName" },
+                    { data: "WDuration" },
+                    { data: "NextWatered" },
+                    { data: "LastWatered" },
+                ]
                 });
             })
         </script>
@@ -34,36 +34,7 @@
 
 <div>
     <h2>My Plants</h2>
-    @*<table id="table_id" class="display">
-            <thead>
-                <tr>
-                    <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                        style="width: 118px;" aria-sort="ascending"
-                        aria-label="NickName: activate to sort column descending">NickName</th>
-                    <th>CommonName</th>
-                    <th>Watering Cycle</th>
-                    <th>Next Watering</th>
-                    <th>Last Watering</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="odd">
-                    <td>Row 1 Data 1</td>
-                    <td>Row 1 Data 2</td>
-                    <td>Row 1 Data 3</td>
-                    <td>Row 1 Data 4</td>
-                    <td>Row 1 Data 5</td>
-                </tr>
-                <tr class="even">
-                    <td>Row 2 Data 1</td>
-                    <td>Row 2 Data 2</td>
-                    <td>Row 2 Data 3</td>
-                    <td>Row 2 Data 4</td>
-                    <td>Row 2 Data 5</td>
-                </tr>
-            </tbody>
-        </table>*@
-
+    
     <table id="table_id" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" role="grid"
                aria-describedby="example_info">
             <thead>
@@ -81,78 +52,7 @@
                         aria-label="Last Watering: activate to sort column ascending">Last Watering</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr role="row" class="odd">
-                    <td tabindex="0" class="sorting_1">Airi Satou</td>
-                    <td class="">Accountant</td>
-                    <td>Tokyo</td>
-                    <td class=" dt-body-right">33</td>
-                    <td>2008/11/28</td>
-                </tr>
-                <tr role="row" class="even">
-                    <td class="sorting_1" tabindex="0">Angelica Ramos</td>
-                    <td class="">Chief Executive Officer (CEO)</td>
-                    <td>London</td>
-                    <td class=" dt-body-right">47</td>
-                    <td>2009/10/09</td>
-                </tr>
-                <tr role="row" class="odd">
-                    <td tabindex="0" class="sorting_1">Ashton Cox</td>
-                    <td class="">Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td class=" dt-body-right">66</td>
-                    <td>2009/01/12</td>
-                </tr>
-                <tr role="row" class="even">
-                    <td class="sorting_1" tabindex="0">Bradley Greer</td>
-                    <td class="">Software Engineer</td>
-                    <td>London</td>
-                    <td class=" dt-body-right">41</td>
-                    <td>2012/10/13</td>
-                </tr>
-                <tr role="row" class="odd">
-                    <td class="sorting_1" tabindex="0">Brenden Wagner</td>
-                    <td class="">Software Engineer</td>
-                    <td>San Francisco</td>
-                    <td class=" dt-body-right">28</td>
-                    <td>2011/06/07</td>
-                </tr>
-                <tr role="row" class="even">
-                    <td tabindex="0" class="sorting_1">Brielle Williamson</td>
-                    <td class="">Integration Specialist</td>
-                    <td>New York</td>
-                    <td class=" dt-body-right">61</td>
-                    <td>2012/12/02</td>
-                </tr>
-                <tr role="row" class="odd">
-                    <td class="sorting_1" tabindex="0">Bruno Nash</td>
-                    <td class="">Software Engineer</td>
-                    <td>London</td>
-                    <td class=" dt-body-right">38</td>
-                    <td>2011/05/03</td>
-                </tr>
-                <tr role="row" class="even">
-                    <td class="sorting_1" tabindex="0">Caesar Vance</td>
-                    <td class="">Pre-Sales Support</td>
-                    <td>New York</td>
-                    <td class=" dt-body-right">21</td>
-                    <td>2011/12/12</td>
-                </tr>
-                <tr role="row" class="odd">
-                    <td class="sorting_1" tabindex="0">Cara Stevens</td>
-                    <td class="">Sales Assistant</td>
-                    <td>New York</td>
-                    <td class=" dt-body-right">46</td>
-                    <td>2011/12/06</td>
-                </tr>
-                <tr role="row" class="even">
-                    <td tabindex="0" class="sorting_1">Saif Khan</td>
-                    <td class="">Senior Javascript Developer</td>
-                    <td>Edinburgh</td>
-                    <td class=" dt-body-right">22</td>
-                    <td>2012/03/29</td>
-                </tr>
-            </tbody>
+
             <tfoot>
                 <tr>
                     <th rowspan="1" colspan="1">Nickname</th>
