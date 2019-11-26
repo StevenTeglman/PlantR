@@ -222,6 +222,11 @@ namespace PlantRMVC2.Controllers
             return View();
         }
 
+        public ActionResult DeleteAccount()
+        {
+            return View();
+        }
+
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
