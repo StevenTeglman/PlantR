@@ -12,6 +12,7 @@ namespace PlantRMVC2.Controllers
     {
         public ActionResult Index()
         {
+            Console.WriteLine();
             return View();
         }
 

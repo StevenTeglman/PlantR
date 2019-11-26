@@ -184,11 +184,9 @@ namespace PlantRServ
         /// <summary>
         /// Creates and Adds a new account to the Database
         /// </summary>
-        /// <param name="userName">UserName</param>
         /// <param name="email">Email Address</param>
-        /// <param name="password">Users Password</param>
         /// <returns></returns>
-        public Model.Account AddAccount(string userName, string email, string password)
+        public Model.Account AddAccount(string email)
         {
             /* Account account = null;
 
@@ -209,7 +207,7 @@ namespace PlantRServ
                  throw;
              }*/
 
-            Model.Account account = ConvertAccount(accrepo.AddAccount(userName, email, password));
+            Model.Account account = ConvertAccount(accrepo.AddAccount(email));
 
             return account;
         }
@@ -398,9 +396,7 @@ namespace PlantRServ
                 Model.Account mAccount = new Model.Account
                 {
                     ID = account.id,
-                    UserName = account.username,
-                    Email = account.email,
-                    Password = account.password
+                    Email = account.email
                 };
 
                 return mAccount;

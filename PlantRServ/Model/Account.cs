@@ -13,11 +13,7 @@ namespace PlantRServ.Model
         [DataMember]
         public int ID { get; set; }
         [DataMember]
-        public string UserName { get; set; }
-        [DataMember]
         public string Email { get; set; }
-        [DataMember]
-        public string Password { get; set; }
         [DataMember]
         public List<PersonalPlant> PlantList { get; set; }
 

@@ -30,7 +30,7 @@ namespace PlantRServ.DataAccess
 
         #region Account
         //Basic CRUD for Accounts - Add, Find, Remove Update - plus a method to return a List of all Accounts in DB
-        public Account AddAccount(string userName, string email, string password)
+        public Account AddAccount(string email)
         {
             using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
             {
@@ -38,9 +38,7 @@ namespace PlantRServ.DataAccess
 
                 Account acc = new Account
                 {
-                    username = userName,
-                    email = email,
-                    password = password
+                    email = email
                 };
 
                 plantdb.Accounts.InsertOnSubmit(acc);
@@ -531,9 +529,7 @@ namespace PlantRServ.DataAccess
                 Model.Account mAccount = new Model.Account
                 {
                     ID = account.id,
-                    UserName = account.username,
-                    Email = account.email,
-                    Password = account.password
+                    Email = account.email
                 };
 
                 return mAccount;
