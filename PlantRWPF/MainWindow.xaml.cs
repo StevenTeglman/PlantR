@@ -28,7 +28,7 @@ namespace PlantRWPF
             InitializeComponent();
             service = new PlantRClient();
             //service.Open();
-            var mpm = new MyPlantsModel();
+            var mpm = new PlantsModel();
             mpm.Mm = (MainModel)DataContext;
             ((MainModel)DataContext).CurrentView = mpm;
 

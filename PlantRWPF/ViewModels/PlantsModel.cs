@@ -8,13 +8,13 @@ using System.Windows.Input;
 namespace PlantRWPF.ViewModels
 {
     
-    public class MyPlantsModel : ViewModelBase
+    public class PlantsModel : ViewModelBase
     {
         public MainModel Mm { get; set; }
 
         public ICommand CreateCommand { get; set; }
 
-        public MyPlantsModel()
+        public PlantsModel()
         {
         }
 

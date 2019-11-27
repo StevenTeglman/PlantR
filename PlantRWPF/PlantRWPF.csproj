@@ -78,14 +78,14 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainModel.cs" />
-    <Compile Include="ViewModels\MyPlantsModel.cs" />
+    <Compile Include="ViewModels\PlantsModel.cs" />
     <Compile Include="ViewModels\PlantCreateModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MyPlants.xaml.cs">
-      <DependentUpon>MyPlants.xaml</DependentUpon>
+    <Compile Include="Views\Plants.xaml.cs">
+      <DependentUpon>Plants.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlantCreate.xaml.cs">
       <DependentUpon>PlantCreate.xaml</DependentUpon>
@@ -106,7 +106,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MyPlants.xaml">
+    <Page Include="Views\Plants.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

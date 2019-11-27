@@ -24,18 +24,18 @@ namespace PlantRWPF.Views
     /// <summary>
     /// Interaction logic for MyPlants.xaml
     /// </summary>
-    public partial class MyPlants : UserControl
+    public partial class Plants : UserControl
     {
         public PlantRClient service = null;
 
-        public MyPlants()
+        public Plants()
         {
             InitializeComponent();
-            ListPPlants();
+            ListPlants();
 
         }
 
-        private void ListPPlants()
+        private void ListPlants()
         {
             service = new PlantRClient();
             //service.Open();
@@ -48,11 +48,11 @@ namespace PlantRWPF.Views
         private void PlusBut_Click(object sender, RoutedEventArgs e)
         {
 
-            ((MyPlantsModel)DataContext).PlantCreateSwitch();
+            ((PlantsModel)DataContext).PlantCreateSwitch();
             
         }
 
-        private void UpdatePPlantBut_Click(object sender, RoutedEventArgs e)
+        private void UpdatePlantBut_Click(object sender, RoutedEventArgs e)
         {
             /*PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
             service.UpdatePersonalPlant(pp.id, pp.wduration, pp.nname);
@@ -60,7 +60,7 @@ namespace PlantRWPF.Views
             plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);*/
         }
 
-        private void DeletePPlantBut_Click(object sender, RoutedEventArgs e)
+        private void DeletePlantBut_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure?", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PlantRWPF.Views.MyPlants"
+﻿<UserControl x:Class="PlantRWPF.Views.Plants"
              
              
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -54,7 +54,7 @@
                                     <Image Margin="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right"
                                            Source="{Binding imageURL}"/>
                                     <TextBox  x:Name="NewDescription" Margin="3" Grid.Row="0" Grid.Column="2" Text="{Binding Path=description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35" />
-                                    <TextBox  x:Name="NewSuggested Days Between Watering" Margin="3" Grid.Row="1" Grid.Column="2" Text="{Binding Path = sdays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35"/>
+                                    <TextBox  x:Name="NewSuggestedDaysBetweenWatering" Margin="3" Grid.Row="1" Grid.Column="2" Text="{Binding Path = sdays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35"/>
                                     <Button x:Name="UpdatePlantBut" Content="Update" Margin="3" Grid.Column="4" Grid.Row="2"  Click="UpdatePlantBut_Click"/>
                                     <Button x:Name="DeletePlantBut" Content="Remove" Margin="3" Grid.Column="5" Grid.Row="2" Click="DeletePlantBut_Click"/>
                                 </Grid>
