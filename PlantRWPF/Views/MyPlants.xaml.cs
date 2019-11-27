@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using PlantRWPF;
-using PlantRWPF.PlantRRef;
+using PlantRProxy;
 using PlantRWPF.ViewModels;
 
 namespace PlantRWPF.Views
@@ -26,7 +26,7 @@ namespace PlantRWPF.Views
     /// </summary>
     public partial class MyPlants : UserControl
     {
-        public PlantRRef.Service1Client service = null;
+        public PlantRClient service = null;
 
         public MyPlants()
         {
@@ -37,9 +37,9 @@ namespace PlantRWPF.Views
 
         private void ListPPlants()
         {
-            service = new Service1Client();
-            service.Open();
-            plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);//HACK: change account id
+            service = new PlantRClient();
+            //service.Open();
+            //plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);//HACK: change account id
             //TODO return a dataset and bind it to the datagrid
         }
 
@@ -54,10 +54,10 @@ namespace PlantRWPF.Views
 
         private void UpdatePPlantBut_Click(object sender, RoutedEventArgs e)
         {
-            PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
+            /*PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
             service.UpdatePersonalPlant(pp.id, pp.wduration, pp.nname);
             //refresh
-            plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);
+            plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);*/
         }
 
         private void DeletePPlantBut_Click(object sender, RoutedEventArgs e)
@@ -66,12 +66,12 @@ namespace PlantRWPF.Views
             if (messageBoxResult == MessageBoxResult.Yes)
             {
 
-                PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
+                /*PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
                 bool check = service.RemovePersonalPlant(pp.id);
                 if (check)
                 {
                     MessageBox.Show("Plant Removed", "Delete Confirmed", MessageBoxButton.OK);
-                }
+                }*/
             }
         }
 

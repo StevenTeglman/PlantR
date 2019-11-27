@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PlantRWPF.PlantRRef {
+namespace PlantRWPF.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -76,39 +76,31 @@ namespace PlantRWPF.PlantRRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PersonalPlant", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Plant", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model")]
     [System.SerializableAttribute()]
-    public partial class PersonalPlant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PlantRWPF.ServiceReference1.PersonalPlant))]
+    public partial class Plant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PlantRWPF.PlantRRef.Account AccountField;
+        private string CNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PlantRWPF.PlantRRef.Plant PlantField;
+        private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int aidField;
+        private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
+        private string ImageURLField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime lastwateredField;
+        private string LNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime nextwateredField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int pidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int wdurationField;
+        private int SDaysField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -121,118 +113,79 @@ namespace PlantRWPF.PlantRRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PlantRWPF.PlantRRef.Account Account {
+        public string CName {
             get {
-                return this.AccountField;
+                return this.CNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.AccountField, value) != true)) {
-                    this.AccountField = value;
-                    this.RaisePropertyChanged("Account");
+                if ((object.ReferenceEquals(this.CNameField, value) != true)) {
+                    this.CNameField = value;
+                    this.RaisePropertyChanged("CName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PlantRWPF.PlantRRef.Plant Plant {
+        public string Description {
             get {
-                return this.PlantField;
+                return this.DescriptionField;
             }
             set {
-                if ((object.ReferenceEquals(this.PlantField, value) != true)) {
-                    this.PlantField = value;
-                    this.RaisePropertyChanged("Plant");
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int aid {
+        public int ID {
             get {
-                return this.aidField;
+                return this.IDField;
             }
             set {
-                if ((this.aidField.Equals(value) != true)) {
-                    this.aidField = value;
-                    this.RaisePropertyChanged("aid");
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
+        public string ImageURL {
             get {
-                return this.idField;
+                return this.ImageURLField;
             }
             set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
+                if ((object.ReferenceEquals(this.ImageURLField, value) != true)) {
+                    this.ImageURLField = value;
+                    this.RaisePropertyChanged("ImageURL");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime lastwatered {
+        public string LName {
             get {
-                return this.lastwateredField;
+                return this.LNameField;
             }
             set {
-                if ((this.lastwateredField.Equals(value) != true)) {
-                    this.lastwateredField = value;
-                    this.RaisePropertyChanged("lastwatered");
+                if ((object.ReferenceEquals(this.LNameField, value) != true)) {
+                    this.LNameField = value;
+                    this.RaisePropertyChanged("LName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime nextwatered {
+        public int SDays {
             get {
-                return this.nextwateredField;
+                return this.SDaysField;
             }
             set {
-                if ((this.nextwateredField.Equals(value) != true)) {
-                    this.nextwateredField = value;
-                    this.RaisePropertyChanged("nextwatered");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string nname {
-            get {
-                return this.nnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nnameField, value) != true)) {
-                    this.nnameField = value;
-                    this.RaisePropertyChanged("nname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int pid {
-            get {
-                return this.pidField;
-            }
-            set {
-                if ((this.pidField.Equals(value) != true)) {
-                    this.pidField = value;
-                    this.RaisePropertyChanged("pid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int wduration {
-            get {
-                return this.wdurationField;
-            }
-            set {
-                if ((this.wdurationField.Equals(value) != true)) {
-                    this.wdurationField = value;
-                    this.RaisePropertyChanged("wduration");
+                if ((this.SDaysField.Equals(value) != true)) {
+                    this.SDaysField = value;
+                    this.RaisePropertyChanged("SDays");
                 }
             }
         }
@@ -249,7 +202,158 @@ namespace PlantRWPF.PlantRRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PersonalPlant", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model")]
+    [System.SerializableAttribute()]
+    public partial class PersonalPlant : PlantRWPF.ServiceReference1.Plant {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime LastWateredField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime NextWateredField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int WDurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private PlantRWPF.ServiceReference1.Account accountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private PlantRWPF.ServiceReference1.Plant plantField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AId {
+            get {
+                return this.AIdField;
+            }
+            set {
+                if ((this.AIdField.Equals(value) != true)) {
+                    this.AIdField = value;
+                    this.RaisePropertyChanged("AId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Name="Id")]
+        public int Id1 {
+            get {
+                return this.Id1Field;
+            }
+            set {
+                if ((this.Id1Field.Equals(value) != true)) {
+                    this.Id1Field = value;
+                    this.RaisePropertyChanged("Id1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime LastWatered {
+            get {
+                return this.LastWateredField;
+            }
+            set {
+                if ((this.LastWateredField.Equals(value) != true)) {
+                    this.LastWateredField = value;
+                    this.RaisePropertyChanged("LastWatered");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NName {
+            get {
+                return this.NNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NNameField, value) != true)) {
+                    this.NNameField = value;
+                    this.RaisePropertyChanged("NName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime NextWatered {
+            get {
+                return this.NextWateredField;
+            }
+            set {
+                if ((this.NextWateredField.Equals(value) != true)) {
+                    this.NextWateredField = value;
+                    this.RaisePropertyChanged("NextWatered");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PId {
+            get {
+                return this.PIdField;
+            }
+            set {
+                if ((this.PIdField.Equals(value) != true)) {
+                    this.PIdField = value;
+                    this.RaisePropertyChanged("PId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int WDuration {
+            get {
+                return this.WDurationField;
+            }
+            set {
+                if ((this.WDurationField.Equals(value) != true)) {
+                    this.WDurationField = value;
+                    this.RaisePropertyChanged("WDuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PlantRWPF.ServiceReference1.Account account {
+            get {
+                return this.accountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.accountField, value) != true)) {
+                    this.accountField = value;
+                    this.RaisePropertyChanged("account");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PlantRWPF.ServiceReference1.Plant plant {
+            get {
+                return this.plantField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.plantField, value) != true)) {
+                    this.plantField = value;
+                    this.RaisePropertyChanged("plant");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model")]
     [System.SerializableAttribute()]
     public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -257,19 +361,13 @@ namespace PlantRWPF.PlantRRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PlantRWPF.PlantRRef.PersonalPlant[] PersonalPlantsField;
+        private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string emailField;
+        private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string passwordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string usernameField;
+        private PlantRWPF.ServiceReference1.PersonalPlant[] PlantListField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -282,207 +380,40 @@ namespace PlantRWPF.PlantRRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PlantRWPF.PlantRRef.PersonalPlant[] PersonalPlants {
+        public string Email {
             get {
-                return this.PersonalPlantsField;
+                return this.EmailField;
             }
             set {
-                if ((object.ReferenceEquals(this.PersonalPlantsField, value) != true)) {
-                    this.PersonalPlantsField = value;
-                    this.RaisePropertyChanged("PersonalPlants");
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string email {
+        public int ID {
             get {
-                return this.emailField;
+                return this.IDField;
             }
             set {
-                if ((object.ReferenceEquals(this.emailField, value) != true)) {
-                    this.emailField = value;
-                    this.RaisePropertyChanged("email");
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
+        public PlantRWPF.ServiceReference1.PersonalPlant[] PlantList {
             get {
-                return this.idField;
+                return this.PlantListField;
             }
             set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
-                    this.passwordField = value;
-                    this.RaisePropertyChanged("password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string username {
-            get {
-                return this.usernameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.usernameField, value) != true)) {
-                    this.usernameField = value;
-                    this.RaisePropertyChanged("username");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Plant", Namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess")]
-    [System.SerializableAttribute()]
-    public partial class Plant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PlantRWPF.PlantRRef.PersonalPlant[] PersonalPlantsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string descriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string imgurlField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int sdaysField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public PlantRWPF.PlantRRef.PersonalPlant[] PersonalPlants {
-            get {
-                return this.PersonalPlantsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PersonalPlantsField, value) != true)) {
-                    this.PersonalPlantsField = value;
-                    this.RaisePropertyChanged("PersonalPlants");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cname {
-            get {
-                return this.cnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cnameField, value) != true)) {
-                    this.cnameField = value;
-                    this.RaisePropertyChanged("cname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
-                    this.descriptionField = value;
-                    this.RaisePropertyChanged("description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string imgurl {
-            get {
-                return this.imgurlField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.imgurlField, value) != true)) {
-                    this.imgurlField = value;
-                    this.RaisePropertyChanged("imgurl");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lname {
-            get {
-                return this.lnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lnameField, value) != true)) {
-                    this.lnameField = value;
-                    this.RaisePropertyChanged("lname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int sdays {
-            get {
-                return this.sdaysField;
-            }
-            set {
-                if ((this.sdaysField.Equals(value) != true)) {
-                    this.sdaysField = value;
-                    this.RaisePropertyChanged("sdays");
+                if ((object.ReferenceEquals(this.PlantListField, value) != true)) {
+                    this.PlantListField = value;
+                    this.RaisePropertyChanged("PlantList");
                 }
             }
         }
@@ -498,7 +429,7 @@ namespace PlantRWPF.PlantRRef {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PlantRRef.IService1")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
@@ -508,10 +439,10 @@ namespace PlantRWPF.PlantRRef {
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        PlantRWPF.PlantRRef.CompositeType GetDataUsingDataContract(PlantRWPF.PlantRRef.CompositeType composite);
+        PlantRWPF.ServiceReference1.CompositeType GetDataUsingDataContract(PlantRWPF.ServiceReference1.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.CompositeType> GetDataUsingDataContractAsync(PlantRWPF.PlantRRef.CompositeType composite);
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(PlantRWPF.ServiceReference1.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPersonalPlant", ReplyAction="http://tempuri.org/IService1/AddPersonalPlantResponse")]
         int AddPersonalPlant(int plantID, int accID, int daysWater, string nName);
@@ -520,22 +451,22 @@ namespace PlantRWPF.PlantRRef {
         System.Threading.Tasks.Task<int> AddPersonalPlantAsync(int plantID, int accID, int daysWater, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPersonalPlant", ReplyAction="http://tempuri.org/IService1/FindPersonalPlantResponse")]
-        PlantRWPF.PlantRRef.PersonalPlant FindPersonalPlant(int ppID);
+        PlantRWPF.ServiceReference1.PersonalPlant FindPersonalPlant(int ppID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPersonalPlant", ReplyAction="http://tempuri.org/IService1/FindPersonalPlantResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant> FindPersonalPlantAsync(int ppID);
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.PersonalPlant> FindPersonalPlantAsync(int ppID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAllPersonalPlantsResponse")]
-        PlantRWPF.PlantRRef.PersonalPlant[] GetAllPersonalPlants();
+        PlantRWPF.ServiceReference1.PersonalPlant[] GetAllPersonalPlants();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAllPersonalPlantsResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAllPersonalPlantsAsync();
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.PersonalPlant[]> GetAllPersonalPlantsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAccountPersonalPlantsResponse")]
-        PlantRWPF.PlantRRef.PersonalPlant[] GetAccountPersonalPlants(int accID);
+        PlantRWPF.ServiceReference1.PersonalPlant[] GetAccountPersonalPlants(int accID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountPersonalPlants", ReplyAction="http://tempuri.org/IService1/GetAccountPersonalPlantsResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAccountPersonalPlantsAsync(int accID);
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.PersonalPlant[]> GetAccountPersonalPlantsAsync(int accID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemovePersonalPlant", ReplyAction="http://tempuri.org/IService1/RemovePersonalPlantResponse")]
         bool RemovePersonalPlant(int ppID);
@@ -550,22 +481,22 @@ namespace PlantRWPF.PlantRRef {
         System.Threading.Tasks.Task<bool> UpdatePersonalPlantAsync(int ppID, int wDuration, string nName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
-        PlantRWPF.PlantRRef.Account AddAccount(string userName, string email, string password);
+        PlantRWPF.ServiceReference1.Account AddAccount(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account> AddAccountAsync(string userName, string email, string password);
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Account> AddAccountAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindAccount", ReplyAction="http://tempuri.org/IService1/FindAccountResponse")]
-        PlantRWPF.PlantRRef.Account FindAccount(string email);
+        PlantRWPF.ServiceReference1.Account FindAccount(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindAccount", ReplyAction="http://tempuri.org/IService1/FindAccountResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account> FindAccountAsync(string email);
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Account> FindAccountAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
-        PlantRWPF.PlantRRef.Account[] GetAllAccounts();
+        PlantRWPF.ServiceReference1.Account[] GetAllAccounts();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account[]> GetAllAccountsAsync();
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Account[]> GetAllAccountsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveAccount", ReplyAction="http://tempuri.org/IService1/RemoveAccountResponse")]
         bool RemoveAccount(string email);
@@ -574,10 +505,10 @@ namespace PlantRWPF.PlantRRef {
         System.Threading.Tasks.Task<bool> RemoveAccountAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastAccount", ReplyAction="http://tempuri.org/IService1/GetLastAccountResponse")]
-        PlantRWPF.PlantRRef.Account GetLastAccount();
+        PlantRWPF.ServiceReference1.Account GetLastAccount();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastAccount", ReplyAction="http://tempuri.org/IService1/GetLastAccountResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account> GetLastAccountAsync();
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Account> GetLastAccountAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPlant", ReplyAction="http://tempuri.org/IService1/AddPlantResponse")]
         int AddPlant(string cName, string lName, string imageURL, string description, int sDays);
@@ -586,16 +517,16 @@ namespace PlantRWPF.PlantRRef {
         System.Threading.Tasks.Task<int> AddPlantAsync(string cName, string lName, string imageURL, string description, int sDays);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPlant", ReplyAction="http://tempuri.org/IService1/FindPlantResponse")]
-        PlantRWPF.PlantRRef.Plant FindPlant(int id);
+        PlantRWPF.ServiceReference1.Plant FindPlant(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindPlant", ReplyAction="http://tempuri.org/IService1/FindPlantResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> FindPlantAsync(int id);
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Plant> FindPlantAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePlant", ReplyAction="http://tempuri.org/IService1/UpdatePlantResponse")]
-        PlantRWPF.PlantRRef.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
+        PlantRWPF.ServiceReference1.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePlant", ReplyAction="http://tempuri.org/IService1/UpdatePlantResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> UpdatePlantAsync(int id, string cName, string lName, string imageURL, string description, int sDays);
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Plant> UpdatePlantAsync(int id, string cName, string lName, string imageURL, string description, int sDays);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePlant", ReplyAction="http://tempuri.org/IService1/DeletePlantResponse")]
         bool DeletePlant(int id);
@@ -604,19 +535,19 @@ namespace PlantRWPF.PlantRRef {
         System.Threading.Tasks.Task<bool> DeletePlantAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPlants", ReplyAction="http://tempuri.org/IService1/GetAllPlantsResponse")]
-        PlantRWPF.PlantRRef.Plant[] GetAllPlants();
+        PlantRWPF.ServiceReference1.Plant[] GetAllPlants();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPlants", ReplyAction="http://tempuri.org/IService1/GetAllPlantsResponse")]
-        System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant[]> GetAllPlantsAsync();
+        System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Plant[]> GetAllPlantsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : PlantRWPF.PlantRRef.IService1, System.ServiceModel.IClientChannel {
+    public interface IService1Channel : PlantRWPF.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<PlantRWPF.PlantRRef.IService1>, PlantRWPF.PlantRRef.IService1 {
+    public partial class Service1Client : System.ServiceModel.ClientBase<PlantRWPF.ServiceReference1.IService1>, PlantRWPF.ServiceReference1.IService1 {
         
         public Service1Client() {
         }
@@ -645,11 +576,11 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.GetDataAsync(value);
         }
         
-        public PlantRWPF.PlantRRef.CompositeType GetDataUsingDataContract(PlantRWPF.PlantRRef.CompositeType composite) {
+        public PlantRWPF.ServiceReference1.CompositeType GetDataUsingDataContract(PlantRWPF.ServiceReference1.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.CompositeType> GetDataUsingDataContractAsync(PlantRWPF.PlantRRef.CompositeType composite) {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(PlantRWPF.ServiceReference1.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
@@ -661,27 +592,27 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.AddPersonalPlantAsync(plantID, accID, daysWater, nName);
         }
         
-        public PlantRWPF.PlantRRef.PersonalPlant FindPersonalPlant(int ppID) {
+        public PlantRWPF.ServiceReference1.PersonalPlant FindPersonalPlant(int ppID) {
             return base.Channel.FindPersonalPlant(ppID);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant> FindPersonalPlantAsync(int ppID) {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.PersonalPlant> FindPersonalPlantAsync(int ppID) {
             return base.Channel.FindPersonalPlantAsync(ppID);
         }
         
-        public PlantRWPF.PlantRRef.PersonalPlant[] GetAllPersonalPlants() {
+        public PlantRWPF.ServiceReference1.PersonalPlant[] GetAllPersonalPlants() {
             return base.Channel.GetAllPersonalPlants();
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAllPersonalPlantsAsync() {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.PersonalPlant[]> GetAllPersonalPlantsAsync() {
             return base.Channel.GetAllPersonalPlantsAsync();
         }
         
-        public PlantRWPF.PlantRRef.PersonalPlant[] GetAccountPersonalPlants(int accID) {
+        public PlantRWPF.ServiceReference1.PersonalPlant[] GetAccountPersonalPlants(int accID) {
             return base.Channel.GetAccountPersonalPlants(accID);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.PersonalPlant[]> GetAccountPersonalPlantsAsync(int accID) {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.PersonalPlant[]> GetAccountPersonalPlantsAsync(int accID) {
             return base.Channel.GetAccountPersonalPlantsAsync(accID);
         }
         
@@ -701,27 +632,27 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.UpdatePersonalPlantAsync(ppID, wDuration, nName);
         }
         
-        public PlantRWPF.PlantRRef.Account AddAccount(string userName, string email, string password) {
-            return base.Channel.AddAccount(userName, email, password);
+        public PlantRWPF.ServiceReference1.Account AddAccount(string email) {
+            return base.Channel.AddAccount(email);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account> AddAccountAsync(string userName, string email, string password) {
-            return base.Channel.AddAccountAsync(userName, email, password);
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Account> AddAccountAsync(string email) {
+            return base.Channel.AddAccountAsync(email);
         }
         
-        public PlantRWPF.PlantRRef.Account FindAccount(string email) {
+        public PlantRWPF.ServiceReference1.Account FindAccount(string email) {
             return base.Channel.FindAccount(email);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account> FindAccountAsync(string email) {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Account> FindAccountAsync(string email) {
             return base.Channel.FindAccountAsync(email);
         }
         
-        public PlantRWPF.PlantRRef.Account[] GetAllAccounts() {
+        public PlantRWPF.ServiceReference1.Account[] GetAllAccounts() {
             return base.Channel.GetAllAccounts();
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account[]> GetAllAccountsAsync() {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Account[]> GetAllAccountsAsync() {
             return base.Channel.GetAllAccountsAsync();
         }
         
@@ -733,11 +664,11 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.RemoveAccountAsync(email);
         }
         
-        public PlantRWPF.PlantRRef.Account GetLastAccount() {
+        public PlantRWPF.ServiceReference1.Account GetLastAccount() {
             return base.Channel.GetLastAccount();
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Account> GetLastAccountAsync() {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Account> GetLastAccountAsync() {
             return base.Channel.GetLastAccountAsync();
         }
         
@@ -749,19 +680,19 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.AddPlantAsync(cName, lName, imageURL, description, sDays);
         }
         
-        public PlantRWPF.PlantRRef.Plant FindPlant(int id) {
+        public PlantRWPF.ServiceReference1.Plant FindPlant(int id) {
             return base.Channel.FindPlant(id);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> FindPlantAsync(int id) {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Plant> FindPlantAsync(int id) {
             return base.Channel.FindPlantAsync(id);
         }
         
-        public PlantRWPF.PlantRRef.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays) {
+        public PlantRWPF.ServiceReference1.Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays) {
             return base.Channel.UpdatePlant(id, cName, lName, imageURL, description, sDays);
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant> UpdatePlantAsync(int id, string cName, string lName, string imageURL, string description, int sDays) {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Plant> UpdatePlantAsync(int id, string cName, string lName, string imageURL, string description, int sDays) {
             return base.Channel.UpdatePlantAsync(id, cName, lName, imageURL, description, sDays);
         }
         
@@ -773,11 +704,11 @@ namespace PlantRWPF.PlantRRef {
             return base.Channel.DeletePlantAsync(id);
         }
         
-        public PlantRWPF.PlantRRef.Plant[] GetAllPlants() {
+        public PlantRWPF.ServiceReference1.Plant[] GetAllPlants() {
             return base.Channel.GetAllPlants();
         }
         
-        public System.Threading.Tasks.Task<PlantRWPF.PlantRRef.Plant[]> GetAllPlantsAsync() {
+        public System.Threading.Tasks.Task<PlantRWPF.ServiceReference1.Plant[]> GetAllPlantsAsync() {
             return base.Channel.GetAllPlantsAsync();
         }
     }

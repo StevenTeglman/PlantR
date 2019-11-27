@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PlantRWPF.PlantRRef;
+using PlantRProxy;
 
 namespace PlantRWPF
 {
@@ -22,12 +22,12 @@ namespace PlantRWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public PlantRRef.Service1Client service = null;
+        public PlantRClient service = null;
         public MainWindow()
         {
             InitializeComponent();
-            service = new Service1Client();
-            service.Open();
+            service = new PlantRClient();
+            //service.Open();
             var mpm = new MyPlantsModel();
             mpm.Mm = (MainModel)DataContext;
             ((MainModel)DataContext).CurrentView = mpm;

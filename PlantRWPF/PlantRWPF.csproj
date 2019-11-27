@@ -72,7 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Connected Services\PlantRRef\Reference.cs">
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -133,29 +133,29 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\PlantRRef\PlantRServ.DataAccess.xsd">
+    <None Include="Connected Services\ServiceReference1\PlantRServ.Model.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlantRRef\PlantRServ.xsd">
+    <None Include="Connected Services\ServiceReference1\PlantRServ.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlantRRef\PlantRWPF.PlantRRef.Account.datasource">
+    <None Include="Connected Services\ServiceReference1\PlantRWPF.ServiceReference1.Account.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\PlantRRef\PlantRWPF.PlantRRef.CompositeType.datasource">
+    <None Include="Connected Services\ServiceReference1\PlantRWPF.ServiceReference1.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\PlantRRef\PlantRWPF.PlantRRef.PersonalPlant.datasource">
+    <None Include="Connected Services\ServiceReference1\PlantRWPF.ServiceReference1.PersonalPlant.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\PlantRRef\PlantRWPF.PlantRRef.Plant.datasource">
+    <None Include="Connected Services\ServiceReference1\PlantRWPF.ServiceReference1.Plant.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\PlantRRef\service.wsdl" />
-    <None Include="Connected Services\PlantRRef\service.xsd">
+    <None Include="Connected Services\ServiceReference1\service.wsdl" />
+    <None Include="Connected Services\ServiceReference1\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlantRRef\service1.xsd">
+    <None Include="Connected Services\ServiceReference1\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -182,16 +182,22 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\PlantRRef\" />
+    <ProjectReference Include="..\PlantRProxy\PlantRProxy.csproj">
+      <Project>{7440074f-aa63-49d6-af3a-85cd6e84caf6}</Project>
+      <Name>PlantRProxy</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\PlantRRef\configuration91.svcinfo" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\PlantRRef\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\PlantRRef\Reference.svcmap">
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

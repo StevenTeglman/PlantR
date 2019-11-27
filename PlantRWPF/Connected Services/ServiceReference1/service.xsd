@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ" />
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/PlantRServ.Model" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -57,7 +57,7 @@
   <xs:element name="FindPersonalPlantResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="FindPersonalPlantResult" nillable="true" type="q3:PersonalPlant" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="FindPersonalPlantResult" nillable="true" type="q3:PersonalPlant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -69,7 +69,7 @@
   <xs:element name="GetAllPersonalPlantsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="GetAllPersonalPlantsResult" nillable="true" type="q4:ArrayOfPersonalPlant" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetAllPersonalPlantsResult" nillable="true" type="q4:ArrayOfPersonalPlant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -83,7 +83,7 @@
   <xs:element name="GetAccountPersonalPlantsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="GetAccountPersonalPlantsResult" nillable="true" type="q5:ArrayOfPersonalPlant" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetAccountPersonalPlantsResult" nillable="true" type="q5:ArrayOfPersonalPlant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,16 +120,14 @@
   <xs:element name="AddAccount">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="AddAccountResult" nillable="true" type="q6:Account" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="AddAccountResult" nillable="true" type="q6:Account" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -143,7 +141,7 @@
   <xs:element name="FindAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="FindAccountResult" nillable="true" type="q7:Account" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="FindAccountResult" nillable="true" type="q7:Account" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -155,7 +153,7 @@
   <xs:element name="GetAllAccountsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="GetAllAccountsResult" nillable="true" type="q8:ArrayOfAccount" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetAllAccountsResult" nillable="true" type="q8:ArrayOfAccount" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -181,7 +179,7 @@
   <xs:element name="GetLastAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="GetLastAccountResult" nillable="true" type="q9:Account" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetLastAccountResult" nillable="true" type="q9:Account" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -213,7 +211,7 @@
   <xs:element name="FindPlantResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="FindPlantResult" nillable="true" type="q10:Plant" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="FindPlantResult" nillable="true" type="q10:Plant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -232,7 +230,7 @@
   <xs:element name="UpdatePlantResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="UpdatePlantResult" nillable="true" type="q11:Plant" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="UpdatePlantResult" nillable="true" type="q11:Plant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -258,7 +256,7 @@
   <xs:element name="GetAllPlantsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PlantRServ.DataAccess" minOccurs="0" name="GetAllPlantsResult" nillable="true" type="q12:ArrayOfPlant" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PlantRServ.Model" minOccurs="0" name="GetAllPlantsResult" nillable="true" type="q12:ArrayOfPlant" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

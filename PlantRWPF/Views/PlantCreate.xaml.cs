@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PlantRWPF.PlantRRef;
+using PlantRProxy;
 
 
 namespace PlantRWPF.Views
@@ -22,20 +22,20 @@ namespace PlantRWPF.Views
     /// </summary>
     public partial class PlantCreate : UserControl
     {
-        public PlantRRef.Service1Client service = null;
+        public PlantRClient service = null;
 
         public PlantCreate()
         {
             InitializeComponent();
-            service = new Service1Client();
-            service.Open();
+            service = new PlantRClient();
+            //service.Open();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CreatePPlant();
         }
-        private Plant PlantSearchReturn()
+        private PlantRClient PlantSearchReturn()
         {
 
 
