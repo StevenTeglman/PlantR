@@ -33,6 +33,7 @@ namespace PlantRMVC2.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            var p = service.FindPlant(1);
         }
 
         public ApplicationSignInManager SignInManager

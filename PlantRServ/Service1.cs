@@ -19,7 +19,6 @@ namespace PlantRServ
         #region ServiceInitialization
 
         public List<Account> Accounts { get; set; }
-        //TODO Connect to actual database
         static StubADB stubADB = StubADB.Instance;
         static StubPDB stubPDB = StubPDB.Instance;
         static StubPPDB stubPPDB = StubPPDB.Instance;
@@ -92,7 +91,6 @@ namespace PlantRServ
         public List<Model.PersonalPlant> GetAllPersonalPlants()
         {
             /*List<Plant> plants = new List<Plant>();
-            // HACK: To connect to data access layer later.
             plants = stubPDB.plants;
 
             if (plants.Count == 0)
@@ -118,7 +116,6 @@ namespace PlantRServ
         public List<Model.PersonalPlant> GetAccountPersonalPlants(int accID)
         {
             /* List<PersonalPlant> ppList = new List<PersonalPlant>();
-             // HACK: replace Stub with DB Access
              foreach (PersonalPlant pp in stubPPDB.personalPlants)
              {
                  if (pp.AId == accID)
@@ -143,7 +140,6 @@ namespace PlantRServ
         ///  or it will return null if nothing is find.</returns>
         public Model.PersonalPlant FindPersonalPlant(int ppID)
         {
-            // HACK: This will of course talk to the DB
             /*PersonalPlant result = null;
             foreach (PersonalPlant pp in stubPPDB.personalPlants)
             {

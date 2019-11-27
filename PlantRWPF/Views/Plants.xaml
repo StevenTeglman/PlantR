@@ -18,12 +18,12 @@
                 <DataGrid x:Name="plantListGrid" Height="408" Width="780" Background="Transparent" RowBackground="LightGreen" 
                           AlternatingRowBackground="LightCyan" Margin="0,0,0,0" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="PlantIDNo." Width="150" Binding="{Binding id}"/>
-                        <DataGridTextColumn Header="CommonName" Width="150" Binding="{Binding cname}"/>
-                        <DataGridTextColumn Header="LatinName" Width="125" Binding="{Binding lname}"/>
-                        <DataGridTextColumn Header="Image" Width="150" Binding="{Binding imageURL}"/>
-                        <DataGridTextColumn Header="Description" Width="150" Binding="{Binding description}"/>
-                        <DataGridTextColumn Header="SuggestedDaysBetweenWatering" Width="150" Binding="{Binding sDays}"/>
+                        <DataGridTextColumn Header="PlantIDNo." Width="150" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="CommonName" Width="150" Binding="{Binding CName}"/>
+                        <DataGridTextColumn Header="LatinName" Width="125" Binding="{Binding LName}"/>
+                        <DataGridTextColumn Header="Image" Width="150" Binding="{Binding ImageURL}"/>
+                        <DataGridTextColumn Header="Description" Width="150" Binding="{Binding Description}"/>
+                        <DataGridTextColumn Header="SuggestedDaysBetweenWatering" Width="150" Binding="{Binding SDays}"/>
                     </DataGrid.Columns>
                     <DataGrid.RowDetailsTemplate>
                         <DataTemplate>
@@ -46,15 +46,20 @@
                                         <RowDefinition Height="Auto"></RowDefinition>
                                     </Grid.RowDefinitions>
 
-                                    <TextBlock Text="PlantIDno." Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                    <TextBox  x:Name="NewCommonName" Margin="3" Grid.Row="0" Grid.Column="2" Text="{Binding Path=cname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35" />
-                                    <TextBox  x:Name="NewLatinName" Margin="3" Grid.Row="0" Grid.Column="2" Text="{Binding Path=lname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35" />
+                                    <TextBlock Text="Common Name" Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Latin Name" Margin="0,0,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Image URL" Margin="0,0,0,0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Description" Margin="0,0,0,0" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Suggested Watering Days" Margin="0,0,0,0" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBox  x:Name="NewCommonName" Margin="3" Grid.Row="1" Grid.Column="0" Text="{Binding Path=CName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" MaxHeight="35" />
+                                    <TextBox  x:Name="NewLatinName" Margin="3" Grid.Row="1" Grid.Column="1" Text="{Binding Path=LName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" MaxHeight="35" />
+                                    <TextBox  x:Name="NewImageURL" Margin="3" Grid.Row="1" Grid.Column="2" Text="{Binding Path=ImageURL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" MaxHeight="35" />
+                                    <TextBox  x:Name="NewDescription" Margin="3" Grid.Row="1" Grid.Column="3" Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" MaxHeight="35" />
+                                    <TextBox  x:Name="NewSDays" Margin="3" Grid.Row="1" Grid.Column="4" Text="{Binding Path=SDays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" MaxHeight="35" />
                                     <!--<TextBlock Text="NewSugWateringDays" Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" />-->
                                     <!--<TextBox  x:Name="NewWDurationBox" Margin="3" Grid.Row="1" Grid.Column="2" Text="{Binding Path = wduration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35"/>-->
                                     <Image Margin="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right"
                                            Source="{Binding imageURL}"/>
-                                    <TextBox  x:Name="NewDescription" Margin="3" Grid.Row="0" Grid.Column="2" Text="{Binding Path=description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35" />
-                                    <TextBox  x:Name="NewSuggestedDaysBetweenWatering" Margin="3" Grid.Row="1" Grid.Column="2" Text="{Binding Path = sdays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="35"/>
                                     <Button x:Name="UpdatePlantBut" Content="Update" Margin="3" Grid.Column="4" Grid.Row="2"  Click="UpdatePlantBut_Click"/>
                                     <Button x:Name="DeletePlantBut" Content="Remove" Margin="3" Grid.Column="5" Grid.Row="2" Click="DeletePlantBut_Click"/>
                                 </Grid>

@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using PlantRWPF;
 using PlantRProxy;
 using PlantRWPF.ViewModels;
+using PlantRServ.Model;
 
 namespace PlantRWPF.Views
 {
@@ -37,13 +38,14 @@ namespace PlantRWPF.Views
 
         private void ListPlants()
         {
-            service = new PlantRClient();
-            //service.Open();
-            //plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);//HACK: change account id
-            //TODO return a dataset and bind it to the datagrid
+            service = new PlantRProxy.PlantRClient();
+            var plantList = service.GetAllPlants();
+            plantListGrid.ItemsSource = plantList;
+
+
         }
 
-        
+
 
         private void PlusBut_Click(object sender, RoutedEventArgs e)
         {
@@ -54,10 +56,11 @@ namespace PlantRWPF.Views
 
         private void UpdatePlantBut_Click(object sender, RoutedEventArgs e)
         {
-            /*PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
-            service.UpdatePersonalPlant(pp.id, pp.wduration, pp.nname);
+            Plant p = (Plant)plantListGrid.SelectedItem;
+            service.UpdatePlant(p.ID, p.CName, p.LName, p.ImageURL, p.Description, p.SDays);
             //refresh
-            plantListGrid.ItemsSource = service.GetAccountPersonalPlants(1);*/
+            var plantList = service.GetAllPlants();
+            plantListGrid.ItemsSource = plantList;
         }
 
         private void DeletePlantBut_Click(object sender, RoutedEventArgs e)
@@ -66,12 +69,15 @@ namespace PlantRWPF.Views
             if (messageBoxResult == MessageBoxResult.Yes)
             {
 
-                /*PersonalPlant pp = (PersonalPlant)plantListGrid.SelectedItem;
-                bool check = service.RemovePersonalPlant(pp.id);
+                Plant p = (Plant)plantListGrid.SelectedItem;
+                bool check = service.DeletePlant(p.ID);
                 if (check)
                 {
                     MessageBox.Show("Plant Removed", "Delete Confirmed", MessageBoxButton.OK);
-                }*/
+                }
+                //Refresh list
+                var plantList = service.GetAllPlants();
+                plantListGrid.ItemsSource = plantList;
             }
         }
 

@@ -14,10 +14,7 @@
         <DataTemplate x:Name="PlantTemplate" DataType="{x:Type viewModels:PlantsModel}">
             <views:Plants DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="plantCreateTemplate" DataType="{x:Type viewModels:PlantCreateModel}">
-            <views:PlantCreate DataContext="{Binding}"/>
-        </DataTemplate>
-        
+
     </Window.Resources>
     <Window.DataContext>
         <viewModels:MainModel/>

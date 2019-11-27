@@ -1,4 +1,5 @@
 ﻿using PlantRProxy;
+using PlantRServ.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,8 @@ namespace PlantRMVC2.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Your User Home page.";
-            ViewData["Plants"] = service.GetAccountPersonalPlants(1);//HACK: change to current logged in user.
+            Account a = service.FindAccount(User.Identity.Name);
+            ViewData["Plants"] = service.GetAccountPersonalPlants(a.ID);
             return View();
         }
     }
