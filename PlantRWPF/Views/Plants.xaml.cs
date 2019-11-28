@@ -27,7 +27,7 @@ namespace PlantRWPF.Views
     /// </summary>
     public partial class Plants : UserControl
     {
-        public PlantRClient service = null;
+        public PlantRClient service = new PlantRClient();
 
         public Plants()
         {
@@ -36,22 +36,18 @@ namespace PlantRWPF.Views
 
         }
 
-        private void ListPlants()
+        public void ListPlants()
         {
-            service = new PlantRProxy.PlantRClient();
             var plantList = service.GetAllPlants();
             plantListGrid.ItemsSource = plantList;
-
-
         }
 
 
 
         private void PlusBut_Click(object sender, RoutedEventArgs e)
         {
-
-            ((PlantsModel)DataContext).PlantCreateSwitch();
-            
+            Windows.AddPlant addPlant = new Windows.AddPlant(this);
+            addPlant.Show();
         }
 
         private void UpdatePlantBut_Click(object sender, RoutedEventArgs e)

@@ -68,7 +68,7 @@
                     </DataGrid.RowDetailsTemplate>
                 </DataGrid>
             </ScrollViewer>
-            <Button x:Name="plusBut" Content="+" Margin="760,10,10,0" Click="DeletePlantBut_Click"/>
+            <Button x:Name="plusBut" Content="+" Margin="760,10,10,0" Click="PlusBut_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

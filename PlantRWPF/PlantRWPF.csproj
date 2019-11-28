@@ -82,6 +82,9 @@
     <Compile Include="Views\Plants.xaml.cs">
       <DependentUpon>Plants.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddPlant.xaml.cs">
+      <DependentUpon>AddPlant.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Plants.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddPlant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
