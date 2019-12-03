@@ -7,9 +7,9 @@
         xmlns:views="clr-namespace:PlantRWPF.Views"
         xmlns:viewModels="clr-namespace:PlantRWPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="594" Width="1010">
+        Title="MainWindow" Height="594" Width="1010" ResizeMode="NoResize">
 
-  
+
     <Window.Resources>
         <DataTemplate x:Name="PlantTemplate" DataType="{x:Type viewModels:PlantsModel}">
             <views:Plants DataContext="{Binding}"/>
@@ -22,11 +22,12 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="86*"/>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="201*"/>
+            <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -44,13 +45,13 @@
                 <Button x:Name="aboutBut" Content="About" Margin="3,345,3,0" />
             </StackPanel>
         </DockPanel>
-        <DockPanel Background="SeaGreen" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
+        <DockPanel Background="SeaGreen" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6">
             <StackPanel>
                 <Label Content="PlantR" FontSize="36" Foreground="White"/>
             </StackPanel>
         </DockPanel>
 
-        <ContentControl  Background="MediumPurple" x:Name="mwContentCtrl" Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Content="{Binding CurrentView}" />
+        <ContentControl  Background="MediumPurple" x:Name="mwContentCtrl" Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="4" Content="{Binding CurrentView}" Margin="1,1,1,0" />
 
     </Grid>
 </Window>
