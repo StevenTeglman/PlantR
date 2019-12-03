@@ -20,5 +20,12 @@ namespace PlantRMVC2.Controllers
             ViewData["Plants"] = service.GetAccountPersonalPlants(a.ID);
             return View();
         }
+
+        public ActionResult CreatePersonalPlant()
+        {
+            // Make a thing to get a list of all the plants, I guess? I don't fucking know. I mean how the fuck are you supposed to pass
+            // in more than one model? I guess with a ViewData things like BigDickSaif did. btw he's gay. 
+            return View();
+        }
     }
 }
