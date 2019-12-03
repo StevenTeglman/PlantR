@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
+using HttpPostAttribute = System.Web.Mvc.HttpPostAttribute;
 
 namespace PlantRMVC2.Controllers
 {
@@ -27,5 +28,13 @@ namespace PlantRMVC2.Controllers
             // in more than one model? I guess with a ViewData things like BigDickSaif did. btw he's gay. 
             return View();
         }
-    }
+
+        [HttpPost]
+        public ActionResult UpdatePersonalPlant(int id, int wDuration, string nickname)
+        {
+            //code the update here
+            service.UpdatePersonalPlant(id, wDuration, nickname);
+
+            return Json(new { success = true, message = "Plant updated successfully" }, JsonRequestBehavior.AllowGet);
+        }
 }
