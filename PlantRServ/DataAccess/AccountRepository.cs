@@ -436,6 +436,28 @@ namespace PlantRServ.DataAccess
 
         }
 
+        public bool UpdatePersonalPlantDates(int ppid)
+        {
+
+            using (plantdb = new LinQtoSQLDataContext(GetConnectionString()))
+            {
+                try
+                {
+                    plantdb.LoadOptions = SetDataLoadOptions(TableInUse.PersonalPlant);
+                    PersonalPlant pp = plantdb.PersonalPlants.First(e => e.id.Equals(ppid));
+
+                    pp.lastwatered = DateTime.Now;
+                    pp.nextwatered = DateTime.Now.AddDays(pp.wduration);
+
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
 
         #endregion
 

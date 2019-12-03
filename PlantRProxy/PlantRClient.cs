@@ -97,6 +97,11 @@ namespace PlantRProxy
             return Channel.UpdatePersonalPlant(ppID,wDuration,nName);
         }
 
+        public bool UpdatePersonalPlantDates(int ppid)
+        {
+            return Channel.UpdatePersonalPlantDates(ppid);
+        }
+
         public Plant UpdatePlant(int id, string cName, string lName, string imageURL, string description, int sDays)
         {
             return Channel.UpdatePlant(id,cName,lName,imageURL,description,sDays);
