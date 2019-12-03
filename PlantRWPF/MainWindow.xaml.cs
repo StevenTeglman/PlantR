@@ -32,13 +32,12 @@ namespace PlantRWPF
             mpm.Mm = (MainModel)DataContext;
             ((MainModel)DataContext).CurrentView = mpm;
 
-
         }
 
 
-        private void MyPlantBut_Click(object sender, RoutedEventArgs e)
+        private void PlantBut_Click(object sender, RoutedEventArgs e)
         {
-            //DataContext = new MyPlantsModel();
+            DataContext = new PlantsModel();
            
         }
 

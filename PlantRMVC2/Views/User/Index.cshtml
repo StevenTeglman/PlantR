@@ -4,7 +4,6 @@
     ViewBag.Title = "User Home";
     var plants = ViewData["Plants"] as List<PlantRServ.Model.PersonalPlant>;
 
-
 }
 
 @*reorganise scripts and pretty up the thing*@
@@ -32,6 +31,12 @@
                          defaultContent: '',
                          width: "5%"
 
+                    },
+                    {
+                        className: 'hidden_id',
+                        data: "id",
+                        width: "5%",
+                        visible: false
                     },
                     { data: "nName" },
                     {
@@ -72,23 +77,59 @@
                     row.child(tabChild).show();
                     tr.addClass('shown');
                 }
-                //Responsible for reading the input on updating
+
                 $('#table_child tbody').on('click', 'button', function () {
-                    var tbody = $(this).closest('tbody')
-                    var data = $(tbody, 'input').serialize();
-                    console.log(tbody);
+                    var tbody = $(this).closest('tbody');
+                    var newWDur = $(tbody).find('#row-wDuration').val();
+                    var newNickname = $(tbody).find('#row-nickname').val();
+                    var currId = $(tbody).find('#plantId').html();
+
+                    $.ajax({
+                        url: '@Url.Action("UpdatePersonalPlant")',
+                        dataType: "json",
+                        type: "POST",
+                        cache: false,
+                        data: { 'id': currId, 'wDuration': newWDur, 'nickname': newNickname },
+                        success: function (data) {
+                            if (data.success) {
+                                alert(data.message);
+                            }
+                        },
+                        error: function (xhr) {
+                            alert('error');
+                        }
+                    })
+                });
+
                 });
 
                 //throw in delete button methods here
 
             });
 
-                       
-        });
     </script>
 
     <script>
-            
+     //Responsible for reading the input on updating
+        $(function () {
+            $('#table_child tbody').on('click', 'button', function () {
+                var tbody = $(this).closest('tbody');
+                var newWDur = $(tbody).find('#row-wDuration').val();
+                var newNickname = $(tbody).find('#row-nickname').val();
+                var currId = $(this).parentsUntil('.mainRow');
+                @*$.ajax({
+                        url: '@Url.Action("UpdatePersonalPlant")',
+                        dataType: "json",
+                        type: "POST",
+                        contentType: 'application/json; charset=utf-8',
+                        cache: false,
+                        data: {},
+                    })*@
+                //$(tbody).find('#row-wDuration').val()
+
+                console.log(currId);
+            });
+        });
     </script>
 
 
@@ -102,6 +143,7 @@
         <thead>
             <tr role="row">
                 <th></th>
+                <th id="hidden_id"></th>
                 <th class="sorting_asc" tabindex="0" aria-controls="example"
                     rowspan="1" colspan="1" style="width: 118px;"
                     aria-label="NickName: activate to sort column descending" aria-sort="ascending">Nickname</th>
@@ -113,7 +155,7 @@
                     style="width: 35px;" aria-label="NextWatering: activate to sort column ascending">Next Watering</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 80px;"
                     aria-label="Last Watering: activate to sort column ascending">Last Watering</th>
-                <th></th>
+                <th><button id="createplantpage">Add A Plant</button></th>
             </tr>
         </thead>
     </table>

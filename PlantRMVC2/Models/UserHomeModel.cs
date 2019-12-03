@@ -16,5 +16,6 @@ namespace PlantRMVC2.Models
         {
             Plants = plants;
         }
+
     }
 }

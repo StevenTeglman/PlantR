@@ -10,6 +10,8 @@ function format(d) {
         '<td><input type="text" id="row-wDuration" name="row-wDuration" value=' + d.wDuration + '></td>' +
         '</tr>' +
         '<tr>' +
+        '<td>ID: </td>' +
+        '<td id="plantId">'+ d.id +'</td>' +
         '<td><button id=updateButton>Update</button></td>' +
         '<td><button id=deleteButton>Delete</button></td>' +
 
