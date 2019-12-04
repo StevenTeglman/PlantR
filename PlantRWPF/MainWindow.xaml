@@ -39,7 +39,7 @@
 
         <DockPanel Background="MediumSeaGreen" Grid.Row="1" Grid.Column="0" Grid.RowSpan="4">
             <StackPanel>
-                <Button x:Name="myPlantBut" Content="MyPlants" Margin="3" Click="MyPlantBut_Click" />
+                <Button x:Name="plantBut" Content="Plants" Margin="3" Click="PlantBut_Click" />
                 <Button x:Name="searchBut" Content="Search" Margin="3"/>
                 <Button x:Name="accBut" Content="Account" Margin="3"/>
                 <Button x:Name="aboutBut" Content="About" Margin="3,345,3,0" />

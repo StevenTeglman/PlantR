@@ -4,17 +4,62 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
-      <y>150</y>
-      <w>140</w>
-      <h>150</h>
+      <x>220</x>
+      <y>170</y>
+      <w>130</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Plant
 -
 id
 commonName
-customName
 latinName
+suggestW
+imgUrl
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>180</y>
+      <w>150</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Account
+-
+email
+password</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>220</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>150</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>PersonalPlant
+-
+id
+aid
+pid
+nickname
 waterPeriod
 lastWater
 nextWater
@@ -23,31 +68,16 @@ nextWater
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>480</x>
-      <y>160</y>
-      <w>150</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>Account
--
-email
-password
-plantList</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>340</x>
-      <y>200</y>
-      <w>160</w>
+      <y>230</y>
+      <w>130</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..*</panel_attributes>
-    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
