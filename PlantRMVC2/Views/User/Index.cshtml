@@ -15,6 +15,8 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/tables.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/Hubs"></script>
 
     <script class="init" type="text/javascript">
         $(function () {
@@ -44,7 +46,10 @@
                         width: "20%"
                     },
                     { data: "wDuration" },
-                    { data: "nextWatered" },
+                    {
+                        data: "nextWatered",
+                        className: 'water-check'
+                    },
                     { data: "lastWatered" },
                     {
                         className: 'water-control',
@@ -60,77 +65,147 @@
     </script>
 
     <script>
-        $(document).ready(function () {
-            var table = $('#table_id').DataTable();
-            //Responsible for creating the child rows when clicking the row
-            $('#table_id tbody').on('click', 'td.details-control', function () {
-                var tr = $(this).closest('tr');
-                var row = table.row(tr);
-                var tabChild;
+            $(document).ready(function () {
+                var table = $('#table_id').DataTable();
 
-                if (row.child.isShown()) {
-                    row.child.hide();
-                    tr.removeClass('shown');
-                }
-                else {
-                    tabChild = format(row.data())
-                    row.child(tabChild).show();
-                    tr.addClass('shown');
-                }
+                var rows = $('#table_id tbody').find('tr');
 
-                $('#table_child tbody').on('click', 'button', function () {
-                    var tbody = $(this).closest('tbody');
-                    var newWDur = $(tbody).find('#row-wDuration').val();
-                    var newNickname = $(tbody).find('#row-nickname').val();
+                for (var row in rows) {
+                    var cells = $(row).find('td.water-check');
+                    //console.log(cells);
+                }
+                //if ( $(this).hasClass('water-alert') ) {
+                //    $(this).removeClass('water-alert');
+                //}
+                //else {
+                //    table.$('tr.water-alert').removeClass('water-alert');
+                //    $(this).addClass('water-alert');
+                //}
+
+                //Responsible for creating the child rows when clicking the row
+                $('#table_id tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = table.row(tr);
+                    var tabChild;
+
+                    if (row.child.isShown()) {
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        tabChild = format(row.data())
+                        row.child(tabChild).show();
+                        tr.addClass('shown');
+                    }
+
+                    //update personal plant JS
+                    $('#table_child tbody').on('click', 'button#updateButton', function () {
+                        var tbody = $(this).closest('tbody');
+                        var newWDur = $(tbody).find('#row-wDuration').val();
+                        var newNickname = $(tbody).find('#row-nickname').val();
+                        var currId = $(tbody).find('#plantId').html();
+
+                        $.ajax({
+                            url: '@Url.Action("UpdatePersonalPlant")',
+                            dataType: "json",
+                            type: "POST",
+                            cache: false,
+                            data: { 'id': currId, 'wDuration': newWDur, 'nickname': newNickname },
+                            success: function (data) {
+                                if (data.success) {
+                                    //alert(data.message);
+                                    //window.location.reload();
+                                }
+                            },
+                            error: function (xhr) {
+                                alert('Could Not Update Your Plant');
+                            }
+                        });
+
+
+                    });
+
+                    //removing personal plants
+                    $('#table_child tbody').on('click', 'button#deleteButton', function () {
+                        var tbody = $(this).closest('tbody');
+                        var currId = $(tbody).find('#plantId').html();
+                        var check = confirm("Are you sure you want to remove this plant?")
+                        if (!check) {
+
+                        }
+                        else {
+                            $.ajax({
+                                url: '@Url.Action("RemovePersonalPlant")',
+                                dataType: "json",
+                                type: "POST",
+                                cache: false,
+                                data: { 'id': currId },
+                                success: function (data) {
+                                    if (data.success) {
+                                        //alert(data.message);
+                                        window.location.reload();
+                                    }
+                                },
+                                error: function (xhr) {
+                                    alert('Could Not Delete Your Plant');
+                                }
+                            });
+
+                        }
+
+
+                    });
+
+                });
+
+                @*$('#table_id tbody').on('click', 'button#wateredButton', function () {
                     var currId = $(tbody).find('#plantId').html();
-
                     $.ajax({
-                        url: '@Url.Action("UpdatePersonalPlant")',
+                        url: '@Url.Action("WaterPersonalPlant")',
                         dataType: "json",
                         type: "POST",
                         cache: false,
-                        data: { 'id': currId, 'wDuration': newWDur, 'nickname': newNickname },
+                        data: { 'id': currId },
                         success: function (data) {
                             if (data.success) {
-                                alert(data.message);
+                                //alert(data.message);
+                                window.location.reload();
                             }
                         },
                         error: function (xhr) {
-                            alert('error');
+                            alert('Could Not Water Your Plant');
                         }
-                    })
+                    })*@
+
+                //})
                 });
 
-                });
 
-                //throw in delete button methods here
-
-            });
 
     </script>
 
-    <script>
-     //Responsible for reading the input on updating
-        $(function () {
-            $('#table_child tbody').on('click', 'button', function () {
-                var tbody = $(this).closest('tbody');
-                var newWDur = $(tbody).find('#row-wDuration').val();
-                var newNickname = $(tbody).find('#row-nickname').val();
-                var currId = $(this).parentsUntil('.mainRow');
-                @*$.ajax({
-                        url: '@Url.Action("UpdatePersonalPlant")',
-                        dataType: "json",
-                        type: "POST",
-                        contentType: 'application/json; charset=utf-8',
-                        cache: false,
-                        data: {},
-                    })*@
-                //$(tbody).find('#row-wDuration').val()
 
-                console.log(currId);
+
+
+    <script>
+        $(function () {
+            // Reference the auto-generated proxy for the hub.
+            var refresh = $.connection.connectionHub;
+            // Create a function that the hub can call back to display messages.
+            refresh.client.clientRefresh = function () {
+                window.location.reload();
+            };
+
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                $('#wateredButton').click(function () {
+                    // Call the refresh method on the hub.
+                    refresh.server.notifyRefresh();
+                });
             });
         });
     </script>
+
 
 
 </head>

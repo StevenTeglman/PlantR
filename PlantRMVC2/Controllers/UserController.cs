@@ -40,4 +40,21 @@ namespace PlantRMVC2.Controllers
 
             return Json(new { success = true, message = "Plant updated successfully" }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult RemovePersonalPlant(int id)
+        {
+            bool check = service.RemovePersonalPlant(id);
+
+            return Json(new { success = check, message = "Plant removed successfully" }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult WaterPersonalPlant(int id)
+        {
+            bool check = service.UpdatePersonalPlantDates(id);
+
+            return Json(new { success = check, message = "Plant Watered successfully" }, JsonRequestBehavior.AllowGet);
+        }
+    }
 }
