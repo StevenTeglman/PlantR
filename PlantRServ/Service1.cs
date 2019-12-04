@@ -171,6 +171,11 @@ namespace PlantRServ
         {
             return accrepo.UpdatePersonalPlant(ppID, wDuration, nName);
         }
+
+        public bool UpdatePersonalPlantDates(int ppid)
+        {
+            return accrepo.UpdatePersonalPlantDates(ppid);
+        }
         #endregion
 
         // ------------------------------   Account    -------------------------------

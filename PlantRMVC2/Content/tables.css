@@ -7,4 +7,8 @@
 tr.shown td.details-control {
     background: url(../Resources/plant_open.png) no-repeat center center;
 }
+
+tr.water-alert {
+    background-color: indianred;
+}
  
