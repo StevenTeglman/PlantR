@@ -1,4 +1,5 @@
-﻿using PlantRProxy;
+﻿using PlantRMVC2.Models;
+using PlantRProxy;
 using PlantRServ.Model;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,32 @@ namespace PlantRMVC2.Controllers
         {
             // Make a thing to get a list of all the plants, I guess? I don't fucking know. I mean how the fuck are you supposed to pass
             // in more than one model? I guess with a ViewData things like BigDickSaif did. btw he's gay. 
-            //dont be rude - saif
-            ViewData["StockPlants"] = service.GetAllPlants();
-            //hopefully something like this^^^^-saif
-            return View();
+            // dont be rude - saif
+
+            // hopefully something like this^^^^-saif
+
+            List<SelectListItem> allPlants = new List<SelectListItem>();
+            foreach (Plant plant in service.GetAllPlants())
+            {
+                SelectListItem sl = new SelectListItem
+                {
+                    Text = plant.CName,
+                    Value = plant.ID.ToString()
+                };
+                allPlants.Add(sl);
+            }
+            ViewData["StockPlants"] = allPlants;
+
+            return View(new PersonalPlantModel());
+        }
+         
+        [HttpPost]
+        public ActionResult CreatePersonalPlant(PersonalPlantModel pp)
+        {
+            int aID = service.FindAccount(User.Identity.Name.ToString()).ID;
+            service.AddPersonalPlant(Int32.Parse(pp.PId), aID, pp.WDuration, pp.NName);
+           
+            return View("Index");
         }
 
         [HttpPost]
@@ -40,4 +63,5 @@ namespace PlantRMVC2.Controllers
 
             return Json(new { success = true, message = "Plant updated successfully" }, JsonRequestBehavior.AllowGet);
         }
+    }
 }

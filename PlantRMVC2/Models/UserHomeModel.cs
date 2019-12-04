@@ -18,4 +18,11 @@ namespace PlantRMVC2.Models
         }
 
     }
+
+    public class PersonalPlantModel
+    {
+        public string NName { get; set; }
+        public string PId { get; set; }
+        public int WDuration { get; set; }
+    }
 }
