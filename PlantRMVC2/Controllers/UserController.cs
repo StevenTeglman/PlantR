@@ -36,7 +36,7 @@ namespace PlantRMVC2.Controllers
             {
                 SelectListItem sl = new SelectListItem
                 {
-                    Text = plant.CName,
+                    Text = $"{plant.CName} : {plant.SDays} Days",
                     Value = plant.ID.ToString()
                 };
                 allPlants.Add(sl);
@@ -51,8 +51,8 @@ namespace PlantRMVC2.Controllers
         {
             int aID = service.FindAccount(User.Identity.Name.ToString()).ID;
             service.AddPersonalPlant(Int32.Parse(pp.PId), aID, pp.WDuration, pp.NName);
-           
-            return View("Index");
+
+            return RedirectToAction("Index", "User");
         }
 
         [HttpPost]
