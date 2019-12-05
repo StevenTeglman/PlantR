@@ -1,4 +1,5 @@
-﻿using PlantRMVC2.Models;
+﻿using PlantRMVC2.Hubs;
+using PlantRMVC2.Models;
 using PlantRProxy;
 using PlantRServ.Model;
 using System;
@@ -25,12 +26,6 @@ namespace PlantRMVC2.Controllers
 
         public ActionResult CreatePersonalPlant()
         {
-            // Make a thing to get a list of all the plants, I guess? I don't fucking know. I mean how the fuck are you supposed to pass
-            // in more than one model? I guess with a ViewData things like BigDickSaif did. btw he's gay. 
-            // dont be rude - saif
-
-            // hopefully something like this^^^^-saif
-
             List<SelectListItem> allPlants = new List<SelectListItem>();
             foreach (Plant plant in service.GetAllPlants())
             {
@@ -51,7 +46,7 @@ namespace PlantRMVC2.Controllers
         {
             int aID = service.FindAccount(User.Identity.Name.ToString()).ID;
             service.AddPersonalPlant(Int32.Parse(pp.PId), aID, pp.WDuration, pp.NName);
-
+            
             return RedirectToAction("Index", "User");
         }
 

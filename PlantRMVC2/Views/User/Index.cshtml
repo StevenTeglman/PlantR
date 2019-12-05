@@ -36,6 +36,7 @@
                     },
                     {
                         className: 'hidden_id',
+                        name: "idcell",
                         data: "id",
                         width: "5%",
                         visible: false
@@ -48,14 +49,15 @@
                     { data: "wDuration" },
                     {
                         data: "nextWatered",
-                        className: 'water-check'
+                        className: 'water-check',
+                        name:"nextWaterCell"
                     },
                     { data: "lastWatered" },
                     {
                         className: 'water-control',
                         orderable: false,
                         data: null,
-                        defaultContent: '<button id="wateredButton">Watered</button>',
+                        defaultContent: '<button class="btn btn-default" id="wateredButton">Watered</button>',
                         width: "5%"
                     }
                 ],
@@ -65,130 +67,7 @@
     </script>
 
     <script>
-            $(document).ready(function () {
-                var table = $('#table_id').DataTable();
-
-                var rows = $('#table_id tbody').find('tr');
-
-                for (var row in rows) {
-                    var cells = $(row).find('td.water-check');
-                    //console.log(cells);
-                }
-                //if ( $(this).hasClass('water-alert') ) {
-                //    $(this).removeClass('water-alert');
-                //}
-                //else {
-                //    table.$('tr.water-alert').removeClass('water-alert');
-                //    $(this).addClass('water-alert');
-                //}
-
-                //Responsible for creating the child rows when clicking the row
-                $('#table_id tbody').on('click', 'td.details-control', function () {
-                    var tr = $(this).closest('tr');
-                    var row = table.row(tr);
-                    var tabChild;
-
-                    if (row.child.isShown()) {
-                        row.child.hide();
-                        tr.removeClass('shown');
-                    }
-                    else {
-                        tabChild = format(row.data())
-                        row.child(tabChild).show();
-                        tr.addClass('shown');
-                    }
-
-                    //update personal plant JS
-                    $('#table_child tbody').on('click', 'button#updateButton', function () {
-                        var tbody = $(this).closest('tbody');
-                        var newWDur = $(tbody).find('#row-wDuration').val();
-                        var newNickname = $(tbody).find('#row-nickname').val();
-                        var currId = $(tbody).find('#plantId').html();
-
-                        $.ajax({
-                            url: '@Url.Action("UpdatePersonalPlant")',
-                            dataType: "json",
-                            type: "POST",
-                            cache: false,
-                            data: { 'id': currId, 'wDuration': newWDur, 'nickname': newNickname },
-                            success: function (data) {
-                                if (data.success) {
-                                    //alert(data.message);
-                                    //window.location.reload();
-                                }
-                            },
-                            error: function (xhr) {
-                                alert('Could Not Update Your Plant');
-                            }
-                        });
-
-
-                    });
-
-                    //removing personal plants
-                    $('#table_child tbody').on('click', 'button#deleteButton', function () {
-                        var tbody = $(this).closest('tbody');
-                        var currId = $(tbody).find('#plantId').html();
-                        var check = confirm("Are you sure you want to remove this plant?")
-                        if (!check) {
-
-                        }
-                        else {
-                            $.ajax({
-                                url: '@Url.Action("RemovePersonalPlant")',
-                                dataType: "json",
-                                type: "POST",
-                                cache: false,
-                                data: { 'id': currId },
-                                success: function (data) {
-                                    if (data.success) {
-                                        //alert(data.message);
-                                        window.location.reload();
-                                    }
-                                },
-                                error: function (xhr) {
-                                    alert('Could Not Delete Your Plant');
-                                }
-                            });
-
-                        }
-
-
-                    });
-
-                });
-
-                @*$('#table_id tbody').on('click', 'button#wateredButton', function () {
-                    var currId = $(tbody).find('#plantId').html();
-                    $.ajax({
-                        url: '@Url.Action("WaterPersonalPlant")',
-                        dataType: "json",
-                        type: "POST",
-                        cache: false,
-                        data: { 'id': currId },
-                        success: function (data) {
-                            if (data.success) {
-                                //alert(data.message);
-                                window.location.reload();
-                            }
-                        },
-                        error: function (xhr) {
-                            alert('Could Not Water Your Plant');
-                        }
-                    })*@
-
-                //})
-                });
-
-
-
-    </script>
-
-
-
-
-    <script>
-        $(function () {
+        $(document).ready(function () {
             // Reference the auto-generated proxy for the hub.
             var refresh = $.connection.connectionHub;
             // Create a function that the hub can call back to display messages.
@@ -197,17 +76,132 @@
             };
 
             // Start the connection.
-            $.connection.hub.start().done(function () {
-                $('#wateredButton').click(function () {
-                    // Call the refresh method on the hub.
-                    refresh.server.notifyRefresh();
+            $.connection.hub.start().done();
+
+            var table = $('#table_id').DataTable();
+            var checkRows = $('#table_id tbody').find('tr');
+
+            var dateNow = new Date().toLocaleDateString();
+            var dateParts = dateNow.split("/");
+            // month is 0-based, that's why we need dataParts[1] - 1
+            var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]); 
+
+            for (var row in checkRows) {
+                var cellNextDate = table.cell(row, 'nextWaterCell:name');
+                var dateData = cellNextDate.data();
+                if (typeof dateData === 'undefined') {
+                    break;
+                }
+                var dateParts = dateData.split("/");
+                var rowDateObj = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]); 
+
+                if (dateObject >= rowDateObj) {
+                    
+                    var node = table.row(row).node();
+                    $(node).addClass('water-alert');
+                   
+                }
+            }
+
+            //Responsible for creating the child rows when clicking the row
+            $('#table_id tbody').on('click', 'td.details-control', function () {
+                var tr = $(this).closest('tr');
+                var row = table.row(tr);
+                var tabChild;
+
+                if (row.child.isShown()) {
+                    row.child.hide();
+                    tr.removeClass('shown');
+
+                }
+                else {
+                    tabChild = format(row.data())
+                    row.child(tabChild).show();
+                    tr.addClass('shown');
+                }
+
+                //update personal plant JS
+                $('#table_child tbody').on('click', 'button#updateButton', function () {
+                    var tbody = $(this).closest('tbody');
+                    var newWDur = $(tbody).find('#row-wDuration').val();
+                    var newNickname = $(tbody).find('#row-nickname').val();
+                    var currId = $(tbody).find('#plantId').html();
+                    //ajax used to call to the controller methods
+                    $.ajax({
+                        url: '@Url.Action("UpdatePersonalPlant")',
+                        dataType: "json",
+                        type: "POST",
+                        cache: false,
+                        data: { 'id': currId, 'wDuration': newWDur, 'nickname': newNickname },
+                        success: function (data) {
+                            if (data.success) {
+                                refresh.server.notifyRefresh();
+                            }
+                        },
+                        error: function (xhr) {
+                            alert('Could Not Update Your Plant');
+                        }
+                    });
+
+
                 });
+
+                //removing personal plants
+                $('#table_child tbody').on('click', 'button#deleteButton', function () {
+                    var tbody = $(this).closest('tbody');
+
+                    var currId = $(tbody).find('#plantId').html();
+                    var check = confirm('Are you sure you want to remove the plant?');
+                    if (!check) {
+
+                    }
+                    else {
+                        $.ajax({
+                            url: '@Url.Action("RemovePersonalPlant")',
+                            dataType: "json",
+                            type: "POST",
+                            cache: false,
+                            data: { 'id': currId },
+                            success: function (data) {
+                                if (data.success) {
+                                    refresh.server.notifyRefresh();
+                                }
+                            },
+                            error: function (xhr) {
+                                alert('Could Not Delete Your Plant');
+                            }
+                        });
+
+                    }
+                })
+
             });
+
+                $('#table_id tbody').on('click', 'button#wateredButton', function () {
+
+                    var trid = $(this).closest('tr');
+                    var cellid = table.cell(trid, 'idcell:name');
+
+                   $.ajax({
+                        url: '@Url.Action("WaterPersonalPlant")',
+                        dataType: "json",
+                        type: "POST",
+                        cache: false,
+                        data: { 'id': cellid.data() },
+                        success: function (data) {
+                            if (data.success) {
+                                refresh.server.notifyRefresh();
+                            }
+                        },
+                        error: function (xhr) {
+                            alert('Could Not Water Your Plant');
+                        }
+                    })
+
+                })
         });
+
     </script>
-
-
-
 </head>
 
 <div>
@@ -230,18 +224,9 @@
                     style="width: 35px;" aria-label="NextWatering: activate to sort column ascending">Next Watering</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 80px;"
                     aria-label="Last Watering: activate to sort column ascending">Last Watering</th>
-                <th><button id="createplantpage">Add A Plant</button></th>
+                <th><button class="btn btn-default" id="createplantpage" 
+                            onclick="location.href='@Url.Action("CreatePersonalPlant", "User")'" >Add A Plant</button></th>
             </tr>
         </thead>
     </table>
-
-    <div>
-
-    </div>
-
-    @*This is just a temporary link to the create thing. Can be adjusted later*@
-    <div>
-        @Html.ActionLink("Create Personal Plant", "CreatePersonalPlant", "User")
-    </div>
-
 </div>

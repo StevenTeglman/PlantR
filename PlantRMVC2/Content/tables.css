@@ -1,14 +1,17 @@
 ﻿td.details-control {
     background: url(../Resources/plant_closed.png) no-repeat center center;
     cursor: pointer;
-    
 }
 
 tr.shown td.details-control {
     background: url(../Resources/plant_open.png) no-repeat center center;
+    
 }
 
-tr.water-alert {
-    background-color: indianred;
+table.dataTable tbody tr.water-alert {
+    background-color: rgba(224, 21, 21, 0.62);
 }
- 
+
+table.dataTable tbody tr.odd.water-alert {
+    background-color: rgba(224, 21, 21, 0.62);
+}
