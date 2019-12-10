@@ -37,7 +37,7 @@ namespace PlantRWPF
 
         private void PlantBut_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new PlantsModel();
+            return;
            
         }
 
