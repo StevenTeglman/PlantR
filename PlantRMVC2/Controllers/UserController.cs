@@ -1,4 +1,5 @@
-﻿using PlantRMVC2.Models;
+﻿using PlantRMVC2.Hubs;
+using PlantRMVC2.Models;
 using PlantRProxy;
 using PlantRServ.Model;
 using System;
@@ -25,7 +26,6 @@ namespace PlantRMVC2.Controllers
 
         public ActionResult CreatePersonalPlant()
         {
-
             List<SelectListItem> allPlants = new List<SelectListItem>();
             foreach (Plant plant in service.GetAllPlants())
             {
@@ -46,7 +46,7 @@ namespace PlantRMVC2.Controllers
         {
             int aID = service.FindAccount(User.Identity.Name.ToString()).ID;
             service.AddPersonalPlant(Int32.Parse(pp.PId), aID, pp.WDuration, pp.NName);
-
+            
             return RedirectToAction("Index", "User");
         }
 

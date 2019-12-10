@@ -18,3 +18,20 @@ function format(d) {
         '</tr>' +
         '</table>';
 }
+
+function hubNotify() {
+    // Reference the auto-generated proxy for the hub.
+    var refresh = connection.connectionHub;
+    // Create a function that the hub can call back to display messages.
+    refresh.client.clientRefresh = function () {
+        window.location.reload();
+    };
+
+    // Start the connection.
+    connection.hub.start().done(function () {
+        //$('#wateredButton').click(function () {
+        //    // Call the refresh method on the hub.
+        //   refresh.server.notifyRefresh();
+        //});
+    });
+}

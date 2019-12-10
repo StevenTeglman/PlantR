@@ -449,6 +449,8 @@ namespace PlantRServ.DataAccess
                     pp.lastwatered = DateTime.Now;
                     pp.nextwatered = DateTime.Now.AddDays(pp.wduration);
 
+                    plantdb.SubmitChanges();
+
                     return true;
                 }
                 catch (Exception)
