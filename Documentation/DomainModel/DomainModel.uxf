@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>220</x>
-      <y>170</y>
+      <x>200</x>
+      <y>180</y>
       <w>130</w>
       <h>120</h>
     </coordinates>
@@ -22,8 +22,8 @@ imgUrl
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>740</x>
-      <y>180</y>
+      <x>720</x>
+      <y>220</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -38,27 +38,26 @@ password</panel_attributes>
     <coordinates>
       <x>580</x>
       <y>220</y>
-      <w>180</w>
-      <h>40</h>
+      <w>160</w>
+      <h>50</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>created-by
+lt=-&gt;&gt;&gt;&gt;&gt;
 m1=1
 m2=0..*</panel_attributes>
-    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>450</x>
-      <y>150</y>
+      <y>180</y>
       <w>140</w>
-      <h>150</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>PersonalPlant
 -
 id
-aid
-pid
 nickname
 waterPeriod
 lastWater
@@ -70,14 +69,15 @@ nextWater
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
-      <y>230</y>
-      <w>130</w>
-      <h>40</h>
+      <x>320</x>
+      <y>220</y>
+      <w>150</w>
+      <h>50</h>
     </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>adds-to
+lt=&lt;&lt;&lt;&lt;&lt;-
+m1=0..*
+m2=1</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

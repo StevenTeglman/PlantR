@@ -18,10 +18,10 @@ namespace PlantRMVC2.Controllers
         public PlantRClient service = new PlantRClient();
         public ActionResult Index()
         {
-            ViewBag.Message = "Your User Home page.";
-            Account a = service.FindAccount(User.Identity.Name);
-            ViewData["Plants"] = service.GetAccountPersonalPlants(a.ID);
-            return View();
+                ViewBag.Message = "Your User Home page.";
+                Account a = service.FindAccount(User.Identity.Name);
+                ViewData["Plants"] = service.GetAccountPersonalPlants(a.ID);
+                return View();
         }
 
         public ActionResult CreatePersonalPlant()
