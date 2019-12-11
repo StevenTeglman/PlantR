@@ -19,9 +19,10 @@
     <script src="~/signalr/Hubs"></script>
 
     <script class="init" type="text/javascript">
+        
+            var planties = @JavaScriptConvert.SerializeObject(plants);
         $(function () {
 
-            var planties = @JavaScriptConvert.SerializeObject(plants);
 
             $('#table_id').DataTable({
                 data: planties,
@@ -74,9 +75,16 @@
             refresh.client.clientRefresh = function () {
                 window.location.reload();
             };
-
+            //used for assigning the client to a group in the hub
+            var accID = planties[0].aId;
+            if (planties.length == 0) {
+                accID = 0;
+            }
+           
             // Start the connection.
-            $.connection.hub.start().done();
+            $.connection.hub.start().done(function () {
+                refresh.server.joinRoom(accID);
+            });
 
             var table = $('#table_id').DataTable();
             var checkRows = $('#table_id tbody').find('tr');
@@ -135,7 +143,7 @@
                         data: { 'id': currId, 'wDuration': newWDur, 'nickname': newNickname },
                         success: function (data) {
                             if (data.success) {
-                                refresh.server.notifyRefresh();
+                                refresh.server.notifyRefresh(accID);
                             }
                         },
                         error: function (xhr) {
@@ -164,7 +172,7 @@
                             data: { 'id': currId },
                             success: function (data) {
                                 if (data.success) {
-                                    refresh.server.notifyRefresh();
+                                    refresh.server.notifyRefresh(accID);
                                 }
                             },
                             error: function (xhr) {
@@ -190,7 +198,7 @@
                         data: { 'id': cellid.data() },
                         success: function (data) {
                             if (data.success) {
-                                refresh.server.notifyRefresh();
+                                refresh.server.notifyRefresh(accID);
                             }
                         },
                         error: function (xhr) {

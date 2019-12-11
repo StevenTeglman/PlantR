@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:PlantRWPF.Views"
         xmlns:viewModels="clr-namespace:PlantRWPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="594" Width="1010" ResizeMode="NoResize">
+        Title="MainWindow" Height="594" Width="992.783" ResizeMode="NoResize">
 
 
     <Window.Resources>
@@ -20,7 +20,7 @@
         <viewModels:MainModel/>
     </Window.DataContext>
 
-    <Grid>
+    <Grid Background="MediumSeaGreen">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200*"/>
             <ColumnDefinition Width="200*"/>
@@ -37,7 +37,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <DockPanel Background="MediumSeaGreen" Grid.Row="1" Grid.Column="0" Grid.RowSpan="4">
+        <DockPanel Background="SeaGreen" Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Margin="0,0,69,0">
             <StackPanel>
                 <Button x:Name="plantBut" Content="Plants" Margin="3" Click="PlantBut_Click" />
                 <Button x:Name="searchBut" Content="Search" Margin="3"/>
@@ -51,7 +51,15 @@
             </StackPanel>
         </DockPanel>
 
-        <ContentControl  Background="MediumPurple" x:Name="mwContentCtrl" Height="450" Width="800" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="4" Content="{Binding CurrentView}" Margin="1,1,1,0" />
+        <ContentControl  Background="MediumSeaGreen" x:Name="mwContentCtrl" Height="450" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="4" Content="{Binding CurrentView}" Margin="126,1,0,1" RenderTransformOrigin="0.5,0.5" >
+            <ContentControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ContentControl.RenderTransform>
+        </ContentControl>
 
     </Grid>
 </Window>
