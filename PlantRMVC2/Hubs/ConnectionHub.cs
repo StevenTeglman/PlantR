@@ -9,10 +9,10 @@ namespace PlantRMVC2.Hubs
 {
     public class ConnectionHub : Hub
     {
+
+        //calls to all in the same group to refresh
         public void NotifyRefresh(string room)
         {
-            //Clients.All.clientRefresh();
-            //calls to all in the same group to refresh
             Clients.Group(room).clientRefresh();
         }
 
@@ -21,6 +21,8 @@ namespace PlantRMVC2.Hubs
         {
             return Groups.Add(Context.ConnectionId, room);
         }
+
+        //allows leaving of a group
         public Task LeaveRoom(string room)
         {
             return Groups.Remove(Context.ConnectionId, room);
