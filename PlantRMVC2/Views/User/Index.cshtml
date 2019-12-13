@@ -68,7 +68,6 @@
 
     <script>
         $(document).ready(function () {
-            console.log(new Date().toLocaleDateString());
             // Reference the auto-generated proxy for the hub.
             var refresh = $.connection.connectionHub;
             // Create a function that the hub can call back to display messages.
@@ -89,7 +88,7 @@
             var table = $('#table_id').DataTable();
             var checkRows = $('#table_id tbody').find('tr');
 
-            var dateNow = new Date().toLocaleDateString();
+            var dateNow = new Date().toLocaleDateString('en-GB');
             var dateParts = dateNow.split("/");
             // month is 0-based, that's why we need dataParts[1] - 1
             var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]); 
