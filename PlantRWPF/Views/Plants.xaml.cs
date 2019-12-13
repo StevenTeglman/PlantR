@@ -23,7 +23,7 @@ namespace PlantRWPF.Views
 {
 
     /// <summary>
-    /// Interaction logic for MyPlants.xaml
+    /// Interaction logic for Plants.xaml
     /// </summary>
     public partial class Plants : UserControl
     {

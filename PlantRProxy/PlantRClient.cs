@@ -77,11 +77,6 @@ namespace PlantRProxy
             return Channel.GetDataUsingDataContract(composite);
         }
 
-        public Account GetLastAccount()
-        {
-            return Channel.GetLastAccount();
-        }
-
         public bool RemoveAccount(string email)
         {
             return Channel.RemoveAccount(email);

@@ -19,9 +19,9 @@ namespace PlantRServ
         #region ServiceInitialization
 
         public List<Account> Accounts { get; set; }
-        static StubADB stubADB = StubADB.Instance;
-        static StubPDB stubPDB = StubPDB.Instance;
-        static StubPPDB stubPPDB = StubPPDB.Instance;
+        //static StubADB stubADB = StubADB.Instance;
+        //static StubPDB stubPDB = StubPDB.Instance;
+        //static StubPPDB stubPPDB = StubPPDB.Instance;
 
         public string GetData(int value)
         {
@@ -259,16 +259,6 @@ namespace PlantRServ
         public bool RemoveAccount(string email)
         {
             return accrepo.RemoveAccount(email);
-        }
-
-        /// <summary>
-        /// Just a class for testing. Get's the last Personal Plant
-        /// in the list.
-        /// </summary>
-        /// <returns>The last personal plant in the lsit</returns>
-        public Model.Account GetLastAccount()
-        {
-            return ConvertAccount(stubADB.accounts.Last<Account>());
         }
 
         #endregion

@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace PlantRWPF.ViewModels
 {
-    
+
     public class PlantsModel : ViewModelBase
     {
         public MainModel Mm { get; set; }
