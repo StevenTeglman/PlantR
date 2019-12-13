@@ -47,8 +47,6 @@ namespace PlantRServ
         List<Model.Account> GetAllAccounts();
         [OperationContract]
         bool RemoveAccount(string email);
-        [OperationContract]
-        Model.Account GetLastAccount();
         // -------------------------------   Plants    --------------------------------
         [OperationContract]
         int AddPlant(string cName, string lName, string imageURL, string description, int sDays);

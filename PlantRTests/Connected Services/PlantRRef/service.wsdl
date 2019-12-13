@@ -56,6 +56,12 @@
   <wsdl:message name="IService1_UpdatePersonalPlant_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePersonalPlantResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdatePersonalPlantDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePersonalPlantDates" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePersonalPlantDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePersonalPlantDatesResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_AddAccount_InputMessage">
     <wsdl:part name="parameters" element="tns:AddAccount" />
   </wsdl:message>
@@ -79,12 +85,6 @@
   </wsdl:message>
   <wsdl:message name="IService1_RemoveAccount_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveAccountResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetLastAccount_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetLastAccount" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetLastAccount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetLastAccountResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_AddPlant_InputMessage">
     <wsdl:part name="parameters" element="tns:AddPlant" />
@@ -149,6 +149,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePersonalPlant" message="tns:IService1_UpdatePersonalPlant_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePersonalPlantResponse" message="tns:IService1_UpdatePersonalPlant_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdatePersonalPlantDates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePersonalPlantDates" message="tns:IService1_UpdatePersonalPlantDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePersonalPlantDatesResponse" message="tns:IService1_UpdatePersonalPlantDates_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddAccount" message="tns:IService1_AddAccount_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddAccountResponse" message="tns:IService1_AddAccount_OutputMessage" />
@@ -164,10 +168,6 @@
     <wsdl:operation name="RemoveAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemoveAccount" message="tns:IService1_RemoveAccount_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveAccountResponse" message="tns:IService1_RemoveAccount_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetLastAccount">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLastAccount" message="tns:IService1_GetLastAccount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLastAccountResponse" message="tns:IService1_GetLastAccount_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddPlant">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddPlant" message="tns:IService1_AddPlant_InputMessage" />
@@ -264,6 +264,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdatePersonalPlantDates">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdatePersonalPlantDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddAccount">
       <soap:operation soapAction="http://tempuri.org/IService1/AddAccount" style="document" />
       <wsdl:input>
@@ -293,15 +302,6 @@
     </wsdl:operation>
     <wsdl:operation name="RemoveAccount">
       <soap:operation soapAction="http://tempuri.org/IService1/RemoveAccount" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetLastAccount">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetLastAccount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

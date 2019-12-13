@@ -63,23 +63,3 @@
 
     </Grid>
 </Window>
-
-<!--<Grid>
-        <StackPanel HorizontalAlignment="Left" Height="61" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
-            <Label Content="PlantR" FontSize="36"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="338" Margin="10,71,0,0" VerticalAlignment="Top" Width="74">
-            <Button x:Name="myPlantBut" Content="MyPlants" Margin="3" />
-            <Button x:Name="searchBut" Content="Search" Margin="3"/>
-            <Button x:Name="accBut" Content="Account" Margin="3"/>
-            <Button x:Name="aboutBut" Content="About" Margin="3,237,3,0" Click="AboutBut_Click"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="338" Margin="84,71,0,0" VerticalAlignment="Top" Width="698" Background="#FF5AEE53">
-            <ScrollViewer Height="292">
-                <DataGrid Height="292" Width="688" Margin="0,0,0,0" />
-            </ScrollViewer>
-            <Button x:Name="plusBut" Content="+" Margin="660,10,10,0" Click="PlusButton_Click" />
-        </StackPanel>
-
-    </Grid>
-</Window>-->

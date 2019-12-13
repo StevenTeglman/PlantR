@@ -64,9 +64,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LinQtoSQL.dbml</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\StubADB.cs" />
-    <Compile Include="DataAccess\StubPDB.cs" />
-    <Compile Include="DataAccess\StubPPDB.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\PersonalPlant.cs" />
